@@ -1,0 +1,75 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-image: url('graphic/ログイン画面背景.jpg'); /* 背景画像の追加 */
+    background-size: cover; /* 背景画像を全体に表示 */
+    background-repeat: no-repeat; /* 背景画像を繰り返さない */
+    background-position: center; /* 背景画像を中央に配置 */
+}
+
+header {
+    background-color: #f8f8f8;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    height: 50px;  /* ロゴの高さを調整 */
+}
+
+main {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* フォーム全体を中央揃え */
+}
+
+.form-group {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.form-group label {
+    margin-right: 10px;
+}
+
+input[type="text"], input[type="password"] {
+    padding: 5px;
+    font-size: 16px;
+}
+
+input[type="submit"] {
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    align-self: center; /* ボタンを中央揃え */
+}
+
+footer {
+    background-color: #f8f8f8;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}

@@ -5,6 +5,10 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background-image: url('graphic/メイン画面背景.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 header {
@@ -16,7 +20,7 @@ header {
 }
 
 .logo {
-    height: 50px;  /* ロゴの高さを調整 */
+    height: 50px;
 }
 
 main {
@@ -30,29 +34,17 @@ main {
 form {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-}
-
-.form-group {
-    margin-bottom: 15px;
-    display: flex;
     align-items: center;
 }
 
-.form-group label {
-    margin-right: 10px;
-}
-
-
-input[type="text"], input[type="password"] {
-    padding: 5px;
-    font-size: 16px;
-}
-
-input[type="submit"] {
-    padding: 5px 10px;
-    font-size: 16px;
+form input[type="submit"] {
+    width: 400px; /* ボタンの幅を指定 */
+    height: 70px; /* ボタンの高さを指定 */
+    padding: 10px 20px;
+    font-size: 24px;
     cursor: pointer;
+    margin: 20px 0; /* ボタン同士の上下の隙間を設定 */
+    box-sizing: border-box; /* パディングを含めて幅と高さを計算 */
 }
 
 footer {
