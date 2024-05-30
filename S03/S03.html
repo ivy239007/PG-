@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <title>顧客管理画面</title>
+    <link rel="stylesheet" type="text/css" href="S03.css">
+</head>
+<body>
+    <header>
+        <img src="graphic/ニトリロゴ.png" alt="Logo" class="logo">
+        <form action="user_list.php" method="post">
+            <div class = "search">
+                <input type="text" size="80" name="kensaku">
+                <input type="submit" value="検索">
+            </form>
+            </div>
+        <form>
+            <div>
+                <input type="radio" id="searchChoice1" name="searchChoice" value="aimai" />
+                <label for="contactChoice1">あいまい検索</label>
+          
+                <input type="radio" id="searchChoice2" name="searchChoice" value="icchi" />
+                <label for="contactChoice2">一致検索</label>
+            </div>
+        </form>
+    </header>
+    
+    <style>
+        body {
+            background-image: url('graphic/メイン画面.gif');
+            background-size: cover; /* 背景画像を全体に表示 */
+            background-repeat: no-repeat; /* 背景画像を繰り返さない */
+            background-position: center; /* 背景画像を中央に配置 */
+        }
+    </style>
+
+    <main>
+        
+    </main>
+
+    <footer>
+        © 2024 <a href="https://www.ivy.ac.jp/">アイビクション</a>
+    </footer>
+</body>
+</html>
