@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <title>ログイン画面</title>
+    <link rel="stylesheet" type="text/css" href="stylesS03_2.css">
+</head>
+<body>
+    <header>
+        <img src="../graphic/ニトリロゴ.jpg" alt="Logo" class="logo">
+        <p>新規登録フォーム</p>
+    </header>
+    
+    <style>
+        body {
+            background-image: url('graphic/メイン画面.gif');
+            background-size: cover; /* 背景画像を全体に表示 */
+            background-repeat: no-repeat; /* 背景画像を繰り返さない */
+            background-position: center; /* 背景画像を中央に配置 */
+        }
+    </style>
+
+    <main>
+        <form action="login.php" method="post">
+            <div class="form-group">
+                <label for="kokyakuid">顧客ID  </label>
+                <input type="text" id="nameid" name="nameid">
+            </div>
+            <div class="form-group">
+                <label for="pw">顧客名  </label>
+                <input type="text" id="name" name="name">
+            </div>
+            <div class="form-group">
+                <label for="pw">住所</label>
+                <input type="text" id="adres" name="adres">
+            </div>
+            <div class="form-group">
+                <label for="pw">生年月日</label>
+                <input type="date" id="date" value="2020-01-01">
+            </div>
+
+
+            <input type="submit" value="登録する">
+        </form>
+    </main>
+
+    <footer>
+        © 2024 <a href="https://www.ivy.ac.jp/">アイビクション</a>
+        <div class="back">
+            <label for="back">戻る</label>
+        </div>
+
+    </footer>
+</body>
+</html>
