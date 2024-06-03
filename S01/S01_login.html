@@ -13,7 +13,7 @@
     
 
     <main>
-        <form>
+        <form id="loginForm">
             <div class="form-group">
                 <label for="id">I D :</label>
                 <input type="text" id="id" name="id">
@@ -29,5 +29,14 @@
     <footer>
         © 2024 <a href="https://www.ivy.ac.jp/">アイビクション</a>
     </footer>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // デフォルトのサブミットを防止
+            window.location.href = '/S02/S02_menu.html'; // リダイレクト
+        });
+    </script>
+
+
 </body>
 </html>

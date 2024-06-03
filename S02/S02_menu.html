@@ -11,15 +11,29 @@
     
 
     <main>
-        <form>
-            <input type="submit" value="顧客管理">
-            <input type="submit" value="書籍管理">
-            <input type="submit" value="データ分析">
+        <form id="redirectForm">
+            <input type="submit" value="顧客管理" onclick="redirectTo('https://www.ivy.ac.jp/')">
+            <input type="submit" value="書籍管理" onclick="redirectTo('http://example.com/books')">
+            <input type="submit" value="データ分析" onclick="redirectTo('http://example.com/analytics')">
         </form>
     </main>
 
     <footer>
         © 2024 <a href="https://www.ivy.ac.jp/">アイビクション</a>
     </footer>
+
+    <script>
+        function redirectTo(url) {
+            window.location.href = url;
+        }
+    </script>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // デフォルトのサブミットを防止
+            window.location.href = '/S02/S02_menu.html'; // リダイレクト
+        });
+    </script>
+
 </body>
 </html>
