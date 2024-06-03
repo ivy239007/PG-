@@ -11,41 +11,40 @@ header {
     background-color: #f8f8f8;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* 中央に配置 */
+    padding: 0 20px;
+    position: relative;
 }
 
 .logo {
     height: 50px;  /* ロゴの高さを調整 */
-    padding: 10px 20px;
+    position: absolute;
+    left: 20px; /* ロゴを左に固定 */
 }
 
-.search{
-    margin:0 auto;
-}
-
-main {
-    flex-grow: 1;
+.search, .radiobutton {
     display: flex;
-    justify-content: center;
     align-items: center;
-    text-align: center;
+    margin-right: 10px;
+}
+
+.search input[type="text"] {
+    margin-right: 10px; /* 検索ボックスとボタンの間にスペースを追加 */
 }
 
 form {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.form-group {
-    margin-bottom: 15px;
-    display: flex;
+    flex-direction: row; /* 横方向に配置 */
     align-items: center;
+    margin: 0; /* フォームの余白をリセット */
 }
 
-.form-group label {
+.radiobutton label {
     margin-right: 10px;
+    margin-left: 5px;
 }
-
 
 input[type="text"], input[type="password"] {
     padding: 5px;
@@ -58,10 +57,20 @@ input[type="submit"] {
     cursor: pointer;
 }
 
+main {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
 footer {
     background-color: #f8f8f8;
     padding: 10px 20px;
     text-align: center;
+    width: 100%;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
 }
 
 a {
