@@ -65,6 +65,10 @@ main {
     text-align: center;
 }
 
+.touroku {
+    align-items: end;
+}
+
 footer {
     background-color: #f8f8f8;
     padding: 10px 20px;
