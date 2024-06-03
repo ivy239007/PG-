@@ -61,12 +61,20 @@ main {
     flex-grow: 1;
     display: flex;
     justify-content: center;
-    align-items: center;
-    text-align: center;
 }
 
 .touroku {
-    align-items: end;
+    position: absolute;
+    margin-top: 20px;
+    right: 30px;
+}
+
+#BackButton {
+    position: absolute;
+    bottom: 50px;
+    right: 15px;
+    width: 10em;
+    height: 3em;
 }
 
 footer {
