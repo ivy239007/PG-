@@ -45,6 +45,7 @@ form input[type="submit"] {
     cursor: pointer;
     margin: 20px 0; /* ボタン同士の上下の隙間を設定 */
     box-sizing: border-box; /* パディングを含めて幅と高さを計算 */
+    background-color:#d8fff7;
 }
 
 footer {
