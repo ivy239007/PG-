@@ -9,18 +9,17 @@ body {
 
 header {
     background-color: #f8f8f8;
-    padding: 10px 20px;
-    display: flex;
-    align-items: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: 70px;
 }
 
 .logo {
     height: 50px;  /* ロゴの高さを調整 */
+    padding: 10px 20px;
 }
 
 .search{
-    margin:0 auto
+    margin:0 auto;
 }
 
 main {
