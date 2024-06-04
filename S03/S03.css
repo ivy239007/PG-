@@ -75,6 +75,24 @@ main {
     right: 15px;
     width: 10em;
     height: 3em;
+    border: 1px solid #000;
+    background-color: rgb(255, 164, 164);
+}
+
+#BackButton:hover {
+    background-color: lightpink;
+}
+
+#tourokuButton {
+    width: 100px;
+    height: 40px;
+    margin: 5px;
+    border: 1px solid #000;
+    background-color: rgb(255, 249, 193);
+}
+
+#tourokuButton:hover {
+    background-color: antiquewhite;
 }
 
 footer {
