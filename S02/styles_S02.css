@@ -19,6 +19,29 @@ header {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.custom-buttonlog {
+    background-color: #f2896f; /* 背景色 */
+    border: none; /* 枠線を消す */
+    color: rgb(0, 0, 0); /* テキストの色 */
+    padding: 15px 32px; /* パディング */
+    text-align: right; /* テキストの配置 */
+    text-decoration: none; /* テキスト装飾を消す */
+    display: inline-block; /* インラインブロック要素にする */
+    font-size: 15px; /* フォントサイズ */
+    margin: 3px 20px; /* マージン */
+    cursor: pointer; /* カーソルをポインターにする */
+    border-radius: 4px; /* 角を丸くする */
+    transition-duration: 0.4s; /* トランジションの時間 */
+}
+
+.custom-buttonlog:hover {
+    background-color: rgb(255, 0, 0); /* ホバー時の背景色 */
+    color: rgb(255, 255, 255); /* ホバー時のテキストの色 */
+    border: none; /* ホバー時の枠線 */
+}
+
+
+
 .logo {
     height: 50px;
 }
@@ -62,3 +85,8 @@ a {
 a:hover {
     text-decoration: underline;
 }
+
+.back{
+    text-align: right;
+}
+
