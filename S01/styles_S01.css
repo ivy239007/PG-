@@ -53,10 +53,25 @@ input[type="text"], input[type="password"] {
 }
 
 input[type="submit"] {
-    padding: 5px 10px;
-    font-size: 16px;
+    background-color: #8ad1da; /* 背景色 */
+    border: none; /* 枠線を消す */
+    color: rgb(0, 0, 0); /* テキストの色 */
+    padding: 10px 32px; /* パディング */
+    text-align: center; /* テキストの配置 */
+    text-decoration: none; /* テキスト装飾を消す */
+    display: inline-block; /* インラインブロック要素にする */
+    font-size: 20px; /* フォントサイズ */
+    margin: 3px 20px; /* マージン */
+    cursor: pointer; /* カーソルをポインターにする */
+    border-radius: 4px; /* 角を丸くする */
+    transition-duration: 0.4s; /* トランジションの時間 */
     cursor: pointer;
-    align-self: center; /* ボタンを中央揃え */
+    align-self: center; /* ボタンを中央揃え */    
+}
+
+input[type="submit"]:hover {
+    background-color: #417f88; /* ホバー時の背景色 */
+    color: #fff; /* ホバー時のテキストの色 */
 }
 
 footer {
@@ -73,3 +88,4 @@ a {
 a:hover {
     text-decoration: underline;
 }
+
