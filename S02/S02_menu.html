@@ -7,10 +7,19 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
 </head>
 <body>
-    <header>
+    <div id="splash">
+        <div id="splash-logo">
+            <img src="../graphic/ニトリロゴ.jpg" alt="Loading Logo">
+        </div>
+        <!--/splash--></div>
+        <div class="splashbg"></div><!---画面遷移用-->
+        
+        <div id="container">
+        <header id="header">
         <img src="../graphic/ニトリロゴ.jpg" alt="Logo" class="logo">
         <button class="custom-buttonlog" onclick="event.preventDefault(); location.href='../S01/S01_login.html'">ログアウト</button>        </form>
     </header>
+
     
 
     <main>
@@ -30,6 +39,9 @@
             window.location.href = url;
         }
     </script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <!--自作のJS-->
+    <script src="test.js"></script>
 
 
 </body>
