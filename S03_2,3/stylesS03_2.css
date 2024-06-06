@@ -5,6 +5,10 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background-image: url('../graphic/S03_2_顧客新規登録背景.jpg'); /* 背景画像の追加 */
+    background-size: cover; /* 背景画像を全体に表示 */
+    background-repeat: no-repeat; /* 背景画像を繰り返さない */
+    background-position: center; /* 背景画像を中央に配置 */
 }
 
 header {
@@ -45,19 +49,37 @@ form {
 }
 
 .form-group label {
-    margin-right: 10px;
+    margin-right: 20px;
 }
 
 
 input[type="text"], input[type="password"] {
     padding: 5px;
     font-size: 16px;
+    background: #f5f9c1;
+    border: 2px solid #f3fc75;
+    border-radius: 20px;
+    padding: 5px;
+
 }
 
 input[type="submit"] {
     padding: 5px 10px;
     font-size: 16px;
     cursor: pointer;
+}
+
+/*ボタンの基本スタイ*/
+.Btn input{
+    width: 80px;
+    margin: 0px 180px 0px 210px;
+    background: #b7f5ea;
+    border: 2px solid #4ef4d6;
+    border-radius: 20px;
+    padding: 5px;
+    font-size: 18px;
+    align-items: center;
+
 }
 
 footer {
