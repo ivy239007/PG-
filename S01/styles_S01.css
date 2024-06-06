@@ -52,18 +52,37 @@ input[type="text"], input[type="password"] {
     font-size: 16px;
 }
 
+.gradient1{
+    text-align: center; /* テキストの配置 */
+    font-size: 20px; /* フォントサイズ */
+    /*ボタンの形状*/
+    display: inline-block;
+    color:#fff;
+    padding: 18px 10px;    
+    /*背景の色と形状*/
+    background: linear-gradient(270deg, #7fc1e0 0%, #788ae5 25%, #a15fb8 51%, #fb6e6e 100%);
+    background-position: 1% 50%;
+    background-size: 200% auto;
+    /*アニメーションの指定*/
+    transition: all 0.3s ease-out;
+}
+
+/*hoverした際の、背景の場所とテキスト色の変更*/
+.gradient1:hover {
+    color: #fff;
+    background-position: 99% 50%;
+}
+
 input[type="submit"] {
-    background-color: #8ad1da; /* 背景色 */
     border: none; /* 枠線を消す */
-    color: rgb(0, 0, 0); /* テキストの色 */
-    padding: 10px 32px; /* パディング */
+    padding: 10px 50px; /* パディング */
     text-align: center; /* テキストの配置 */
     text-decoration: none; /* テキスト装飾を消す */
     display: inline-block; /* インラインブロック要素にする */
     font-size: 20px; /* フォントサイズ */
     margin: 3px 20px; /* マージン */
     cursor: pointer; /* カーソルをポインターにする */
-    border-radius: 4px; /* 角を丸くする */
+    border-radius: 10px; /* 角を丸くする */
     transition-duration: 0.4s; /* トランジションの時間 */
     cursor: pointer;
     align-self: center; /* ボタンを中央揃え */    
@@ -71,7 +90,7 @@ input[type="submit"] {
 
 input[type="submit"]:hover {
     background-color: #417f88; /* ホバー時の背景色 */
-    color: #fff; /* ホバー時のテキストの色 */
+    color: #000000; /* ホバー時のテキストの色 */
 }
 
 footer {

@@ -35,6 +35,7 @@ header {
     transition-duration: 0.4s; /* トランジションの時間 */
 }
 
+
 .custom-buttonlog:hover {
     background-color: rgb(255, 0, 0); /* ホバー時の背景色 */
     color: rgb(255, 255, 255); /* ホバー時のテキストの色 */
@@ -42,26 +43,26 @@ header {
 }
 
 .custom-button3 {
-    background-color: #f2896f; /* 背景色 */
-    border: none; /* 枠線を消す */
-    color: rgb(0, 0, 0); /* テキストの色 */
-    padding: 15px 32px; /* パディング */
     text-align: center; /* テキストの配置 */
-    text-decoration: none; /* テキスト装飾を消す */
-    display: inline-block; /* インラインブロック要素にする */
-    font-size: 15px; /* フォントサイズ */
-    margin: 3px 20px; /* マージン */
-    cursor: pointer; /* カーソルをポインターにする */
-    border-radius: 4px; /* 角を丸くする */
-    transition-duration: 0.4s; /* トランジションの時間 */
+    font-size: 20px; /* フォントサイズ */
+    border-radius: 20px; /* 角を丸くする */
+    /*ボタンの形状*/
+    display: inline-block;
+    color:#fff;
+    padding: 18px 10px;    
+    /*背景の色と形状*/
+    background: linear-gradient(270deg, #ebf49c 0%, #95e578 25%, #6ec6c4 51%, #dc6efb 100%);
+    background-position: 1% 50%;
+    background-size: 200% auto; 
+    /*アニメーションの指定*/
+    transition: all 0.3s ease-out;
 }
 
 .custom-button3:hover {
-    background-color: rgb(115, 146, 255); /* ホバー時の背景色 */
-    color: rgb(0, 0, 0); /* ホバー時のテキストの色 */
-    border: none; /* ホバー時の枠線 */
+/*hoverした際の、背景の場所とテキスト色の変更*/
+    color: #4f4f4f;
+    background-position: 99% 50%;
 }
-
 
 
 
@@ -77,6 +78,7 @@ main {
     text-align: center;
 }
 
+
 form {
     display: flex;
     flex-direction: column;
@@ -84,6 +86,8 @@ form {
 }
 
 form input[type="submit"] {
+    border: none; /* 枠線を消す */
+
     width: 400px; /* ボタンの幅を指定 */
     height: 70px; /* ボタンの高さを指定 */
     padding: 10px 20px;
