@@ -1,3 +1,8 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -5,11 +10,10 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-image: url('../graphic/ログイン画面背景.jpg'); /* 背景画像の追加 */
+    background-image: url('../graphic/S03_顧客管理背景.jpg'); /* 背景画像の追加 */
     background-size: cover; /* 背景画像を全体に表示 */
     background-repeat: no-repeat; /* 背景画像を繰り返さない */
     background-position: center; /* 背景画像を中央に配置 */
-
 }
 
 header {
@@ -19,8 +23,6 @@ header {
     display: flex;
     align-items: center;
     justify-content: center; /* 中央に配置 */
-    padding: 0 20px;
-    position: relative;
 }
 
 .logo {
@@ -30,9 +32,12 @@ header {
 }
 
 .search, .radiobutton {
-    display: flex;
     align-items: center;
     margin-right: 10px;
+}
+
+.radiobutton label:hover {
+    cursor: pointer;
 }
 
 .search input[type="text"] {
@@ -40,9 +45,10 @@ header {
 }
 
 form {
-    display: flex;
+    display: flex;  /* ラジオボタンを検索バー横に配置 */
     flex-direction: row; /* 横方向に配置 */
     align-items: center;
+    height: 50px;
     margin: 0; /* フォームの余白をリセット */
 }
 
@@ -75,30 +81,32 @@ main {
 }
 
 #BackButton {
+    font-size: 20px;
     position: absolute;
     bottom: 50px;
     right: 15px;
-    width: 10em;
-    height: 3em;
-    border: 1px solid #000;
+    width: 5em;
+    height: 2em;
+    border: 1px;
     background-color: rgb(244, 126, 126);
 }
 
 #BackButton:hover {
-    background-color:rgb(252, 165, 178);
+    background-color:rgb(196, 97, 97);
     cursor: pointer;
 }
 
 #tourokuButton {
+    font-size: 18px;
     width: 100px;
     height: 40px;
     margin: 5px;
-    border: 1px solid #000;
+    border: 1px;
     background-color: rgb(248, 238, 153);
 }
 
 #tourokuButton:hover {
-    background-color: rgb(254, 242, 186);
+    background-color: rgb(187, 180, 116);
     cursor: pointer;
 }
 
