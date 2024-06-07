@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <title>書籍新規登録画面</title>
+    <link rel="stylesheet" type="text/css" href="stylesS04_2.css">
+</head>
+<body>
+    <header>
+        <img src="../graphic/ニトリロゴ.jpg" alt="Logo" class="logo"> 
+        <p>書籍新規登録フォーム</p>
+    </header>
+    
+    <main>
+        <form action="login.php" method="post">
+            <div class="form-group">
+                <label for="bookname">書&nbsp;&nbsp;籍&nbsp;&nbsp;名</label>
+                <input type="text" id="name" name="name" required autofocus placeholder="アイビー">                
+            </div>
+            
+            <div class="form-group">
+                <label for="JAN">JANコード</label>
+                <td>
+                    <input type="number" name="JAN">
+                </td>
+            </div>
+
+            <div class="form-group">
+                <label for="author">著&nbsp;&nbsp;作&nbsp;&nbsp;者</label>
+                <input type="text" id="name" name="name" required autofocus placeholder="永楽 仁八">                
+            </div>
+
+            <div class="form-group">
+                <label for="price">値&emsp;&emsp;段</label>
+                <td>
+                    <input type="number" name="price" value="1234">
+                </td>
+            </div>
+
+            <div class="form-group">
+                <label for="adress">出&nbsp;&nbsp;版&nbsp;&nbsp;社</label>
+                <select name="pref">
+                    <option value="">選択してください</option>
+                    <option value="大分県" selected>大分県</option>
+                    <option value="宮崎県">宮崎県</option>
+                    <option value="鹿児島県">鹿児島県</option>
+                    <option value="沖縄県">沖縄県</option>
+                    </select>
+            </div>
+            <div class="form-group">
+                <label for="adress">分&emsp;&emsp;類</label>
+                <select name="pref">
+                    <option value="">選択してください</option>
+                    <option value="文学・評論" selected>文学・評論</option>
+                    <option value="人文・思想">人文・思想</option>
+                    <option value="社会・政治">社会・政治</option>
+                    <option value="歴史・地理">歴史・地理</option>
+                    <option value="ビジネス・経済">ビジネス・経済</option>
+                    <option value="投資・金融">投資・金融</option>
+                    <option value="科学・テクノロジー">科学・テクノロジー</option>
+                    <option value="医学・薬学">医学・薬学</option>
+                    <option value="コンピュータ・IT">コンピュータ・IT</option>
+                    <option value="アート・デザイン">アート・デザイン</option>
+                    <option value="趣味・実用">趣味・実用</option>
+                    <option value="スポーツ・アウトドア">スポーツ・アウトドア</option>
+                    <option value="資格・検定">資格・検定</option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+
+                </select>
+            </div>
+
+ 
+            <div class="Btn">
+                <input type="submit" value="登録">
+            </div>
+        </form>
+        <button onclick="location.href='../S03/S03.html'" type="button" name="name" value="value" id="BackButton">戻る</button>
+    </main>
+
+    <footer>
+        © 2024 <a href="https://www.ivy.ac.jp/">アイビクション</a>
+        <div class="back">
+        </div>
+
+    </footer>
+</body>
+</html>
