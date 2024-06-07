@@ -13,12 +13,20 @@
     <main>
         <form action="login.php" method="post">
             <div class="form-group">
-                <label for="kokyakuid">顧&nbsp;&nbsp;客&nbsp;&nbsp;ID  </label>
-                <input type="text" id="nameid" name="nameid" required autofocus placeholder="0123456789">
+                <label for="kokyakuname">顧&nbsp;&nbsp;客&nbsp;&nbsp;名</label>
+                <input type="text" id="name" name="name" required autofocus placeholder="ビータン">
+                
             </div>
             <div class="form-group">
-                <label for="kokyakuname">顧&nbsp;&nbsp;客&nbsp;&nbsp;名</label>
-                <input type="text" id="name" name="name" required placeholder="ビータン">
+                <label for="sex">性&emsp;&emsp;別</label>
+                <td>
+                    <input type="radio" name="sex" id="male" value="男性" checked><label for="male">男性&nbsp;&nbsp;</label>
+                    <input type="radio" name="sex" id="female" value="女性"><label for="female">女性&nbsp;&nbsp;</label>
+                    <input type="radio" name="sex" id="sonota" value="その他"><label for="sonota">その他</label>
+                
+
+                </td>
+
             </div>
             <div class="form-group">
                 <label for="adress">住&emsp;&emsp;所</label>
@@ -83,7 +91,7 @@
                 <input type="submit" value="登録">
             </div>
         </form>
-        <button onclick="location.href='../S03_2/S02_menu.html'" type="button" name="name" value="value" id="BackButton">戻る</button>
+        <button onclick="location.href='../S02/S02_menu.html'" type="button" name="name" value="value" id="BackButton">戻る</button>
     </main>
 
     <footer>
