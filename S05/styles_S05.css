@@ -1,118 +1,3 @@
-/*========= ローディング画面のためのCSS ===============*/
-#splash {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: #333;
-    z-index: 9999999;
-    text-align:center;
-    color:#fff;
-}
-
-#splash-logo {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-#splash-logo img {
-    max-width: 100%;
-    height: auto;
-}
-
-
-/*========= 画面遷移のためのCSS ===============*/
-
-/*画面遷移アニメーション*/
-.splashbg{
-    display: none;
-}
-
-/*bodyにappearクラスがついたら出現*/
-body.appear .splashbg{
-    display:block;
-    animation-name:PageAnime;
-    animation-duration:1.2s;
-    animation-timing-function:ease-in-out;
-    animation-fill-mode:forwards;
-    content: "";
-    position:fixed;
-    z-index: 999;
-    width: 50%;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    transform: translateX(-300%) skewX(-45deg);
-    background-color: #333;/*伸びる背景色の設定*/
-}
-
-@keyframes PageAnime{
-0% {
-    transform-origin:left;
-    transform:translateX(-300%) skewX(-45deg);
-}
-100% {
-    transform-origin:left;
-    transform:translateX(500%) skewX(-45deg);
-}
-}
-
-/*画面遷移の後現れるコンテンツ設定*/
-#container{
-opacity: 0;/*はじめは透過0に*/
-}
-
-/*bodyにappearクラスがついたら出現*/
-body.appear #container{
-    animation-name:PageAnimeAppear;
-    animation-duration:1s;
-    animation-delay: 0.6s;
-    animation-fill-mode:forwards;
-    opacity: 0;
-}
-
-@keyframes PageAnimeAppear{
-    0% {
-    opacity: 0;
-    }
-    100% {
-    opacity: 1;
-    }
-}
-
-/*========= レイアウトのためのCSS ===============*/
-
-h1{
-    font-size:1.2rem;
-}
-
-h2{
-    font-size:1.2rem;
-    text-align: center;
-    margin: 0 0 30px 0;
-}
-
-p{
-    margin-top:20px;  
-}
-
-small{
-    color:#fff;
-    display: block;
-    text-align: center;
-}
-
-section{
-    padding:100px 30px;
-}
-
-section:nth-child(2n){
-    background:#f3f3f3; 
-}
-
-
-
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -120,7 +5,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-image: url('../graphic/S02_メイン画面背景.jpg');
+    background-image: url('../graphic/S05_データ分析背景.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -135,8 +20,8 @@ header {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.custom-buttonlog {
-    background-color: #f2896f; /* 背景色 */
+.custom-button-back {
+    background-color: #f98b8b; /* 背景色 */
     border: none; /* 枠線を消す */
     color: rgb(0, 0, 0); /* テキストの色 */
     padding: 15px 32px; /* パディング */
@@ -144,14 +29,19 @@ header {
     text-decoration: none; /* テキスト装飾を消す */
     display: inline-block; /* インラインブロック要素にする */
     font-size: 15px; /* フォントサイズ */
-    margin: 3px 20px; /* マージン */
+    margin: 30px 20px; /* マージン */
     cursor: pointer; /* カーソルをポインターにする */
-    border-radius: 4px; /* 角を丸くする */
+    border-radius: 20px; /* 角を丸くする */
     transition-duration: 0.4s; /* トランジションの時間 */
+    position: fixed; /* 固定位置 */
+    right: 5px; /* 右端からの距離 */
+    bottom: 40px; /* 下端からの距離 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
 }
 
 
-.custom-buttonlog:hover {
+.custom-button-back:hover {
     background-color: rgb(255, 0, 0); /* ホバー時の背景色 */
     color: rgb(255, 255, 255); /* ホバー時のテキストの色 */
     border: none; /* ホバー時の枠線 */
@@ -161,24 +51,27 @@ header {
     text-align: center; /* テキストの配置 */
     font-size: 20px; /* フォントサイズ */
     border-radius: 20px; /* 角を丸くする */
-    /*ボタンの形状*/
+    /* ボタンの形状 */
     display: inline-block;
-    color:#fff;
-    padding: 18px 10px;    
-    /*背景の色と形状*/
-    background: linear-gradient(270deg, #ebf49c 0%, #95e578 25%, #6ec6c4 51%, #dc6efb 100%);
+    color: #fff;
+    padding: 18px 10px;
+    /* 背景の色と形状 */
+    background: linear-gradient(270deg, #9ca2f4 0%, #a978e5 25%, #c66ebf 51%, #fb6e98 100%);
     background-position: 1% 50%;
-    background-size: 200% auto; 
-    /*アニメーションの指定*/
+    background-size: 200% auto;
+    /* アニメーションの指定 */
     transition: all 0.3s ease-out;
+    position: relative; /* 相対位置に変更 */
+    margin: 20px 0; /* ボタン同士の上下の隙間を設定 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    
 }
 
 .custom-button3:hover {
-/*hoverした際の、背景の場所とテキスト色の変更*/
-    color: #4f4f4f;
+    /* hoverした際の、背景の場所とテキスト色の変更 */
+    color: #ffffff;
     background-position: 99% 50%;
 }
-
 
 
 .logo {
@@ -191,25 +84,26 @@ header {
     flex-direction: column;
 }
 
+
 main {
     flex-grow: 1;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-end; /* 右に配置 */
+    align-items: flex-start; /* 上に配置 */
     text-align: center;
+    padding-right: 20px; /* 右端の余白を追加 */
 }
-
 
 form {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-end; /* ボタンを右端に配置 */
 }
 
 form input[type="submit"] {
     border: none; /* 枠線を消す */
 
-    width: 400px; /* ボタンの幅を指定 */
+    width: 230px; /* ボタンの幅を指定 */
     height: 70px; /* ボタンの高さを指定 */
     padding: 10px 20px;
     font-size: 24px;
@@ -217,6 +111,14 @@ form input[type="submit"] {
     margin: 20px 0; /* ボタン同士の上下の隙間を設定 */
     box-sizing: border-box; /* パディングを含めて幅と高さを計算 */
     background-color:#d8fff7;
+
+}
+
+.centered-text {
+    text-align: center; /* テキストの中央揃え */
+    width: 100%; /* 幅を100%にして親要素内で中央揃え */
+    font-size: 30px;
+    color: #4c4c4c;
 }
 
 footer {
