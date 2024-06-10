@@ -141,6 +141,32 @@ footer {
 
 #DatabaseTable {
     background-color: #ccc;
+    border-collapse: collapse;
+    table-layout: fixed;
+    text-align: center;
+}
+
+#DatabaseTable th, #DatabaseTable td {
+    border: 2px solid #d2e8f1;
+    padding: 1em;
+}
+
+#DatabaseTable thead th {
+    background-color: #4d9bc1;
+    color: fff;
+    border: 2px solid #4d9bc1;
+    border-right: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+}
+
+#DatabaseTable thead th:last-of-type {
+    border-right: 2px solid #4d9bc1;
+}
+
+#DatabaseTable tbody th {
+    color: #4d9bc1;
+    font-weight: bold;
+    text-align: center;
 }
 
 a {
