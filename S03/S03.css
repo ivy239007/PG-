@@ -135,8 +135,10 @@ footer {
 }
 
 .DatabaseTable {
-    width: 90%;
-    margin-top: 100px; 
+    width: 1000px;
+    margin-top: 90px;
+    height: 350px;
+    overflow: auto;
 }
 
 #DatabaseTable {
@@ -152,15 +154,15 @@ footer {
 }
 
 #DatabaseTable thead th {
-    background-color: #4d9bc1;
-    color: fff;
-    border: 2px solid #4d9bc1;
+    background-color: lightskyblue;
+    color: #fff;
+    border: 2px solid lightskyblue;
     border-right: 2px solid #fff;
     border-bottom: 2px solid #fff;
 }
 
 #DatabaseTable thead th:last-of-type {
-    border-right: 2px solid #4d9bc1;
+    border-right: 2px solid lightskyblue;
 }
 
 #DatabaseTable tbody th {
