@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="utf-8">
     <title>ログイン画面</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap');
-    </style>    
+    </style>
     <link rel="stylesheet" type="text/css" href="styles_S01.css">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
 </head>
@@ -14,7 +15,7 @@
     <header>
         <img src="../graphic/ニトリロゴ.jpg" alt="Logo" class="logo">
     </header>
-    
+
     <main>
         <form id="loginForm">
             <div class="form-group">
@@ -36,9 +37,9 @@
     </footer>
 
     <script>
-        document.getElementById("loginForm").addEventListener("submit", function(event) {
+        document.getElementById("loginForm").addEventListener("submit", function (event) {
             event.preventDefault(); // デフォルトのサブミットを防止
-            
+
             const validId = "ivy"; // ここに正しいIDを設定
             const validPw = "1234"; // ここに正しいパスワードを設定
 
@@ -52,5 +53,56 @@
             }
         });
     </script>
+
+
+<?php
+//フォームからの値をそれぞれ変数に代入
+
+$id = $_POST['id'];
+$pw = $_POST['pw'];
+
+//データベースサーバー情報
+$pass = password_hash($_POST['pass'], PASSWORD_DEFAULT);
+$dsn = "mysql:host=localhost; dbname=xxx; charset=utf8";
+//root password
+$username = "xxx";
+$password = "xxx";
+
+try {
+    $dbh = new PDO($dsn, $username, $password);
+} catch (PDOException $e) {
+    $msg = $e->getMessage();
+}
+//^^^^^^^^^＾ここまでがDbとの接続
+
+//フォームに入力されたmailがすでに登録されていないかチェック
+$sql = "SELECT * FROM users WHERE id = :id";
+$stmt = $dbh->prepare($sql);
+$stmt->bindValue(':id', $id);
+$stmt->execute();
+$member = $stmt->fetch();
+
+//下はログイン用に変える
+if ($member['id'] === $id && $member['pw'] === $pw) {
+    $link = '<a href="signup.php">戻る</a>';
+} else {
+    //登録されていなければinsert 
+    $sql = "INSERT INTO users(name, mail, pass) VALUES (:name, :mail, :pass)";
+    $stmt = $dbh->prepare($sql);
+    $stmt->bindValue(':name', $name);
+    $stmt->bindValue(':mail', $mail);
+    $stmt->bindValue(':pass', $pass);
+    $stmt->execute();
+    $msg = '会員登録が完了しました';
+    $link = '<a href="login.php">ログインページ</a>';
+}
+?>
+
+    <h1>
+        <?php echo $msg; ?>
+    </h1><!--メッセージの出力-->
+    <?php echo $link; ?>
+
 </body>
+
 </html>
