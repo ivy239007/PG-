@@ -17,7 +17,7 @@
     </header>
 
     <main>
-        <form id="loginForm">
+        <form id="loginForm" action="login_test.php" method="post"> <!-- PHPファイルへのアクションを指定 -->
             <div class="form-group">
                 <label for="id">I D :</label>
                 <input type="text" id="id" name="id" required autofocus placeholder="ivy">
@@ -26,8 +26,6 @@
                 <label for="pw">PW:</label>
                 <input type="password" id="pw" name="pw" required autofocus placeholder="1234">
             </div>
-            <p id="errorMessage" style="color: red; display: none;">IDまたはパスワードが間違っています。</p>
-
             <input type="submit" class="gradient1" value="ログイン">
         </form>
     </main>
@@ -35,24 +33,6 @@
     <footer>
         © 2024 <a href="https://www.ivy.ac.jp/">アイビクション</a>
     </footer>
-
-    <script>
-        document.getElementById("loginForm").addEventListener("submit", function (event) {
-            event.preventDefault(); // デフォルトのサブミットを防止
-
-            const validId = "ivy"; // ここに正しいIDを設定
-            const validPw = "1234"; // ここに正しいパスワードを設定
-
-            const enteredId = document.getElementById("id").value;
-            const enteredPw = document.getElementById("pw").value;
-
-            if (enteredId === validId && enteredPw === validPw) {
-                window.location.href = '../S02/S02_menu.html'; // 正しい場合にリダイレクト
-            } else {
-                document.getElementById("errorMessage").style.display = "block"; // エラーメッセージを表示
-            }
-        });
-    </script>
 
 </body>
 

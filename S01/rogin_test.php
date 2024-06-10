@@ -1,8 +1,9 @@
 <?php
+session_start();
 // データベース接続情報
-$dsn = "mysql:host=localhost;dbname=pg;charset=utf8"; // データベース名を指定
-$username = "your_username"; // データベースユーザー名を指定
-$password = "your_password"; // データベースパスワードを指定
+$dsn = "mysql:host=172.16.3.136;dbname=pg;charset=utf8"; // データベース名を指定
+$username = "root"; // データベースユーザー名を指定
+$password = "123"; // データベースパスワードを指定（空白を削除）
 
 // フォームからの値を取得
 $id = $_POST['id'];
@@ -19,13 +20,14 @@ try {
 
     if ($user && password_verify($pw, $user['pass'])) {
         // ログイン成功時の処理
-        echo 'ログイン成功';
-        // リダイレクトなどの処理を追加
+        header("Location: S02_menu.html");
+        exit; // リダイレクト後にスクリプトの実行を終了するために exit を使用
     } else {
         // ログイン失敗時の処理
         echo 'IDまたはパスワードが間違っています。';
         // エラーメッセージを表示してログインページにリダイレクト
-        // header("Location: login.html");
+        header("Location: S01_login_test.html");
+        exit;
     }
 } catch (PDOException $e) {
     // データベース接続エラー時の処理
