@@ -2,6 +2,9 @@
 <html lang="ja">
 <head>
     <title>顧客情報編集</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap');
+    </style>
     <link rel="stylesheet" type="text/css" href="stylesS03_3.css">
 </head>
 <body>
@@ -13,18 +16,18 @@
     <main>
         <form action="login.php" method="post">
             <div class="form-group">
-                <label for="kokyakuname">&nbsp;顧&nbsp;&nbsp;&emsp;客&nbsp;&nbsp;&emsp;名&nbsp;&nbsp;</label>
+                <label for="kokyakuname">&nbsp;顧&nbsp;客&nbsp;名&nbsp;</label>
                 <input type="text" id="name" name="name" required autofocus placeholder="赤嶺昂太">
             </div>
 
             <div class="form-group">
-                <label for="kokyakuname">フ&emsp;リ&emsp;ガ&emsp;ナ</label>
+                <label for="kokyakuname">フリガナ</label>
                 <input type="text" id="name" name="name" required autofocus placeholder="アカミネコウタ">
             </div>
 
 
             <div class="form-group">
-                <label for="sex">&nbsp;性&emsp;&emsp;&emsp;&emsp;別&nbsp;</label>
+                <label for="sex">&nbsp;性&emsp;&nbsp;別&nbsp;</label>
                 <td>
                     <input type="radio" name="sex" id="male" value="男性" checked><label for="male">男性&nbsp;&nbsp;</label>
                     <input type="radio" name="sex" id="female" value="女性"><label for="female">女性&nbsp;&nbsp;</label>
@@ -33,12 +36,12 @@
             </div>
 
             <div class="form-group">
-                <label for="date-edit">生&emsp;年&emsp;月&emsp;日&nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="date" id="date" value="2000-01-01" required></label>
+                <label for="date-edit">生年月日</label>
+                <input type="date" id="date" value="2000-01-01" required>
             </div>
 
             <div class="form-group">
-                <label for="adress">&nbsp;住&emsp;&emsp;&emsp;&emsp;所&nbsp;&nbsp;</label>
+                <label for="adress">&nbsp;住&emsp;&nbsp;所&nbsp;</label>
                 <select name="pref">
                     <option value="">選択してください</option>
                     <option value="北海道">北海道</option>
@@ -92,13 +95,13 @@
             </div>
 
             <div class="form-group">
-                <label for="tel">電&emsp;話&emsp;番&emsp;号</label>
+                <label for="tel">電話番号</label>
                 <input type="tel" name="tel" required autofocus placeholder="097-537-2471">
             </div>
 
             <div class="form-group">
-                <label for="mail">メールアドレス</label>
-                <input type="email" name="email" required autofocus placeholder="info@example.com">
+                <label for="mail">ﾒｰﾙｱﾄﾞﾚｽ</label>
+                <input type="email" name="email" required autofocus placeholder="info@ivy.ac.jp">
             </div>
  
             <div class="Btn">
