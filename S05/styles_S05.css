@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Zen Maru Gothic", serif;
     margin: 0;
     padding: 0;
     display: flex;
@@ -21,6 +21,7 @@ header {
 }
 
 .custom-button-back {
+    font-family: "Zen Maru Gothic", serif;
     background-color: #f98b8b; /* 背景色 */
     border: none; /* 枠線を消す */
     color: rgb(0, 0, 0); /* テキストの色 */
@@ -48,6 +49,7 @@ header {
 }
 
 .custom-button3 {
+    font-family: "Zen Maru Gothic", serif;
     text-align: center; /* テキストの配置 */
     font-size: 20px; /* フォントサイズ */
     border-radius: 20px; /* 角を丸くする */
