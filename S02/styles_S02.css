@@ -115,7 +115,7 @@ section:nth-child(2n){
 
 
 body {
-    font-family: "Kosugi", sans-serif;
+    font-family: "Zen Maru Gothic", serif;
     font-weight: 500;
     font-style: normal;
     margin: 0;
@@ -139,6 +139,7 @@ header {
 }
 
 .custom-buttonlog {
+    font-family: "Zen Maru Gothic", serif;
     background-color: #f2896f; /* 背景色 */
     border: none; /* 枠線を消す */
     color: rgb(0, 0, 0); /* テキストの色 */
@@ -161,7 +162,7 @@ header {
 }
 
 .custom-button3 {
-    font-family: "Kosugi", sans-serif;
+    font-family: "Zen Maru Gothic", serif;
     font-weight: 500;
     font-style: normal;
     text-align: center; /* テキストの配置 */
