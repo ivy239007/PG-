@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <title>顧客新規登録</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap');
     </style>
-    <link rel="stylesheet" type="text/css" href="stylesS03_2.css">
+    <link rel="stylesheet" type="text/css" href="stylesS03_2.css"> 
 </head>
 <body>
     <header>

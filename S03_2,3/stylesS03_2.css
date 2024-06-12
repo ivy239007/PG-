@@ -3,8 +3,8 @@
     padding: 0;
     box-sizing: border-box;
 }
-body {
-    font-family: "Zen Maru Gothic", serif;    
+body {              /*ボディ情報*/
+    font-family: "Zen Maru Gothic", serif;    /*フォント設定*/
     margin: 0;
     padding: 0;
     display: flex;
@@ -17,9 +17,9 @@ body {
     background-position: center; /* 背景画像を中央に配置 */
 }
 
-header {
+header {                /*ヘッダー情報*/
     background-color: #f8f8f8;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
     height: 70px;
     display: flex;
     align-items: center;
@@ -28,9 +28,9 @@ header {
     font-size: 25px;
 }
 
-.logo {
+.logo {                 /*ロゴ情報*/
     height: 50px;  /* ロゴの高さを調整 */
-    position: absolute;
+    position: absolute;     /*ポジション 固定*/
     left : 20px;
 }
 
@@ -82,9 +82,7 @@ input[type="submit"] {
 }
 
 
-/*ボタンの基本スタイ*/
-.Btn input{
-    font-family: "Zen Maru Gothic", serif;    
+.Btn input{         /*ボタンの基本スタイ*/
     width: 80px;
     margin: 0px 180px 0px 210px;
     background: #b7f5ea;
