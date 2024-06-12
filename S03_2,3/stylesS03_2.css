@@ -84,6 +84,7 @@ input[type="submit"] {
 
 /*ボタンの基本スタイ*/
 .Btn input{
+    font-family: "Zen Maru Gothic", serif;    
     width: 80px;
     margin: 0px 180px 0px 210px;
     background: #b7f5ea;
