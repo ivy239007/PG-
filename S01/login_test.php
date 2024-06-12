@@ -1,9 +1,9 @@
 <?php
 session_start();
 // データベース接続情報
-$dsn = "mysql:host=172.16.3.136;dbname=pg;charset=utf8"; // データベース名を指定
+$dsn = "mysql:host=127.0.0.1;dbname=test;charset=utf8"; // データベース名を指定
 $username = "root"; // データベースユーザー名を指定
-$password = "123"; // データベースパスワードを指定（空白を削除）
+$password = ""; // データベースパスワードを指定
 
 // フォームからの値を取得
 $id = $_POST['id'];
@@ -27,7 +27,6 @@ try {
         echo 'IDまたはパスワードが間違っています。';
         // エラーメッセージを表示してログインページにリダイレクト
         header("Location: S01_login_test.html");
-        exit;
     }
 } catch (PDOException $e) {
     // データベース接続エラー時の処理

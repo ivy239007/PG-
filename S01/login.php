@@ -1,8 +1,8 @@
 <?php
 // データベース接続情報
-$dsn = "mysql:host=localhost;dbname=pg;charset=utf8"; // データベース名を指定
-$username = "your_username"; // データベースユーザー名を指定
-$password = "your_password"; // データベースパスワードを指定
+$dsn = "mysql:host=172.0.1;dbname=pg;charset=utf8"; // データベース名を指定
+$username = "root"; // データベースユーザー名を指定
+$password = ""; // データベースパスワードを指定
 
 // フォームからの値を取得
 $id = $_POST['id'];
