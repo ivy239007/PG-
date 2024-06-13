@@ -12,8 +12,8 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
     // セッションを破棄
     session_destroy();
 
-    // ログインページにリダイレクト
-    header('Location: S01/S01_login.html');
+    // ログアウトページにリダイレクト
+    header('Location: logout_message.php');
     exit;
 }
 ?>
@@ -61,6 +61,6 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
         }
     </script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="test.js"></script>
+    <script src="S02.js"></script>
 </body>
 </html>
