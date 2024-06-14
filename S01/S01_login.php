@@ -17,7 +17,7 @@
     </header>
 
     <main>
-        <form id="loginForm" action="login_test.php" method="post"> <!-- PHPファイルへのアクションを指定 -->
+        <form id="loginForm" action="S01_2_login.php" method="post"> <!-- PHPファイルへのアクションを指定 -->
             <div class="form-group">
                 <label for="id">I D :</label>
                 <input type="text" id="id" name="id" required autofocus placeholder="ivy">
@@ -35,5 +35,4 @@
     </footer>
 
 </body>
-
 </html>
