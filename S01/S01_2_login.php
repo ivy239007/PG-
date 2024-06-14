@@ -6,6 +6,7 @@ $username = "testuser"; // データベースユーザー名を指定
 $password = "pw4testuser"; // データベースパスワードを指定
 
 // フォームからの値を取得
+
 $id = $_POST['id'];
 $pw = $_POST['pw'];
 
@@ -13,15 +14,15 @@ try {
     // データベースに接続
     $dbh = new PDO($dsn, $username, $password);
     // ユーザーIDとパスワードでユーザーを検索
-    $stmt = $dbh->prepare("SELECT * FROM manager WHERE id = :id");
+    $stmt = $dbh->prepare("SELECT * FROM manager WHERE Login_id = :id");
     $stmt->bindParam(':id', $id);
     $stmt->execute();
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if ($pw == $user['Password']) {
         // ログイン成功時の処理
-        $_SESSION['Login_id'] = $user['id']; // セッションにユーザーIDを保存
-        header("Location: <S02>S02_menu.php");
+        $_SESSION['id'] = $user['id']; // セッションにユーザーIDを保存
+        header("Location: ../S02/S02_menu.php");
         exit; // リダイレクト後にスクリプトの実行を終了するために exit を使用
     } else {
         // ログイン失敗時の処理
