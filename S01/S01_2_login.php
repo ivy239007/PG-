@@ -13,7 +13,7 @@ try {
     // データベースに接続
     $dbh = new PDO($dsn, $username, $password);
     // ユーザーIDとパスワードでユーザーを検索
-    $stmt = $dbh->prepare("SELECT * FROM Manager WHERE id = :id");
+    $stmt = $dbh->prepare("SELECT * FROM manager WHERE id = :id");
     $stmt->bindParam(':id', $id);
     $stmt->execute();
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -28,6 +28,7 @@ try {
         $_SESSION['error_message'] = 'IDまたはパスワードが間違っています。';
         // エラーメッセージを表示してログインページにリダイレクト
         header("Location: S01_login.php");
+        exit;
     }
 } catch (PDOException $e) {
     // データベース接続エラー時の処理
