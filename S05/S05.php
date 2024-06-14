@@ -21,9 +21,9 @@
     <main>
         <p class="centered-text">売上ランキング</p>
             <form id="redirectForm">
-            <input type="submit" class="custom-button3" value="年代別ランキング" onclick="event.preventDefault(); location.href='../S02/S02.html'">
-            <input type="submit" class="custom-button3" value="地域別ランキング" onclick="event.preventDefault(); location.href='../S02/S02.html'">
-            <button class="custom-button-back" onclick="event.preventDefault(); location.href='../S02/S02_menu.html'">戻る</button>        </form>
+            <input type="submit" class="custom-button3" value="年代別ランキング" onclick="event.preventDefault(); location.href='../S02/S02_menu.php'">
+            <input type="submit" class="custom-button3" value="地域別ランキング" onclick="event.preventDefault(); location.href='../S02_menu.php'">
+            <button class="custom-button-back" onclick="event.preventDefault(); location.href='../S02/S02_menu.php'">戻る</button>        </form>
 
         </form>
 
