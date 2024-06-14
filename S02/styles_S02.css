@@ -116,7 +116,7 @@ section:nth-child(2n){
 
 body {
     font-family: "Zen Maru Gothic", serif;
-    font-weight: 500;
+    font-weight: 700;
     font-style: normal;
     margin: 0;
     padding: 0;
@@ -163,10 +163,10 @@ header {
 
 .custom-button3 {
     font-family: "Zen Maru Gothic", serif;
-    font-weight: 500;
+    font-weight: 700;
     font-style: normal;
     text-align: center; /* テキストの配置 */
-    font-size: 20px; /* フォントサイズ */
+    font-size: 30px; /* フォントサイズ */
     border-radius: 20px; /* 角を丸くする */
     /*ボタンの形状*/
     display: inline-block;

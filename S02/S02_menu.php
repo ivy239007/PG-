@@ -57,7 +57,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
 
     <script>
         function logout() {
-            window.location.href = 'index.php?action=logout';
+            window.location.href = 'logout_message.php';
         }
     </script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
