@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="ja">
 
+<?php
+// データベース接続情報
+$dsn = "mysql:host=172.16.3.136:3306;dbname=test;charset=utf8"; // データベース名を指定
+$username = "testuser"; // データベースユーザー名を指定
+$password = "pw4testuser"; // データベースパスワードを指定
+?>
+
 <head>
     <title>顧客新規登録</title>
     <style>
@@ -17,14 +24,14 @@
     <main>
         <form action="login.php" method="post">
             <div class="form-group">
-                <label for="kokyakuname">&nbsp;顧&nbsp;客&nbsp;名&nbsp;</label>
+                <label for="kokyakuname">&nbsp;顧&nbsp;客&nbsp;名&nbsp;</label> 
                 <input type="text" id="name" name="name" required autofocus placeholder="赤嶺昂太">
             </div>
 
             <div class="form-group">
                 <label for="kokyakuname">フリガナ</label>
                 <input type="text" id="name" name="name" required autofocus placeholder="アカミネコウタ">
-            </div>
+            </div> 
 
 
             <div class="form-group">
@@ -42,7 +49,7 @@
             </div>
 
             <div class="form-group">
-                <label for="adress">&nbsp;住&emsp;&nbsp;所&nbsp;</label>
+                <label for="adress">&nbsp;住&emsp;&nbsp;所&nbsp;</label> 
                 <select name="pref">
                     <option value="">選択してください</option>
                     <option value="北海道">北海道</option>
