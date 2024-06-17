@@ -3,14 +3,13 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-$servername = "172.16.3.136"; // データベースサーバーのIPアドレスまたはホスト名
-$username = "testuser"; // データベースユーザー名
-$password = "pw4testuser"; // データベースパスワード
-$dbname = "pg"; // データベース名
-$port = 3306; // データベースのポート番号
+$servername = "localhost"; // データベースサーバーのIPアドレスまたはホスト名
+$username = "root"; // データベースユーザー名
+$password = ""; // データベースパスワード
+$dbname = "testdb"; // データベース名
 
 // データベース接続の作成
-$conn = new mysqli($servername, $username, $password, $dbname, $port);
+$conn = new mysqli($servername, $username, $password, $dbname);
 
 // 接続チェック
 if ($conn->connect_error) {
@@ -55,7 +54,7 @@ switch ($sort) {
 }
 
 // SQLクエリを実行
-$sql = "SELECT Book_id, Categories_id FROM books ORDER BY $order"; // 例としてmenberテーブルのデータを取得
+$sql = "SELECT id, name, age FROM menber ORDER BY $order"; // 例としてmenberテーブルのデータを取得
 $result = $conn->query($sql);
 ?>
 <!DOCTYPE html>
