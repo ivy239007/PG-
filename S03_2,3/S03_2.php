@@ -1,12 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
 
-<?php
-// データベース接続情報
-$dsn = "mysql:host=172.16.3.136:3306;dbname=test;charset=utf8"; // データベース名を指定
-$username = "testuser"; // データベースユーザー名を指定
-$password = "pw4testuser"; // データベースパスワードを指定
-?>
 
 <head>
     <title>顧客新規登録</title>
@@ -112,7 +106,7 @@ $password = "pw4testuser"; // データベースパスワードを指定
                 <input type="email" name="email" required autofocus placeholder="info@ivy.ac.jp">
             </div>
 
- 
+
             <div class="Btn">
                 <input type="submit" value="登録">
             </div>
