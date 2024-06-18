@@ -3,14 +3,13 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-$servername = "172.16.3.136"; // データベースサーバーのIPアドレスまたはホスト名
-$username = "testuser"; // データベースユーザー名
-$password = "pw4testuser"; // データベースパスワード
+$servername = "localhost"; // データベースサーバーのIPアドレスまたはホスト名
+$username = "root"; // データベースユーザー名
+$password = ""; // データベースパスワード
 $dbname = "pg"; // データベース名
-$port = 3306; // データベースのポート番号
 
 // データベース接続の作成
-$conn = new mysqli($servername, $username, $password, $dbname, $port);
+$conn = new mysqli($servername, $username, $password, $dbname,);
 
 // 接続チェック
 if ($conn->connect_error) {
