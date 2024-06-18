@@ -77,6 +77,7 @@
         <option value="鹿児島県">鹿児島県</option>
         <option value="沖縄県">沖縄県</option>
     </select>
+    
     </dd>
     <dt>電話番号</dt><dd><input type="tel" name="tel" required placeholder="097-537-2471"></dd>
     <dt>メールアドレス</dt><dd><input type="email" name="email" required placeholder="info@ivy.ac.jp"></dd>
