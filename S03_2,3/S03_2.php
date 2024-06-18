@@ -27,7 +27,6 @@
                 <input type="text" id="name" name="name" required autofocus placeholder="アカミネコウタ">
             </div> 
 
-
             <div class="form-group">
                 <label for="sex">&nbsp;性&emsp;&nbsp;別&nbsp;</label>
                 <td>
