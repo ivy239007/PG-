@@ -17,7 +17,7 @@
     </header>
 
     <main>
-        <form id="loginForm" action="../S02/S02_menu.php" method="post"> <!-- PHPファイルへのアクションを指定 -->
+        <form id="loginForm" method="post" action="lotest.php"> <!-- PHPファイルへのアクションを指定 -->
             <div class="form-group">
                 <label for="id">I D :</label>
                 <input type="text" id="id" name="id" required autofocus placeholder="ivy">

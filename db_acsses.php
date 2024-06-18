@@ -3,8 +3,13 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
+<<<<<<< HEAD
 $servername = "localhost"; // データベースサーバーのIPアドレスまたはホスト名
 $username = "root"; // データベースユーザー名
+=======
+$servername = "172.16.3.136"; // データベースサーバーのIPアドレスまたはホスト名
+$username = "sample_user"; // データベースユーザー名
+>>>>>>> 14b44f9c0c2d5cd200fcdcc08ad86b95369e8b1c
 $password = ""; // データベースパスワード
 $dbname = "pg"; // データベース名
 
@@ -54,7 +59,7 @@ switch ($sort) {
 }
 
 // SQLクエリを実行
-$sql = "SELECT Book_id, Categories_id FROM books ORDER BY $order"; // 例としてmenberテーブルのデータを取得
+$sql = "SELECT id, name, age FROM menber ORDER BY $order"; // 例としてmenberテーブルのデータを取得
 $result = $conn->query($sql);
 ?>
 <!DOCTYPE html>
