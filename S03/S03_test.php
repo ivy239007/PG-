@@ -5,7 +5,7 @@
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap');
   </style>
-    <link rel="stylesheet" type="text/css" href="S03.css">
+    <link rel="stylesheet" type="text/css" href="S03_test.css">
 </head>
 <body>
     <header>
@@ -18,7 +18,7 @@
             <div class="radiobutton">
                 <input type="radio" id="searchChoice1" name="searchChoice" value="aimai" />
                 <label for="searchChoice1">あいまい検索</label>
-                <input type="radio" id="searchChoice2" name="searchChoice" value="icchi" />
+                <input type="radio" id="searchChoice2" name="sea rchChoice" value="icchi" />
                 <label for="searchChoice2">一致検索</label>
             </div>
         </form>
@@ -29,6 +29,37 @@
             <button onclick="location.href='../S03_2,3/S03_2.html'" type="button" name="name" value="value" id = "tourokuButton">新規登録</button>
             <button onclick="location.href='../S03_2,3/S03_3.html'" type="button" name="name" value="value" id = "tourokuButton">編集</button>  
             <button type="button" name="name" value="value" id = "tourokuButton">削除</button>
+        </div>
+        
+        
+        <div>
+          <?php//以下テスト中/2024/06/17
+          // データベースユーザ
+          $user = 'testuser';
+          $password = 'pw4testuser';
+          // 利用するデータベース
+          $dbName = 'testdb';
+          // MySQLサーバ
+          $host = 'localhost:3306';
+          // MySQLのDSN文字列
+          $dsn = "mysql:host={$host};dbname={$dbName};charset=utf8";
+        
+          //MySQLデータベースに接続する
+          try {
+            $pdo = new PDO($dsn, $user, $password);
+            // プリペアドステートメントのエミュレーションを無効にする
+            $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+            // 例外がスローされる設定にする
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            echo "データベース{$dbName}に接続しました。";
+            // 接続を解除する
+            $pdo = NULL;
+          } catch (Exception $e) {
+            echo '<span class="error">エラーがありました。</span><br>';
+            echo $e->getMessage();
+            exit();
+          }
+          ?>
         </div>
         
         <div class="DatabaseTable">
