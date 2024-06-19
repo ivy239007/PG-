@@ -9,29 +9,6 @@
     <link rel="stylesheet" type="text/css" href="S03.css">
 </head>
 <body>
-  <div>
-    <?php/*
-    $username = "testuser"; // データベースユーザー
-    $password = "pw4testuser"; // データベースパスワードを指定
-    $dsn = "mysql:host=172.16.3.136:3306;dbname=test;charset=utf8"; // データベース名を指定
-    //My SQLに接続
-    try {
-      $pdo = new PDO($dsn, $user, $password);
-      // プリアドステートメントのエミュレーションを無効にする
-      $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-      // 例外がスローされる設定にする
-      $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-      echo "データベース{$dbName}に接続しました。";
-      // 接続を解除する
-      $pdo = NULL; 
-    } catch (Exception $e) {
-      echo '<span class ="error">エラーがありました。</span><br>';
-      echo $e->getMessage();
-      exit();
-    }
-    */?>
-  </div>
-
     <header>
         <img src="../graphic/ニトリロゴ.jpg" alt="Logo" class="logo">
         <form action="user_list.php" method="post">
@@ -121,7 +98,7 @@
                         <td data-label="顧客名">NULL</td>
                         <td data-label="性別">NULL</td>
                         <td data-label="住所">NULL</td>
-                        <td data-label="生年月日">NULL</td>
+                        <td data-label="生年月日">NULL</td> 
                       </tr>
                 </tbody>
               </table>
