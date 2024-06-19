@@ -9,14 +9,14 @@ try{
 
     //$user_pass =md5($user_pass);暗号化するやつ
 
-    $dsn = 'mysql:dbname=test;host=localhost;charset=utf8';
-    $db_username = "root";
+    $dsn = 'mysql:dbname=pg;host=172.16.3.136;charset=utf8';
+    $db_username = "sample_user";
     $db_password = "";
 
     $dbh = new PDO($dsn, $db_username, $db_password);
     //$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ATTR_ERRMODE_EXCEPTION);エラー処理
 
-    $sql= "SELECT * FROM login WHERE id = ? AND Pw = ?";
+    $sql= "SELECT * FROM manager WHERE Login_id = ? AND Password = ?";
     $stmt = $dbh->prepare($sql);
     $data[]= $user_id;
     $data[]= $user_pass;
