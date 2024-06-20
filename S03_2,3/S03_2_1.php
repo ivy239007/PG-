@@ -9,7 +9,7 @@ $name = htmlspecialchars($_POST["name"], ENT_QUOTES);
 $kana = htmlspecialchars($_POST["kana"], ENT_QUOTES);
 $gender = $_POST["gender"];
 $date = htmlspecialchars($_POST["date"], ENT_QUOTES);
-//$adress = htmlspecialchars($_POST["adress"], ENT_QUOTES);
+$addres = htmlspecialchars($_POST["pref"], ENT_QUOTES);
 $tel = htmlspecialchars($_POST["tel"], ENT_QUOTES);
 $email = htmlspecialchars($_POST["email"], ENT_QUOTES);
 
@@ -19,7 +19,7 @@ $_SESSION['name'] = $name;
 $_SESSION['kana'] = $kana;
 $_SESSION['gender'] = $gender;
 $_SESSION['date'] = $date;
-//$_SESSION['adress'] = $adress; 
+$_SESSION['addres'] = $addres; 
 $_SESSION['tel'] = $tel;
 $_SESSION['email'] = $email;
 ?>
@@ -40,6 +40,7 @@ $_SESSION['email'] = $email;
 <dt>カナ</dt><dd><?php echo $kana ?></dd>
 <dt>性別</dt><dd><?php echo $gender ?></dd>
 <dt>生年月日</dt><dd><?php echo $date ?></dd>
+<dt>住所</dt><dd><?php echo $addres ?></dd>
 <dt>電話番号</dt><dd><?php echo $tel ?></dd>
 <dt>メールアドレス</dt><dd><?php echo $email ?></dd> 
 </dl>

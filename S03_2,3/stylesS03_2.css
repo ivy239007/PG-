@@ -42,7 +42,7 @@ main { /*メイン設定*/
     text-align: center;
 }
 
-.container {
+.container { /*コンテナの配置*/ /*※未設定多数*/
     flex-direction: column;
     margin-bottom: 15px; /*配置*/
     display: flex;

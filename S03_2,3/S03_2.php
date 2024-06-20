@@ -16,7 +16,7 @@
     </header>
     
     <main>
-        <form action="S03_2_1.php" method="post">
+        <form action="login.php" method="post">
             <div class="form-group">
                 <label for="kokyakuname">&nbsp;顧&nbsp;客&nbsp;名&nbsp;</label> 
                 <input type="text" id="name" name="name" required autofocus placeholder="赤嶺昂太">
@@ -24,26 +24,26 @@
 
             <div class="form-group">
                 <label for="kokyakuname">フリガナ</label>
-                <input type="text" id="name" name="kana" required autofocus placeholder="アカミネコウタ">
+                <input type="text" id="name" name="name" required autofocus placeholder="アカミネコウタ">
             </div> 
 
             <div class="form-group">
                 <label for="sex">&nbsp;性&emsp;&nbsp;別&nbsp;</label>
                 <td>
-                    <input type="radio" name="gender" id="male" value="男性" checked><label for="male">男性&nbsp;&nbsp;</label>
-                    <input type="radio" name="gender" id="female" value="女性"><label for="female">女性&nbsp;&nbsp;</label>
-                    <input type="radio" name="gender" id="sonota" value="その他"><label for="sonota">その他</label>                
+                    <input type="radio" name="sex" id="male" value="男性" checked><label for="male">男性&nbsp;&nbsp;</label>
+                    <input type="radio" name="sex" id="female" value="女性"><label for="female">女性&nbsp;&nbsp;</label>
+                    <input type="radio" name="sex" id="sonota" value="その他"><label for="sonota">その他</label>                
                 </td>
             </div>
 
             <div class="form-group">
                 <label for="date-edit">生年月日</label>
-                <input type="date" name="date" id="date" value="2000-01-01" required>
+                <input type="date" id="date" value="2000-01-01" required>
             </div>
 
             <div class="form-group">
                 <label for="adress">&nbsp;住&emsp;&nbsp;所&nbsp;</label> 
-                <select name="pref">
+                <input type="radio" select name="pref">
                     <option value="">選択してください</option>
                     <option value="北海道">北海道</option>
                     <option value="青森県">青森県</option>
@@ -110,7 +110,7 @@
                 <input type="submit" value="登録">
             </div>
         </form>
-        <button onclick="location.href='../S03/S03.html'" type="button" name="name" value="value" id="BackButton">戻る</button>
+        <button onclick="location.href='../S03/S03.php'" type="button" name="name" value="value" id="BackButton">戻る</button>
     </main>
 
     <footer>
