@@ -52,10 +52,11 @@ switch ($sort) {
 }
 
 // SQLクエリを実行
-$sql = "SELECT Cust_id, Book_id FROM Buy ORDER BY $order"; // 例としてBuyテーブルのデータを取得
+$sql = "SELECT customers.Name, buy.Cust_id, books.Book_id, buy.Purchase_date, buy.Purchase_number,books.Book_name 
+        FROM buy INNER JOIN books ON buy.Book_id = books.Book_id INNER JOIN customers ON buy.Cust_id = customers.Cust_id 
+        ORDER BY buy.Purchase_number DESC"; // テーブルのデータを取得
 $result = $conn->query($sql);
 ?>
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -76,7 +77,14 @@ $result = $conn->query($sql);
         <main>
             <div class="content">
                 <div class="centered-text">売上ランキング</div>
-                
+
+                <div class="button-container">
+                    <form id="redirectForm">
+                        <input type="submit" class="custom-button3" value="年代別ランキング" onclick="event.preventDefault(); location.href='../S02/S02_menu.php'">
+                        <input type="submit" class="custom-button3" value="地域別ランキング" onclick="event.preventDefault(); location.href='../S02_menu.php'">
+                    </form>
+                </div>
+
                 <div class="table-container">
                     <?php
                     // 結果が1行以上の場合データを表示
@@ -104,11 +112,7 @@ $result = $conn->query($sql);
                     ?>
                 </div>
 
-                <form id="redirectForm">
-                    <input type="submit" class="custom-button3" value="年代別ランキング" onclick="event.preventDefault(); location.href='../S02/S02_menu.php'">
-                    <input type="submit" class="custom-button3" value="地域別ランキング" onclick="event.preventDefault(); location.href='../S02/S02_menu.php'">
-                    <button class="custom-button-back" onclick="event.preventDefault(); location.href='../S02/S02_menu.php'">戻る</button>
-                </form> 
+                <button class="custom-button-back" onclick="event.preventDefault(); location.href='../S02/S02_menu.php'">戻る</button>
             </div>
         </main>
 

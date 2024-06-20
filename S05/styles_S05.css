@@ -11,6 +11,7 @@ body {
     background-position: center;
 }
 
+
 header {
     background-color: #f8f8f8;
     padding: 10px 20px;
@@ -51,18 +52,15 @@ header {
     text-align: center; /* テキストの配置 */
     font-size: 20px; /* フォントサイズ */
     border-radius: 20px; /* 角を丸くする */
-    /* ボタンの形状 */
     display: inline-block;
     color: #fff;
     padding: 18px 10px;
-    /* 背景の色と形状 */
     background: linear-gradient(270deg, #9ca2f4 0%, #a978e5 25%, #c66ebf 51%, #fb6e98 100%);
     background-position: 1% 50%;
     background-size: 200% auto;
-    /* アニメーションの指定 */
     transition: all 0.3s ease-out;
     position: relative; /* 相対位置に変更 */
-    margin: 20px 0; /* ボタン同士の上下の隙間を設定 */
+    margin: 20px 0; /* 上下のマージンを設定 */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     width: 230px; /* ボタンの幅を指定 */
     height: 200px; /* ボタンの高さを指定 */
