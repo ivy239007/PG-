@@ -110,7 +110,7 @@
                 <input type="submit" value="登録">
             </div>
         </form>
-        <button onclick="location.href='../S03/S03.html'" type="button" name="name" value="value" id="BackButton">戻る</button>
+        <button onclick="location.href='../S03/S03.php'" type="button" name="name" value="value" id="BackButton">戻る</button>
     </main>
 
     <footer>

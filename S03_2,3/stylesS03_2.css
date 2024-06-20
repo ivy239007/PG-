@@ -17,7 +17,6 @@ body { /*全体の設定*/
     background-position: center; /* 背景画像を中央に配置 */
 }
 
-
 header { /*ヘッダー設定*/
     background-color: #f8f8f8;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -43,9 +42,8 @@ main { /*メイン設定*/
     text-align: center;
 }
 
-.container {
+.container { /*コンテナの配置*/ /*※未設定多数*/
     flex-direction: column;
-    padding: 50px;
     margin-bottom: 15px; /*配置*/
     display: flex;
     align-items: center; /*又はflex-start*/
@@ -110,7 +108,7 @@ input[type="submit"] { /*登録ボタンの設定*/
     cursor: pointer;
 }
 
-footer { /*フッダーの設定*/
+footer {
     background-color: #f8f8f8;
     padding: 10px 20px;
     text-align: center;
