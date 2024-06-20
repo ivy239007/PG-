@@ -28,10 +28,10 @@ if ($conn->connect_error) {
 $sort = isset($_GET['sort']) ? $_GET['sort'] : 'Cust_asc';
 $order = '';
 $Cust_id_sort_url = 'Cust_id_asc';
-$Name = 'Name_asc';
-$State_id = 'State_id_asc';
-$Gender = 'Gender_asc';
-$Birth_day = 'Birth_day_asc';
+$Name_sort_url = 'Name_asc';
+$State_id_sort_url = 'State_id_asc';
+$Gender_sort_url = 'Gender_asc';
+$Birth_day_sort_url = 'Birth_day_asc';
 
 switch ($sort) {
     case 'Cust_id_asc':
@@ -125,7 +125,7 @@ $result = $conn->query($sql);
             <button type="button" name="name" value="value" id = "tourokuButton">削除</button>
         </div>
         
-        <div class="DatabaseTable">
+        <div class="DatabaseTable" id="DatabaseTable">
         <?php
         // 結果が1行以上の場合データを表示
         if ($result->num_rows > 0) {
