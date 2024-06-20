@@ -20,7 +20,7 @@
         <form id="loginForm" method="post" action="lotest.php"> <!-- PHPファイルへのアクションを指定 -->
             <div class="form-group">
                 <label for="id">I D :</label>
-                <input type="text" id="id" name="id" required autofocus placeholder="ivy">
+                <input type="text" id="id" name="id" required autofocus placeholder="c239001">
             </div>
             <div class="form-group">
                 <label for="pw">PW:</label>

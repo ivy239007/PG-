@@ -38,9 +38,7 @@ header {
     right: 5px; /* 右端からの距離 */
     bottom: 40px; /* 下端からの距離 */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
 }
-
 
 .custom-button-back:hover {
     background-color: rgb(255, 0, 0); /* ホバー時の背景色 */
@@ -66,7 +64,8 @@ header {
     position: relative; /* 相対位置に変更 */
     margin: 20px 0; /* ボタン同士の上下の隙間を設定 */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    
+    width: 230px; /* ボタンの幅を指定 */
+    height: 200px; /* ボタンの高さを指定 */
 }
 
 .custom-button3:hover {
@@ -74,7 +73,6 @@ header {
     color: #ffffff;
     background-position: 99% 50%;
 }
-
 
 .logo {
     height: 50px;
@@ -86,41 +84,52 @@ header {
     flex-direction: column;
 }
 
-
 main {
     flex-grow: 1;
     display: flex;
-    justify-content: flex-end; /* 右に配置 */
+    justify-content: center; /* 中央に配置 */
     align-items: flex-start; /* 上に配置 */
     text-align: center;
     padding-right: 20px; /* 右端の余白を追加 */
 }
 
-form {
+.content {
     display: flex;
     flex-direction: column;
+    align-items: center; /* 中央揃え */
+    width: 100%; /* 親要素の幅を100%に */
+}
+
+form {
+    display: flex;
+    flex-direction: row; /* ボタンを横並びに配置 */
     align-items: flex-end; /* ボタンを右端に配置 */
+    justify-content: center; /* ボタンを中央に配置 */
+    gap: 20px; /* ボタン間のスペースを追加 */
 }
 
 form input[type="submit"] {
     border: none; /* 枠線を消す */
-
     width: 230px; /* ボタンの幅を指定 */
-    height: 70px; /* ボタンの高さを指定 */
+    height: 200px; /* ボタンの高さを指定 */
     padding: 10px 20px;
     font-size: 24px;
     cursor: pointer;
     margin: 20px 0; /* ボタン同士の上下の隙間を設定 */
     box-sizing: border-box; /* パディングを含めて幅と高さを計算 */
-    background-color:#d8fff7;
-
+    background-color: #d8fff7;
 }
 
 .centered-text {
-    text-align: center; /* テキストの中央揃え */
-    width: 100%; /* 幅を100%にして親要素内で中央揃え */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px; /* 高さを調整して文字が中央に来るように */
+    width: 100%;
     font-size: 30px;
     color: #4c4c4c;
+    margin-top: 20px; /* 上に適度な余白を追加 */
+    text-align: center; /* テキストを中央揃え */
 }
 
 footer {
@@ -142,7 +151,7 @@ a:hover {
     text-decoration: underline;
 }
 
-.back{
+.back {
     text-align: right;
 }
 
@@ -154,8 +163,9 @@ a:hover {
     background-color: #f9f9f9;
     width: 80%;
     max-width: 800px;
-    max-height: 200px; /* 高さを制限 */
+    max-height: 400px; /* 高さを制限 */
     overflow-y: auto; /* 縦スクロールを有効にする */
+    margin: 20px auto; /* 自動的に左右中央揃え */
 }
 
 table {
@@ -172,5 +182,3 @@ th, td {
 th {
     background-color: #f2f2f2;
 }
-
-
