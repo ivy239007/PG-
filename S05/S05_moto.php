@@ -1,40 +1,42 @@
 <?php
 session_start();
-if (!isset($_SESSION['login'])) {
+if (isset($_SESSION['login']) == false) {
     print 'ログインされていません。<br/>';
     print '<a href="../S01/S01_login.php">ログイン画面へ</a>';
     exit();
 }
-
 // エラーレポートをオンにする
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-$servername = "172.16.3.136";
-$username = "sample_user";
-$password = "";
-$dbname = "pg";
-$port = 3306;
+$servername = "172.16.3.136"; // データベースサーバーのIPアドレスまたはホスト名
+$username = "sample_user"; // データベースユーザー名
+$password = ""; // データベースパスワード
+$dbname = "pg"; // データベース名
+$port = 3306; // データベースのポート番号
 
+// データベース接続の作成
 $conn = new mysqli($servername, $username, $password, $dbname, $port);
 
+// 接続チェック
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sort = isset($_GET['sort']) ? $_GET['sort'] : 'Cust_id_asc';
+// デフォルトのソート順を設定（ID の昇順）
+$sort = isset($_GET['sort']) ? $_GET['sort'] : 'Cust_asc';
 $order = '';
-$Cust_id_sort_url = 'Cust_id_asc';
+$Cust_id_sort_url = 'Cust_idasc';
 $Book_id_sort_url = 'Book_id_asc';
 
 switch ($sort) {
     case 'Cust_id_asc':
         $order = 'Cust_id ASC';
-        $Cust_id_sort_url = 'Cust_id_desc';
+        $id_sort_url = 'Cust_id_desc';
         break;
     case 'Cust_id_desc':
         $order = 'Cust_id DESC';
-        $Cust_id_sort_url = 'Cust_id_asc';
+        $id_sort_url = 'Cust_id_asc';
         break;
     case 'Book_id_asc':
         $order = 'Book_id ASC';
@@ -46,15 +48,13 @@ switch ($sort) {
         break;
     default:
         $order = 'Cust_id ASC';
-        $Cust_id_sort_url = 'Cust_id_desc';
+        $id_sort_url = 'Cust_id_desc';
 }
 
+// SQLクエリを実行
 $sql = "SELECT books.Book_name, books.Author, books.Price, books.Publisher,
-        SUM(buy.Purchase_number) AS uriagerank
-        FROM buy 
-        INNER JOIN books ON buy.Book_id = books.Book_id
-        GROUP BY books.Book_id
-        ORDER BY uriagerank DESC"; // テーブルのデータを取得
+        SUM(buy.Purchase_number)AS uriagerank FROM buy 
+        INNER JOIN books ON buy.Book_id = books.Book_id"; // テーブルのデータを取得
 $result = $conn->query($sql);
 ?>
 <!DOCTYPE html>
@@ -87,22 +87,19 @@ $result = $conn->query($sql);
 
                 <div class="table-container">
                     <?php
+                    // 結果が1行以上の場合データを表示
                     if ($result->num_rows > 0) {
+                        // データをHTMLテーブルとして出力
                         echo "<table><tr>";
-                        echo "<th>書籍名</th>";
-                        echo "<th>著者</th>";
-                        echo "<th>価格</th>";
-                        echo "<th>出版社</th>";
-                        echo "<th>売上数</th>";
+                        echo "<th><a href='?sort=$Cust_id_sort_url'>Cust_id " . ($sort == 'Cust_id_asc' ? '▲' : '▼') . "</a></th>";
+                        echo "<th><a href='?sort=$Book_id_sort_url'>Book_id " . ($sort == 'Book_id_asc' ? '▲' : '▼') . "</a></th>";
                         echo "</tr>";
                         
+                        // 各行のデータを出力
                         while ($row = $result->fetch_assoc()) {
                             echo "<tr>";
-                            echo "<td>" . htmlspecialchars($row["Book_name"]) . "</td>";
-                            echo "<td>" . htmlspecialchars($row["Author"]) . "</td>";
-                            echo "<td>" . htmlspecialchars($row["Price"]) . "</td>";
-                            echo "<td>" . htmlspecialchars($row["Publisher"]) . "</td>";
-                            echo "<td>" . htmlspecialchars($row["uriagerank"]) . "</td>";
+                            echo "<td>" . $row["Cust_id"] . "</td>";
+                            echo "<td>" . $row["Book_id"] . "</td>";
                             echo "</tr>";
                         }
                         echo "</table>";
@@ -110,6 +107,7 @@ $result = $conn->query($sql);
                         echo "0 results";
                     }
 
+                    // 接続を閉じる
                     $conn->close();
                     ?>
                 </div>

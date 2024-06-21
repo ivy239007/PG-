@@ -45,8 +45,8 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
 
     <main>
         <form id="redirectForm">
-            <input type="submit" class="custom-button3" value="顧客管理" onclick="event.preventDefault(); location.href='../S03/S03.html'">
-            <input type="submit" class="custom-button3" value="書籍管理" onclick="event.preventDefault(); location.href='../S04/S04.html'">
+            <input type="submit" class="custom-button3" value="顧客管理" onclick="event.preventDefault(); location.href='../S03/S03.php'">
+            <input type="submit" class="custom-button3" value="書籍管理" onclick="event.preventDefault(); location.href='../S04/S04.php'">
             <input type="submit" class="custom-button3" value="データ分析" onclick="event.preventDefault(); location.href='../S05/S05.php'">
         </form>
     </main>
