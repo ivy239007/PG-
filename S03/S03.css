@@ -138,17 +138,23 @@ footer {
 }
 
 .DatabaseTable {
-    width: 1000px;
-    margin-top: 90px;
-    height: 350px;
-    overflow: auto;
+    margin-top: 100px;
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+    width: 80%;
+    max-width: 1000px;
+    max-height: 400px; /* 高さを制限 */
+    overflow-y: auto; /* 縦スクロールを有効にする */
+    margin: 20px auto; /* 自動的に左右中央揃え */
 }
 
-#DatabaseTable {
-    background-color: #ccc;
+
+table {
     border-collapse: collapse;
-    table-layout: fixed;
-    text-align: center;
+    width: 100%;
 }
 
 #DatabaseTable th, #DatabaseTable td {
@@ -175,6 +181,7 @@ footer {
 }
 #DatabaseTable tbody tr:hover td {
     background-color: #daf4ff;
+    cursor: pointer;
 }
 a {
     color: #000;
