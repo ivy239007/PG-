@@ -63,7 +63,7 @@ header {
     margin: 20px 0; /* 上下のマージンを設定 */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     width: 230px; /* ボタンの幅を指定 */
-    height: 200px; /* ボタンの高さを指定 */
+    height: 70px; /* ボタンの高さを指定 */
 }
 
 .custom-button3:hover {
