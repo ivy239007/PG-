@@ -52,6 +52,8 @@ header {
     text-align: center; /* テキストの配置 */
     font-size: 20px; /* フォントサイズ */
     border-radius: 20px; /* 角を丸くする */
+    width: 230px; /* ボタンの幅を指定 */
+    height: 100px; /* ボタンの高さを指定 */
     display: inline-block;
     color: #fff;
     padding: 18px 10px;
@@ -62,8 +64,6 @@ header {
     position: relative; /* 相対位置に変更 */
     margin: 20px 0; /* 上下のマージンを設定 */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 230px; /* ボタンの幅を指定 */
-    height: 70px; /* ボタンの高さを指定 */
 }
 
 .custom-button3:hover {

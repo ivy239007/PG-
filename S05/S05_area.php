@@ -22,39 +22,10 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sort = isset($_GET['sort']) ? $_GET['sort'] : 'Cust_id_asc';
-$order = '';
-$Cust_id_sort_url = 'Cust_id_asc';
-$Book_id_sort_url = 'Book_id_asc';
 
-switch ($sort) {
-    case 'Cust_id_asc':
-        $order = 'Cust_id ASC';
-        $Cust_id_sort_url = 'Cust_id_desc';
-        break;
-    case 'Cust_id_desc':
-        $order = 'Cust_id DESC';
-        $Cust_id_sort_url = 'Cust_id_asc';
-        break;
-    case 'Book_id_asc':
-        $order = 'Book_id ASC';
-        $Book_id_sort_url = 'Book_id_desc';
-        break;
-    case 'Book_id_desc':
-        $order = 'Book_id DESC';
-        $Book_id_sort_url = 'Book_id_asc';
-        break;
-    default:
-        $order = 'Cust_id ASC';
-        $Cust_id_sort_url = 'Cust_id_desc';
-}
-
-$sql = "SELECT books.Book_name, books.Author, books.Price, books.Publisher,
-        SUM(buy.Purchase_number) AS uriagerank
-        FROM buy 
-        INNER JOIN books ON buy.Book_id = books.Book_id
-        GROUP BY books.Book_id
-        ORDER BY uriagerank DESC"; // テーブルのデータを取得
+$sql = "SELECT customers.Cust_id,  books.Book_name, state.state , 
+        COUNT(state.state) AS total FROM state INNER JOIN customers ON state.State_id = customers.State_id 
+        INNER JOIN buy ON customers.Cust_id = buy.Cust_id INNER JOIN books ON buy.Book_id = books.Book_id"; // テーブルのデータを取得
 $result = $conn->query($sql);
 ?>
 <!DOCTYPE html>
@@ -76,12 +47,12 @@ $result = $conn->query($sql);
 
         <main>
             <div class="content">
-                <div class="centered-text">売上ランキング</div>
+                <div class="centered-text">地域別ランキング</div>
 
                 <div class="button-container">
                     <form id="redirectForm">
-                        <input type="submit" class="custom-button3" value="年代別ランキング" onclick="event.preventDefault(); location.href='../S02/S02_menu.php'">
-                        <input type="submit" class="custom-button3" value="地域別ランキング" onclick="event.preventDefault(); location.href='../S02_menu.php'">
+                        <input type="submit" class="custom-button3" value="売上ランキング" onclick="event.preventDefault(); location.href='../S05/S05.php'">
+                        <input type="submit" class="custom-button3" value="年代別ランキング" onclick="event.preventDefault(); location.href='../S05/S05_age.php'">
                     </form>
                 </div>
 
@@ -90,19 +61,15 @@ $result = $conn->query($sql);
                     if ($result->num_rows > 0) {
                         echo "<table><tr>";
                         echo "<th>書籍名</th>";
-                        echo "<th>著者</th>";
-                        echo "<th>価格</th>";
-                        echo "<th>出版社</th>";
-                        echo "<th>売上数</th>";
+                        echo "<th>都道府県</th>";
+                        echo "<th>合計</th>";
                         echo "</tr>";
                         
                         while ($row = $result->fetch_assoc()) {
                             echo "<tr>";
                             echo "<td>" . htmlspecialchars($row["Book_name"]) . "</td>";
-                            echo "<td>" . htmlspecialchars($row["Author"]) . "</td>";
-                            echo "<td>" . htmlspecialchars($row["Price"]) . "</td>";
-                            echo "<td>" . htmlspecialchars($row["Publisher"]) . "</td>";
-                            echo "<td>" . htmlspecialchars($row["uriagerank"]) . "</td>";
+                            echo "<td>" . htmlspecialchars($row["state"]) . "</td>";
+                            echo "<td>" . htmlspecialchars($row["total"]) . "</td>";
                             echo "</tr>";
                         }
                         echo "</table>";
