@@ -1,5 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="ja">
+
+
 <head>
     <meta charset="utf-8">
     <title>顧客新規登録</title>
