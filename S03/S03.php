@@ -80,12 +80,6 @@ switch ($sort) {
 }
 
 // SQLクエリを実行
-//以下ざっくり
-//購入テーブルから売上上位１０個取り出すSQL文くを書く、
-//order By 購入数　DESC的なので、書籍IDで読み込んでBOOKを抽出する
-//書籍IDを抽出して、Bookテーブルから当該の本データをとる、￥
-//本データの名前など画面に返す
-//INNER JOIN使って　一気にとるのも可
 
 $sql = "SELECT Cust_id, Name, State_id, Gender, Birth_day FROM Customers ORDER BY $order"; // 例としてBuyテーブルのデータを取得
 $result = $conn->query($sql);
@@ -131,11 +125,11 @@ $result = $conn->query($sql);
         if ($result->num_rows > 0) {
             // データをHTMLテーブルとして出力
             echo "<table><tr>";
-            echo "<th><a href='?sort=$Cust_id_sort_url'>Cust_id " . ($sort == 'Cust_id_asc' ? '▲' : '▼') . "</a></th>";
-            echo "<th><a href='?sort=$Name_sort_url'>Name " . ($sort == 'Name_asc' ? '▲' : '▼') . "</a></th>";
-            echo "<th><a href='?sort=$State_id_sort_url'>State_id " . ($sort == 'State_id_asc' ? '▲' : '▼') . "</a></th>";
-            echo "<th><a href='?sort=$Gender_sort_url'>Gender " . ($sort == 'Gender_asc' ? '▲' : '▼') . "</a></th>";
-            echo "<th><a href='?sort=$Birth_day_sort_url'>Birth_day_id " . ($sort == 'Birth_day_asc' ? '▲' : '▼') . "</a></th>";
+            echo "<th><a href='?sort=$Cust_id_sort_url'>顧客ID " . ($sort == 'Cust_id_asc' ? '▲' : '▼') . "</a></th>";
+            echo "<th><a href='?sort=$Name_sort_url'>顧客名 " . ($sort == 'Name_asc' ? '▲' : '▼') . "</a></th>";
+            echo "<th><a href='?sort=$State_id_sort_url'>都道府県 " . ($sort == 'State_id_asc' ? '▲' : '▼') . "</a></th>";
+            echo "<th><a href='?sort=$Gender_sort_url'>性別 " . ($sort == 'Gender_asc' ? '▲' : '▼') . "</a></th>";
+            echo "<th><a href='?sort=$Birth_day_sort_url'>生年月日 " . ($sort == 'Birth_day_asc' ? '▲' : '▼') . "</a></th>";
             echo "</tr>";
             
             // 各行のデータを出力

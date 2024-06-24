@@ -138,17 +138,15 @@ footer {
 }
 
 .DatabaseTable {
-    margin-top: 100px;
     text-align: center;
     border: 1px solid #ccc;
-    padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background-color: #f9f9f9;
     width: 80%;
     max-width: 1000px;
-    max-height: 400px; /* 高さを制限 */
+    max-height: 300px; /* 高さを制限 */
     overflow-y: auto; /* 縦スクロールを有効にする */
-    margin: 20px auto; /* 自動的に左右中央揃え */
+    margin: 80px auto; /* 自動的に左右中央揃え */
 }
 
 
