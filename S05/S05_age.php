@@ -22,32 +22,32 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// $sort = isset($_GET['sort']) ? $_GET['sort'] : 'Cust_id_asc';
-// $order = '';
-// $Cust_id_sort_url = 'Cust_id_asc';
-// $Book_id_sort_url = 'Book_id_asc';
+$sort = isset($_GET['sort']) ? $_GET['sort'] : 'Cust_id_asc';
+$order = '';
+$Cust_id_sort_url = 'Cust_id_asc';
+$Book_id_sort_url = 'Book_id_asc';
 
-// switch ($sort) {
-//     case 'Cust_id_asc':
-//         $order = 'Cust_id ASC';
-//         $Cust_id_sort_url = 'Cust_id_desc';
-//         break;
-//     case 'Cust_id_desc':
-//         $order = 'Cust_id DESC';
-//         $Cust_id_sort_url = 'Cust_id_asc';
-//         break;
-//     case 'Book_id_asc':
-//         $order = 'Book_id ASC';
-//         $Book_id_sort_url = 'Book_id_desc';
-//         break;
-//     case 'Book_id_desc':
-//         $order = 'Book_id DESC';
-//         $Book_id_sort_url = 'Book_id_asc';
-//         break;
-//     default:
-//         $order = 'Cust_id ASC';
-//         $Cust_id_sort_url = 'Cust_id_desc';
-// }
+switch ($sort) {
+    case 'Cust_id_asc':
+        $order = 'Cust_id ASC';
+        $Cust_id_sort_url = 'Cust_id_desc';
+        break;
+    case 'Cust_id_desc':
+        $order = 'Cust_id DESC';
+        $Cust_id_sort_url = 'Cust_id_asc';
+        break;
+    case 'Book_id_asc':
+        $order = 'Book_id ASC';
+        $Book_id_sort_url = 'Book_id_desc';
+        break;
+    case 'Book_id_desc':
+        $order = 'Book_id DESC';
+        $Book_id_sort_url = 'Book_id_asc';
+        break;
+    default:
+        $order = 'Cust_id ASC';
+        $Cust_id_sort_url = 'Cust_id_desc';
+}
 
 $sql = "SELECT books.Book_name, books.Author, books.Price, books.Publisher,
         SUM(buy.Purchase_number) AS uriagerank
@@ -80,8 +80,8 @@ $result = $conn->query($sql);
 
                 <div class="button-container">
                     <form id="redirectForm">
-                        <input type="submit" class="custom-button3" value="年代別ランキング" onclick="event.preventDefault(); location.href='../S05/S05_age.php'">
-                        <input type="submit" class="custom-button3" value="地域別ランキング" onclick="event.preventDefault(); location.href='../S02_area.php'">
+                        <input type="submit" class="custom-button3" value="年代別ランキング" onclick="event.preventDefault(); location.href='../S02/S02_menu.php'">
+                        <input type="submit" class="custom-button3" value="地域別ランキング" onclick="event.preventDefault(); location.href='../S02_menu.php'">
                     </form>
                 </div>
 
