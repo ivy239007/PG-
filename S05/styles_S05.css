@@ -185,3 +185,7 @@ th {
 table tr:hover {
     background-color: #fcc2e6; /* ホバー時の背景色 */
 }
+
+.custom-button3, .custom-button-back {
+    cursor: url('../graphic/MBall.gif'), auto;
+}
