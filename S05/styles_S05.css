@@ -155,7 +155,7 @@ a:hover {
 
 .table-container {
     text-align: center;
-    border: 1px solid #ccc;
+    border: 2px solid #ccc;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background-color: #f9f9f9;
@@ -179,4 +179,9 @@ th, td {
 
 th {
     background-color: #f2f2f2;
+}
+
+/* テーブルの行にマウスを乗せたときに背景色を変える */
+table tr:hover {
+    background-color: #fcc2e6; /* ホバー時の背景色 */
 }

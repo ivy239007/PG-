@@ -17,6 +17,6 @@
     <meta http-equiv="refresh" content="2;url=../S01/S01_login.php">
 </head>
 <body>
-    <div class="message">ログアウトしました。<br>ログイン画面へ切り替えます。</div>
+    <div class="message">ログアウトしました。<br>2秒後にログイン画面へ切り替えます。</div>
 </body>
 </html>
