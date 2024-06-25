@@ -26,7 +26,7 @@
             </div> 
 
             <div class="form-group">
-                <label for="sex">&nbsp;性&emsp;&nbsp;別&nbsp;</label>
+                <for="sex">&nbsp;性&emsp;&nbsp;別&nbsp;</label>
                 <td>
                     <input type="radio" name="sex" id="male" value="男性" checked><label for="male">男性&nbsp;&nbsp;</label>
                     <input type="radio" name="sex" id="female" value="女性"><label for="female">女性&nbsp;&nbsp;</label>
