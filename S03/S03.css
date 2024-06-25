@@ -144,7 +144,7 @@ footer {
     background-color: #f9f9f9;
     width: 80%;
     max-width: 1000px;
-    max-height: 300px; /* 高さを制限 */
+    max-height: 310px; /* 高さを制限 */
     overflow-y: auto; /* 縦スクロールを有効にする */
     margin: 80px auto; /* 自動的に左右中央揃え */
 }
@@ -160,7 +160,7 @@ table {
     padding: 1em;
 }
 
-#DatabaseTable thead th {
+#DatabaseTable th {
     background-color: lightskyblue;
     color: #fff;
     border: 2px solid lightskyblue;
@@ -168,24 +168,20 @@ table {
     border-bottom: 2px solid #fff;
 }
 
-#DatabaseTable thead th:last-of-type {
+#DatabaseTable th:last-of-type {
     border-right: 2px solid lightskyblue;
 }
 
-#DatabaseTable tbody th {
+#DatabaseTable th {
     color: #4d9bc1;
     font-weight: bold;
     text-align: center;
 }
-#DatabaseTable tbody tr:hover td {
+#DatabaseTable tr:hover td {
     background-color: #daf4ff;
     cursor: pointer;
 }
 a {
     color: #000;
     text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
 }
