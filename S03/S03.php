@@ -81,7 +81,10 @@ switch ($sort) {
 
 // SQLクエリを実行
 
-$sql = "SELECT Cust_id, Name, State_id, Gender, Birth_day FROM Customers ORDER BY $order"; // 例としてBuyテーブルのデータを取得
+$sql = "SELECT customers.Cust_id, customers.Name, state.state, customers.Gender, customers.Birth_day
+FROM Customers
+INNER JOIN state ON customers.State_id = state.State_id 
+ORDER BY $order";
 $result = $conn->query($sql);
 ?>
 
@@ -137,7 +140,7 @@ $result = $conn->query($sql);
                 echo "<tr>";
                 echo "<td>" . $row["Cust_id"]. "</td>";
                 echo "<td>" . $row["Name"]. "</td>";
-                echo "<td>" . $row["State_id"]. "</td>";
+                echo "<td>" . $row["state"]. "</td>";
                 echo "<td>" . $row["Gender"]. "</td>";
                 echo "<td>" . $row["Birth_day"]. "</td>";
                 echo "</tr>";
