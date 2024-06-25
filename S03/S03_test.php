@@ -1,16 +1,124 @@
+<?php
+session_start();
+if(isset($_SESSION['login'])==false){
+    print'ログインされていません。<br/>';
+    print'<a href="../PG/S01/S01_login.php">ログイン画面へ</a>';
+    exit();
+}
+
+// エラーレポートをオンにする
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+$servername = "172.16.3.136"; // データベースサーバーのIPアドレスまたはホスト名
+$username = "sample_user"; // データベースユーザー名
+$password = ""; // データベースパスワード
+$dbname = "pg"; // データベース名
+$port = 3306; // データベースのポート番号
+
+// データベース接続の作成
+$conn = new mysqli($servername, $username, $password, $dbname, $port);
+
+// 接続チェック
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// デフォルトのソート順を設定（ID の昇順）
+$sort = isset($_GET['sort']) ? $_GET['sort'] : 'Cust_asc';
+$order = '';
+$Cust_id_sort_url = 'Cust_id_asc';
+$Name_sort_url = 'Name_asc';
+$State_id_sort_url = 'State_id_asc';
+$Gender_sort_url = 'Gender_asc';
+$Birth_day_sort_url = 'Birth_day_asc';
+
+switch ($sort) {
+    case 'Cust_id_asc':
+        $order = 'Cust_id ASC';
+        $Cust_id_sort_url = 'Cust_id_desc';
+        break;
+    case 'Cust_id_desc':
+        $order = 'Cust_id DESC';
+        $Cust_id_sort_url = 'Cust_id_asc';
+        break;
+    case 'Name_asc':
+        $order = 'Name ASC';
+        $Name_sort_url = 'Name_desc';
+        break;
+    case 'Name_desc':
+        $order = 'Name DESC';
+        $Name_sort_url = 'Name_asc';
+        break;
+    case 'State_id_asc':
+        $order = 'State_id ASC';
+        $State_id_sort_url = 'State_id_desc';
+        break;
+    case 'State_id_desc':
+        $order = 'State_id DESC';
+        $State_id_sort_url = 'State_id_asc';
+        break;
+    case 'Gender_asc':
+        $order = 'Gender ASC';
+        $Gender_sort_url = 'Gender_desc';
+        break;
+    case 'Gender_desc':
+        $order = 'Gender DESC';
+        $Gender_sort_url = 'Gender_asc';
+        break;
+    case 'Birth_day_asc':
+        $order = 'Birth_day ASC';
+        $Birth_day_sort_url = 'Birth_day_desc';
+        break;
+    case 'Birth_day_desc':
+        $order = 'Birth_day DESC';
+        $Birth_day_sort_url = 'Birth_day_asc';
+        break;
+    default:
+        $order = 'Cust_id ASC';
+        $Cust_id_sort_url = 'Cust_id_desc';
+}
+
+// 検索条件の設定
+$searchChoice = isset($_POST['searchChoice']) ? $_POST['searchChoice'] : '';
+$kensaku = isset($_POST['kensaku']) ? $_POST['kensaku'] : '';
+
+// デバッグ用出力
+// echo "検索タイプ: $searchChoice<br>";
+// echo "検索キーワード: $kensaku<br>";
+
+// SQLクエリの作成
+$sql = "SELECT Cust_id, Name, State_id, Gender, Birth_day FROM Customers";
+if ($kensaku !== '') {
+    if ($searchChoice == 'aimai') {
+        $sql .= " WHERE Name LIKE '%" . $conn->real_escape_string($kensaku) . "%'";
+    } else {
+        $sql .= " WHERE Name = '" . $conn->real_escape_string($kensaku) . "'";
+    }
+}
+$sql .= " ORDER BY $order";
+
+// デバッグ用出力
+// echo "SQLクエリ: $sql<br>";
+
+// SQLクエリを実行
+$result = $conn->query($sql);
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <title>顧客管理画面</title>
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap');
+  <meta charset ="utf-8">
+  <title>顧客管理画面</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap');
   </style>
-    <link rel="stylesheet" type="text/css" href="S03_test.css">
+    <link rel="stylesheet" type="text/css" href="S03.css">
 </head>
 <body>
     <header>
         <img src="../graphic/ニトリロゴ.jpg" alt="Logo" class="logo">
-        <form action="user_list.php" method="post">
+        <form action="" method="post">
             <div class="search">
                 <input type="text" size="80" name="kensaku">
                 <input type="submit" value="検索">
@@ -18,7 +126,7 @@
             <div class="radiobutton">
                 <input type="radio" id="searchChoice1" name="searchChoice" value="aimai" />
                 <label for="searchChoice1">あいまい検索</label>
-                <input type="radio" id="searchChoice2" name="sea rchChoice" value="icchi" />
+                <input type="radio" id="searchChoice2" name="searchChoice" value="icchi" />
                 <label for="searchChoice2">一致検索</label>
             </div>
         </form>
@@ -26,115 +134,44 @@
     
     <main>
         <div class = "touroku">
-            <button onclick="location.href='../S03_2,3/S03_2.html'" type="button" name="name" value="value" id = "tourokuButton">新規登録</button>
-            <button onclick="location.href='../S03_2,3/S03_3.html'" type="button" name="name" value="value" id = "tourokuButton">編集</button>  
+            <button onclick="location.href='../S03_2,3/S03_2.php'" type="button" name="name" value="value" id = "tourokuButton">新規登録</button>
+            <button onclick="location.href='../S03_2,3/S03_3.php'" type="button" name="name" value="value" id = "tourokuButton">編集</button>  
             <button type="button" name="name" value="value" id = "tourokuButton">削除</button>
         </div>
         
-        
-        <div>
-          <?php//以下テスト中/2024/06/17
-          // データベースユーザ
-          $user = 'testuser';
-          $password = 'pw4testuser';
-          // 利用するデータベース
-          $dbName = 'testdb';
-          // MySQLサーバ
-          $host = 'localhost:3306';
-          // MySQLのDSN文字列
-          $dsn = "mysql:host={$host};dbname={$dbName};charset=utf8";
-        
-          //MySQLデータベースに接続する
-          try {
-            $pdo = new PDO($dsn, $user, $password);
-            // プリペアドステートメントのエミュレーションを無効にする
-            $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-            // 例外がスローされる設定にする
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            echo "データベース{$dbName}に接続しました。";
-            // 接続を解除する
-            $pdo = NULL;
-          } catch (Exception $e) {
-            echo '<span class="error">エラーがありました。</span><br>';
-            echo $e->getMessage();
-            exit();
-          }
-          ?>
+        <div class="DatabaseTable" id="DatabaseTable">
+        <?php
+        // 結果が1行以上の場合データを表示
+        if ($result->num_rows > 0) {
+            // データをHTMLテーブルとして出力
+            echo "<table><tr>";
+            echo "<th><a href='?sort=$Cust_id_sort_url'>顧客ID " . ($sort == 'Cust_id_asc' ? '▲' : '▼') . "</a></th>";
+            echo "<th><a href='?sort=$Name_sort_url'>顧客名 " . ($sort == 'Name_asc' ? '▲' : '▼') . "</a></th>";
+            echo "<th><a href='?sort=$State_id_sort_url'>都道府県 " . ($sort == 'State_id_asc' ? '▲' : '▼') . "</a></th>";
+            echo "<th><a href='?sort=$Gender_sort_url'>性別 " . ($sort == 'Gender_asc' ? '▲' : '▼') . "</a></th>";
+            echo "<th><a href='?sort=$Birth_day_sort_url'>生年月日 " . ($sort == 'Birth_day_asc' ? '▲' : '▼') . "</a></th>";
+            echo "</tr>";
+            
+            // 各行のデータを出力
+            while($row = $result->fetch_assoc()) {
+                echo "<tr>";
+                echo "<td>" . $row["Cust_id"]. "</td>";
+                echo "<td>" . $row["Name"]. "</td>";
+                echo "<td>" . $row["State_id"]. "</td>";
+                echo "<td>" . $row["Gender"]. "</td>";
+                echo "<td>" . $row["Birth_day"]. "</td>";
+                echo "</tr>";
+            }
+            echo "</table>";
+        } else {
+            echo "0 results";
+        }
+
+        // 接続を閉じる
+        $conn->close();
+        ?>
         </div>
-        
-        <div class="DatabaseTable">
-            <table id="DatabaseTable" border=1 width="100%" cellspacing="0">
-                <thead>
-                    <tr>
-                        <th>顧客ID</th>
-                        <th>顧客名</th>
-                        <th>性別</th>
-                        <th>住所</th>
-                        <th>生年月日</th>
-                      </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td data-label="顧客ID">NULL</td>
-                        <td data-label="顧客名">NULL</td>
-                        <td data-label="性別">NULL</td>
-                        <td data-label="住所">NULL</td>
-                        <td data-label="生年月日">NULL</td>
-                      </tr>
-                      <tr>
-                        <td data-label="顧客ID">NULL</td>
-                        <td data-label="顧客名">NULL</td>
-                        <td data-label="性別">NULL</td>
-                        <td data-label="住所">NULL</td>
-                        <td data-label="生年月日">NULL</td>
-                      </tr>
-                      <tr>
-                        <td data-label="顧客ID">NULL</td>
-                        <td data-label="顧客名">NULL</td>
-                        <td data-label="性別">NULL</td>
-                        <td data-label="住所">NULL</td>
-                        <td data-label="生年月日">NULL</td>
-                      </tr>
-                      <tr>
-                        <td data-label="顧客ID">NULL</td>
-                        <td data-label="顧客名">NULL</td>
-                        <td data-label="性別">NULL</td>
-                        <td data-label="住所">NULL</td>
-                        <td data-label="生年月日">NULL</td>
-                      </tr>
-                      <tr>
-                        <td data-label="顧客ID">NULL</td>
-                        <td data-label="顧客名">NULL</td>
-                        <td data-label="性別">NULL</td>
-                        <td data-label="住所">NULL</td>
-                        <td data-label="生年月日">NULL</td>
-                      </tr>
-                      <tr>
-                        <td data-label="顧客ID">NULL</td>
-                        <td data-label="顧客名">NULL</td>
-                        <td data-label="性別">NULL</td>
-                        <td data-label="住所">NULL</td>
-                        <td data-label="生年月日">NULL</td>
-                      </tr>
-                      <tr>
-                        <td data-label="顧客ID">NULL</td>
-                        <td data-label="顧客名">NULL</td>
-                        <td data-label="性別">NULL</td>
-                        <td data-label="住所">NULL</td>
-                        <td data-label="生年月日">NULL</td>
-                      </tr>
-                      <tr>
-                        <td data-label="顧客ID">NULL</td>
-                        <td data-label="顧客名">NULL</td>
-                        <td data-label="性別">NULL</td>
-                        <td data-label="住所">NULL</td>
-                        <td data-label="生年月日">NULL</td>
-                      </tr>
-                </tbody>
-              </table>
-        </div>
-        
-          <button onclick="location.href='../S02/S02_menu.html'" type="button" name="name" value="value" id="BackButton">戻る</button>  
+          <button onclick="location.href='../S02/S02_menu.php'" type="button" name="name" value="value" id="BackButton">戻る</button>  
     </main>
         <footer>
         © 2024 <a href="https://www.ivy.ac.jp/">アイビクション</a>
