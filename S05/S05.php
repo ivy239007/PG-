@@ -22,14 +22,28 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
+$sort_column = isset($_GET['sort']) ? $_GET['sort'] : 'uriagerank';
+$sort_order = isset($_GET['order']) ? $_GET['order'] : 'DESC';
 
 $sql = "SELECT books.Book_name, books.Author, books.Price, books.Publisher,
         SUM(buy.Purchase_number) AS uriagerank
         FROM buy 
         INNER JOIN books ON buy.Book_id = books.Book_id
         GROUP BY books.Book_id
-        ORDER BY uriagerank DESC"; // テーブルのデータを取得
+        ORDER BY $sort_column $sort_order"; // テーブルのデータを取得
 $result = $conn->query($sql);
+
+function getSortLink($column, $label) {
+    $sort_order = 'ASC';
+    $arrow = '▲';
+    if (isset($_GET['sort']) && $_GET['sort'] == $column) {
+        if ($_GET['order'] == 'ASC') {
+            $sort_order = 'DESC';
+            $arrow = '▼';
+        }
+    }
+    return "<a href=\"?sort=$column&order=$sort_order\">$label $arrow</a>";
+}
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -63,11 +77,11 @@ $result = $conn->query($sql);
                     <?php
                     if ($result->num_rows > 0) {
                         echo "<table><tr>";
-                        echo "<th>書籍名</th>";
-                        echo "<th>著者</th>";
-                        echo "<th>価格</th>";
-                        echo "<th>出版社</th>";
-                        echo "<th>売上数</th>";
+                        echo "<th>" . getSortLink('Book_name', '書籍名') . "</th>";
+                        echo "<th>" . getSortLink('Author', '著者') . "</th>";
+                        echo "<th>" . getSortLink('Price', '価格') . "</th>";
+                        echo "<th>" . getSortLink('Publisher', '出版社') . "</th>";
+                        echo "<th>" . getSortLink('uriagerank', '売上数') . "</th>";
                         echo "</tr>";
                         
                         while ($row = $result->fetch_assoc()) {

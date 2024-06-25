@@ -22,11 +22,30 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
+$sort_column = isset($_GET['sort']) ? $_GET['sort'] : 'total';
+$sort_order = isset($_GET['order']) ? $_GET['order'] : 'DESC';
 
-$sql = "SELECT customers.Cust_id,  books.Book_name, state.state , 
-        COUNT(state.state) AS total FROM state INNER JOIN customers ON state.State_id = customers.State_id 
-        INNER JOIN buy ON customers.Cust_id = buy.Cust_id INNER JOIN books ON buy.Book_id = books.Book_id"; // テーブルのデータを取得
+$sql = "SELECT customers.Cust_id, books.Book_name, state.state, 
+        COUNT(state.state) AS total 
+        FROM state 
+        INNER JOIN customers ON state.State_id = customers.State_id 
+        INNER JOIN buy ON customers.Cust_id = buy.Cust_id 
+        INNER JOIN books ON buy.Book_id = books.Book_id 
+        GROUP BY customers.Cust_id, books.Book_name, state.state 
+        ORDER BY $sort_column $sort_order";
 $result = $conn->query($sql);
+
+function getSortLink($column, $label) {
+    $sort_order = 'ASC';
+    $arrow = '▲';
+    if (isset($_GET['sort']) && $_GET['sort'] == $column) {
+        if ($_GET['order'] == 'ASC') {
+            $sort_order = 'DESC';
+            $arrow = '▼';
+        }
+    }
+    return "<a href=\"?sort=$column&order=$sort_order\">$label $arrow</a>";
+}
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -60,9 +79,9 @@ $result = $conn->query($sql);
                     <?php
                     if ($result->num_rows > 0) {
                         echo "<table><tr>";
-                        echo "<th>書籍名</th>";
-                        echo "<th>都道府県</th>";
-                        echo "<th>合計</th>";
+                        echo "<th>" . getSortLink('Book_name', '書籍名') . "</th>";
+                        echo "<th>" . getSortLink('state', '都道府県') . "</th>";
+                        echo "<th>" . getSortLink('total', '合計') . "</th>";
                         echo "</tr>";
                         
                         while ($row = $result->fetch_assoc()) {
