@@ -137,11 +137,13 @@ $result = $conn->query($sql);
             
             // 各行のデータを出力
             while($row = $result->fetch_assoc()) {
+                // 性別の表示を「1」なら「男性」、「2」なら「女性」「３」ならその他に変換
+                $gender_display = ($row["Gender"] == "1") ? "男性" : (($row["Gender"] == "2") ? "女性" : "その他");
                 echo "<tr>";
                 echo "<td>" . $row["Cust_id"]. "</td>";
                 echo "<td>" . $row["Name"]. "</td>";
                 echo "<td>" . $row["state"]. "</td>";
-                echo "<td>" . $row["Gender"]. "</td>";
+                echo "<td>" . $gender_display. "</td>";
                 echo "<td>" . $row["Birth_day"]. "</td>";
                 echo "</tr>";
             }
