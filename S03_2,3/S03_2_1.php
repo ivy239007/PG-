@@ -29,7 +29,6 @@ $_SESSION['email'] = $email;
 <meta charset="utf-8">
 <title>DBに接続しているフォーム｜確認画面</title>
 <link rel="stylesheet" type="text/css" href="stylesS03_2_1.css"> 
-
 </head>
 
 <body>

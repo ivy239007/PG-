@@ -43,7 +43,7 @@ main { /*メイン設定*/
     text-align: center;
 }
 
-.form-group { /*コンテナの配置*/
+.form-group { /*classの配置*/
     flex-direction: column;
     margin-bottom: 15px; /*配置*/
     align-items: center; /*又はflex-start*/
