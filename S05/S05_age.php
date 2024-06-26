@@ -22,6 +22,16 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
+$order_column = 'Age_Group';
+$order_direction = 'ASC';
+
+if (isset($_GET['sort']) && isset($_GET['order'])) {
+    $valid_columns = ['Book_name', 'Age_Group', 'total'];
+    if (in_array($_GET['sort'], $valid_columns)) {
+        $order_column = $_GET['sort'];
+    }
+    $order_direction = ($_GET['order'] === 'DESC') ? 'DESC' : 'ASC';
+}
 
 $sql = "SELECT books.Book_name,
                CASE
@@ -42,9 +52,22 @@ $sql = "SELECT books.Book_name,
         INNER JOIN buy ON customers.Cust_id = buy.Cust_id
         INNER JOIN books ON buy.Book_id = books.Book_id
         GROUP BY Age_Group, books.Book_name
-        ORDER BY Age_Group ASC, total DESC;"; // テーブルのデータを取得
+        ORDER BY $order_column $order_direction;";
 $result = $conn->query($sql);
+
+function getSortLink($column, $label) {
+    $sort_order = 'ASC';
+    $arrow = '▲';
+    if (isset($_GET['sort']) && $_GET['sort'] == $column) {
+        if ($_GET['order'] == 'ASC') {
+            $sort_order = 'DESC';
+            $arrow = '▼';
+        }
+    }
+    return "<a href=\"?sort=$column&order=$sort_order\">$label $arrow</a>";
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -77,9 +100,9 @@ $result = $conn->query($sql);
                     <?php
                     if ($result->num_rows > 0) {
                         echo "<table><tr>";
-                        echo "<th>書籍名</th>";
-                        echo "<th>年代</th>";
-                        echo "<th>売上数</th>";
+                        echo "<th>" . getSortLink('Book_name', '書籍名') . "</th>";
+                        echo "<th>" . getSortLink('Age_Group', '年代') . "</th>";
+                        echo "<th>" . getSortLink('total', '売上数') . "</th>";
                         echo "</tr>";
                         
                         while ($row = $result->fetch_assoc()) {
