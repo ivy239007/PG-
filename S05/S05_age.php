@@ -23,12 +23,26 @@ if ($conn->connect_error) {
 }
 
 
-$sql = "SELECT books.Book_name, books.Author, books.Price, books.Publisher,
-        SUM(buy.Purchase_number) AS uriagerank
-        FROM buy 
+$sql = "SELECT books.Book_name,
+               CASE
+                   WHEN customers.Age BETWEEN 0 AND 9 THEN '幼少期'
+                   WHEN customers.Age BETWEEN 10 AND 19 THEN '10代'
+                   WHEN customers.Age BETWEEN 20 AND 29 THEN '20代'
+                   WHEN customers.Age BETWEEN 30 AND 39 THEN '30代'
+                   WHEN customers.Age BETWEEN 40 AND 49 THEN '40代'
+                   WHEN customers.Age BETWEEN 50 AND 59 THEN '50代'
+                   WHEN customers.Age BETWEEN 60 AND 69 THEN '60代'
+                   WHEN customers.Age BETWEEN 70 AND 79 THEN '70代'
+                   WHEN customers.Age BETWEEN 80 AND 89 THEN '80代'
+                   WHEN customers.Age BETWEEN 90 AND 99 THEN '90代'
+                   ELSE 'その他'
+               END AS Age_Group,
+               COUNT(customers.Age) AS total
+        FROM customers
+        INNER JOIN buy ON customers.Cust_id = buy.Cust_id
         INNER JOIN books ON buy.Book_id = books.Book_id
-        GROUP BY books.Book_id
-        ORDER BY uriagerank DESC"; // テーブルのデータを取得
+        GROUP BY Age_Group, books.Book_name
+        ORDER BY Age_Group ASC, total DESC;"; // テーブルのデータを取得
 $result = $conn->query($sql);
 ?>
 <!DOCTYPE html>
@@ -64,19 +78,15 @@ $result = $conn->query($sql);
                     if ($result->num_rows > 0) {
                         echo "<table><tr>";
                         echo "<th>書籍名</th>";
-                        echo "<th>著者</th>";
-                        echo "<th>価格</th>";
-                        echo "<th>出版社</th>";
+                        echo "<th>年代</th>";
                         echo "<th>売上数</th>";
                         echo "</tr>";
                         
                         while ($row = $result->fetch_assoc()) {
                             echo "<tr>";
                             echo "<td>" . htmlspecialchars($row["Book_name"]) . "</td>";
-                            echo "<td>" . htmlspecialchars($row["Author"]) . "</td>";
-                            echo "<td>" . htmlspecialchars($row["Price"]) . "</td>";
-                            echo "<td>" . htmlspecialchars($row["Publisher"]) . "</td>";
-                            echo "<td>" . htmlspecialchars($row["uriagerank"]) . "</td>";
+                            echo "<td>" . htmlspecialchars($row["Age_Group"]) . "</td>";
+                            echo "<td>" . htmlspecialchars($row["total"]) . "</td>";
                             echo "</tr>";
                         }
                         echo "</table>";
