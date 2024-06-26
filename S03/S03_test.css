@@ -37,11 +37,11 @@ header {
 }
 
 .radiobutton:hover{
-    cursor: pointer; /* カーソルを指に変更 */
+    cursor: pointer;
 }
 
 .radiobutton label:hover {
-    cursor: pointer; /* カーソルを指に変更 */
+    cursor: pointer;
 }
 
 .search input[type="text"] {
@@ -77,7 +77,7 @@ input[type="text"] {
 }
 
 input[type="submit"] {
-    font-family: "Zen Maru Gothic", serif; /* 「検索」ボタンフォント指定 */
+    font-family: "Zen Maru Gothic", serif;
     padding: 5px 10px;
     font-size: 16px;
     cursor: pointer;
@@ -96,7 +96,7 @@ main {
 }
 
 #BackButton {
-    font-family: "Zen Maru Gothic", serif; /* 「戻る」ボタンフォント指定 */
+    font-family: "Zen Maru Gothic", serif;
     font-size: 20px;
     position: absolute;
     bottom: 50px;
@@ -114,7 +114,7 @@ main {
 }
 
 #tourokuButton {
-    font-family: "Zen Maru Gothic", serif; /* 「新規登録」「編集」「削除」ボタンフォント指定 */
+    font-family: "Zen Maru Gothic", serif;
     font-size: 18px;
     width: 100px;
     height: 40px;
@@ -138,17 +138,21 @@ footer {
 }
 
 .DatabaseTable {
-    width: 1000px;
-    margin-top: 90px;
-    height: 350px;
-    overflow: auto;
+    text-align: center;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+    width: 80%;
+    max-width: 1000px;
+    max-height: 310px; /* 高さを制限 */
+    overflow-y: auto; /* 縦スクロールを有効にする */
+    margin: 80px auto; /* 自動的に左右中央揃え */
 }
 
-#DatabaseTable {
-    background-color: #ccc;
+
+table {
     border-collapse: collapse;
-    table-layout: fixed;
-    text-align: center;
+    width: 100%;
 }
 
 #DatabaseTable th, #DatabaseTable td {
@@ -156,7 +160,7 @@ footer {
     padding: 1em;
 }
 
-#DatabaseTable thead th {
+#DatabaseTable th {
     background-color: lightskyblue;
     color: #fff;
     border: 2px solid lightskyblue;
@@ -164,23 +168,20 @@ footer {
     border-bottom: 2px solid #fff;
 }
 
-#DatabaseTable thead th:last-of-type {
+#DatabaseTable th:last-of-type {
     border-right: 2px solid lightskyblue;
 }
 
-#DatabaseTable tbody th {
+#DatabaseTable th {
     color: #4d9bc1;
     font-weight: bold;
     text-align: center;
 }
-#DatabaseTable tbody tr:hover td {
+#DatabaseTable tr:hover td {
     background-color: #daf4ff;
+    cursor: pointer;
 }
 a {
     color: #000;
     text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
 }

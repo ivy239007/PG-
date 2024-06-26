@@ -89,12 +89,15 @@ $kensaku = isset($_POST['kensaku']) ? $_POST['kensaku'] : '';
 
 // SQLクエリの作成
 $sql = "SELECT Cust_id, Name, State_id, Gender, Birth_day FROM Customers";
-if ($kensaku !== '') {
+if ($kensaku != '') {
     if ($searchChoice == 'aimai') {
-        $sql .= " WHERE Name LIKE '%" . $conn->real_escape_string($kensaku) . "%'";
+        $likeKeyword = "%" . $conn->real_escape_string($kensaku) . "%";
+        $sql .= " WHERE Name LIKE '$likeKeyword' OR Cust_id LIKE '$likeKeyword'";
+        // $sql .= " WHERE Name OR Cust_id LIKE '%"  . $conn->real_escape_string($kensaku) . "%'";
     } else {
-        $sql .= " WHERE Name = '" . $conn->real_escape_string($kensaku) . "'";
-    }
+        $sql .= " WHERE Name OR Cust_id = '" . $conn->real_escape_string($kensaku) . "'";
+        // $sql .= " WHERE Name OR Cust_id = '" . $conn->real_escape_string($kensaku) . "'";
+    } 
 }
 $sql .= " ORDER BY $order";
 
