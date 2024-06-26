@@ -93,10 +93,8 @@ if ($kensaku != '') {
     if ($searchChoice == 'aimai') {
         $likeKeyword = "%" . $conn->real_escape_string($kensaku) . "%";
         $sql .= " WHERE Name LIKE '$likeKeyword' OR Cust_id LIKE '$likeKeyword'";
-        // $sql .= " WHERE Name OR Cust_id LIKE '%"  . $conn->real_escape_string($kensaku) . "%'";
     } else {
-        $sql .= " WHERE Name OR Cust_id = '" . $conn->real_escape_string($kensaku) . "'";
-        // $sql .= " WHERE Name OR Cust_id = '" . $conn->real_escape_string($kensaku) . "'";
+        $sql .= " WHERE Name = '$kensaku' OR Cust_id = '$kensaku'" ;
     } 
 }
 $sql .= " ORDER BY $order";
