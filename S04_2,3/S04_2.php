@@ -14,15 +14,15 @@
     </header>
     
     <main>
-        <form action="login.php" method="post">
+        <form action="S04_2_1.php" method="post">
             <div class="form-group">
                 <label for="bookname">書&nbsp;&nbsp;籍&nbsp;&nbsp;名</label>
-                <input type="text" id="name" name="name" required autofocus placeholder="アイビー">                
+                <input type="text" id="name" name="book_title" required autofocus placeholder="アイビー">                
             </div>
             
             <div class="form-group">
                 <label for="author">著&nbsp;&nbsp;作&nbsp;&nbsp;者</label>
-                <input type="text" id="name" name="name" required autofocus placeholder="永楽 仁八">                
+                <input type="text" id="name" name="author_name" required autofocus placeholder="永楽 仁八">                
             </div>
 
             <div class="form-group">
@@ -34,7 +34,7 @@
 
             <div class="form-group">
                 <label for="date-edit">刊&nbsp;&nbsp;行&nbsp;&nbsp;日</label>
-                <input type="date" id="date" value="2000-01-01" required>
+                <input type="date" id="date" name = "publication_date" value="2000-01-01" required>
             </div>
 
 
@@ -42,14 +42,14 @@
                 <label for="adress">出&nbsp;&nbsp;版&nbsp;&nbsp;社</label>
                 <select name="pref">
                     <option value="">選択してください</option>
-                    <option value="大分県" selected>講談社</option>
-                    <option value="宮崎県">KADOKAWA</option>
-                    <option value="鹿児島県">集英社</option>
+                    <option value="講談社" selected>講談社</option>
+                    <option value="KADOKAWA">KADOKAWA</option>
+                    <option value="集英社">集英社</option>
                     </select>
             </div>
             <div class="form-group">
                 <label for="adress">分&emsp;&emsp;類</label>
-                <select name="pref">
+                <select name="qref">
                     <option value="">選択してください</option>
                     <option value="文学・評論" selected>文学・評論</option>
                     <option value="人文・思想">人文・思想</option>
@@ -83,7 +83,7 @@
                 <input type="submit" value="登録">
             </div>
         </form>
-        <button onclick="location.href='../S03/S03.html'" type="button" name="name" value="value" id="BackButton">戻る</button>
+        <button onclick="location.href='../S04/S04.php'" type="button" name="name" value="value" id="BackButton">戻る</button>
     </main>
 
     <footer>
