@@ -5,6 +5,7 @@ if(isset($_SESSION['login'])==false){
     print'<a href="../PG/S01/S01_login.php">ログイン画面へ</a>';
     exit();
 }
+
 // エラーレポートをオンにする
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -23,7 +24,6 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-
 // デフォルトのソート順を設定（ID の昇順）
 $sort = isset($_GET['sort']) ? $_GET['sort'] : 'Cust_asc';
 $order = '';
@@ -36,11 +36,11 @@ $Birth_day_sort_url = 'Birth_day_asc';
 switch ($sort) {
     case 'Cust_id_asc':
         $order = 'Cust_id ASC';
-        $id_sort_url = 'Cust_id_desc';
+        $Cust_id_sort_url = 'Cust_id_desc';
         break;
     case 'Cust_id_desc':
         $order = 'Cust_id DESC';
-        $id_sort_url = 'Cust_id_asc';
+        $Cust_id_sort_url = 'Cust_id_asc';
         break;
     case 'Name_asc':
         $order = 'Name ASC';
@@ -76,15 +76,37 @@ switch ($sort) {
         break;
     default:
         $order = 'Cust_id ASC';
-        $id_sort_url = 'Cust_id_desc';
+        $Cust_id_sort_url = 'Cust_id_desc';
 }
 
-// SQLクエリを実行
+// 検索条件の設定
+$searchChoice = isset($_POST['searchChoice']) ? $_POST['searchChoice'] : '';
+$kensaku = isset($_POST['kensaku']) ? $_POST['kensaku'] : '';
 
+// デバッグ用出力
+// echo "検索タイプ: $searchChoice<br>";
+// echo "検索キーワード: $kensaku<br>";
+
+// SQLクエリの作成
 $sql = "SELECT customers.Cust_id, customers.Name, state.state, customers.Gender, customers.Birth_day
 FROM Customers
-INNER JOIN state ON customers.State_id = state.State_id 
-ORDER BY $order";
+INNER JOIN state ON customers.State_id = state.State_id";
+if ($kensaku != '') {
+    if ($searchChoice == 'aimai') {
+        $likeKeyword = "%" . $conn->real_escape_string($kensaku) . "%";
+        $sql .= " WHERE Name LIKE '$likeKeyword' OR Cust_id LIKE '$likeKeyword'";
+        // $sql .= " WHERE Name OR Cust_id LIKE '%"  . $conn->real_escape_string($kensaku) . "%'";
+    } else {
+        $sql .= " WHERE Name OR Cust_id = '" . $conn->real_escape_string($kensaku) . "'";
+        // $sql .= " WHERE Name OR Cust_id = '" . $conn->real_escape_string($kensaku) . "'";
+    } 
+}
+$sql .= " ORDER BY $order";
+
+// デバッグ用出力
+// echo "SQLクエリ: $sql<br>";
+
+// SQLクエリを実行
 $result = $conn->query($sql);
 ?>
 
@@ -101,7 +123,7 @@ $result = $conn->query($sql);
 <body>
     <header>
         <img src="../graphic/ニトリロゴ.jpg" alt="Logo" class="logo">
-        <form action="user_list.php" method="post">
+        <form action="" method="post">
             <div class="search">
                 <input type="text" size="80" name="kensaku">
                 <input type="submit" value="検索">
