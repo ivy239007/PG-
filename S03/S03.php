@@ -138,7 +138,6 @@ $result = $conn->query($sql);
     <main>
         <div class = "touroku">
             <button onclick="location.href='../S03_2,3/S03_2.php'" type="button" name="name" value="value" id = "tourokuButton">新規登録</button>
-            <button onclick="location.href='../S03_2,3/S03_3.php'" type="button" name="name" value="value" id = "tourokuButton">編集</button>  
             <button type="button" name="name" value="value" id = "tourokuButton">削除</button>
         </div>
         
@@ -156,15 +155,16 @@ $result = $conn->query($sql);
             echo "</tr>";
             
             // 各行のデータを出力
-            while($row = $result->fetch_assoc()) {
+            while ($row = $result->fetch_assoc()) {
                 // 性別の表示を「1」なら「男性」、「2」なら「女性」「３」ならその他に変換
                 $gender_display = ($row["Gender"] == "1") ? "男性" : (($row["Gender"] == "2") ? "女性" : "その他");
                 echo "<tr>";
-                echo "<td>" . $row["Cust_id"]. "</td>";
-                echo "<td>" . $row["Name"]. "</td>";
-                echo "<td>" . $row["state"]. "</td>";
-                echo "<td>" . $gender_display. "</td>";
-                echo "<td>" . $row["Birth_day"]. "</td>";
+                echo "<td>" . $row["Cust_id"] . "</td>";
+                echo "<td>" . $row["Name"] . "</td>";
+                echo "<td>" . $row["state"] . "</td>";
+                echo "<td>" . $gender_display . "</td>";
+                echo "<td>" . $row["Birth_day"] . "</td>";
+                echo "<td><a href='edit.php?id=" . $row["Cust_id"] . "'>編集</a></td>";
                 echo "</tr>";
             }
             echo "</table>";
