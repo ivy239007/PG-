@@ -1,0 +1,187 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: "Zen Maru Gothic", serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-image: url('../graphic/S03_顧客管理背景.jpg'); /* 背景画像の追加 */
+    background-size: cover; /* 背景画像を全体に表示 */
+    background-repeat: no-repeat; /* 背景画像を繰り返さない */
+    background-position: center; /* 背景画像を中央に配置 */
+}
+
+header {
+    background-color: #f8f8f8;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* 中央に配置 */
+}
+
+.logo {
+    height: 50px;  /* ロゴの高さを調整 */
+    position: absolute;
+    left: 20px; /* ロゴを左に固定 */
+}
+
+.search, .radiobutton {
+    align-items: center;
+    margin-right: 10px;
+}
+
+.radiobutton:hover{
+    cursor: pointer;
+}
+
+.radiobutton label:hover {
+    cursor: pointer;
+}
+
+.search input[type="text"] {
+    border: 1px solid #ccc;
+    margin-right: 10px; /* 検索ボックスとボタンの間にスペースを追加 */
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 0 40px rgba(128, 128, 128, 0.1) ;
+    /*アニメーションの設定*/
+    transition: all .2s;
+}
+
+.search input[type="text"]:hover{
+    /*hoverをしたらボックスの影が拡がり色が濃くなる*/
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4), 0 0 50px rgba(128, 128, 128, 0.1) ;
+    border-color: transparent;
+}
+
+form {
+    display: flex;  /* ラジオボタンを検索バー横に配置 */
+    flex-direction: row; /* 横方向に配置 */
+    align-items: center;
+    height: 50px;
+    margin: 0; /* フォームの余白をリセット */
+}
+
+.radiobutton label {
+    margin-right: 10px;
+    margin-left: 5px;
+}
+
+input[type="text"] {
+    padding: 5px;
+    font-size: 16px;
+}
+
+input[type="submit"] {
+    font-family: "Zen Maru Gothic", serif;
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+main {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.touroku {
+    position: absolute;
+    margin-top: 20px;
+    right: 30px;
+}
+
+#BackButton {
+    font-family: "Zen Maru Gothic", serif;
+    font-size: 20px;
+    position: absolute;
+    bottom: 50px;
+    right: 15px;
+    width: 5em;
+    height: 2em;
+    border: 1px;
+    background-color: rgb(244, 126, 126);
+    border-radius: 5px;
+}
+
+#BackButton:hover {
+    background-color:rgb(196, 97, 97);
+    cursor: pointer;
+}
+
+#tourokuButton {
+    font-family: "Zen Maru Gothic", serif;
+    font-size: 18px;
+    width: 100px;
+    height: 40px;
+    margin: 5px;
+    border: 1px;
+    background-color: rgb(248, 238, 153);
+    border-radius: 5px;
+}
+
+#tourokuButton:hover {
+    background-color: rgb(187, 180, 116);
+    cursor: pointer;
+}
+
+footer {
+    background-color: #f8f8f8;
+    padding: 10px 20px;
+    text-align: center;
+    width: 100%;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.DatabaseTable {
+    text-align: center;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+    width: 80%;
+    max-width: 1000px;
+    max-height: 310px; /* 高さを制限 */
+    overflow-y: auto; /* 縦スクロールを有効にする */
+    margin: 80px auto; /* 自動的に左右中央揃え */
+}
+
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#DatabaseTable th, #DatabaseTable td {
+    border: 2px solid #d2e8f1;
+    padding: 1em;
+}
+
+#DatabaseTable th {
+    background-color: lightskyblue;
+    color: #fff;
+    border: 2px solid lightskyblue;
+    border-right: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+}
+
+#DatabaseTable th:last-of-type {
+    border-right: 2px solid lightskyblue;
+}
+
+#DatabaseTable th {
+    color: #4d9bc1;
+    font-weight: bold;
+    text-align: center;
+}
+#DatabaseTable tr:hover td {
+    background-color: #daf4ff;
+    cursor: pointer;
+}
+a {
+    color: #000;
+    text-decoration: none;
+}
