@@ -31,14 +31,30 @@ $Birth_day = $_POST['Birth_day'];
 $sql = "UPDATE Customers SET Name=?, State_id=?, Gender=?, Birth_day=? WHERE Cust_id=?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("sisis", $Name, $State_id, $Gender, $Birth_day, $Cust_id);
-
-if ($stmt->execute()) {
-    echo "Record updated successfully";
-} else {
-    echo "Error updating record: " . $conn->error;
-}
-
-$conn->close();
 ?>
-
-<a href="S03.php">顧客管理画面に戻る</a>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <title>更新画面</title>
+  <style>
+      @import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap');
+  </style>
+  <link rel="stylesheet" type="text/css" href="update.css">
+</head>
+<body>
+    <header>
+        <img src="../graphic/ニトリロゴ.jpg" alt="Logo" class="logo">
+    </header>
+    <main>
+        <?php
+            if ($stmt->execute()) {
+                echo "更新完了しました";
+            } else {
+                echo "Error updating record: " . $conn->error;
+            }
+            $conn->close();
+        ?>
+        <a href="S03.php">顧客管理画面に戻る</a>
+    </main>
+    </body>
+</html>
