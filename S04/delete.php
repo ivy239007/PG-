@@ -10,50 +10,31 @@ if(isset($_SESSION['login'])==false){
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-$servername = "172.16.3.136"; // データベースサーバーのIPアドレスまたはホスト名
-$username = "sample_user"; // データベースユーザー名
-$password = ""; // データベースパスワード
-$dbname = "pg"; // データベース名
-$port = 3306; // データベースのポート番号
+$servername = "172.16.3.136";
+$username = "sample_user";
+$password = "";
+$dbname = "pg";
+$port = 3306;
 
-// データベース接続の作成
 $conn = new mysqli($servername, $username, $password, $dbname, $port);
 
-// 接続チェック
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// 顧客IDの取得
-if (isset($_GET['id']) && is_numeric($_GET['id'])) {
-    $Cust_id = $_GET['id'];
-    
-    // SQLクエリの作成
-    $sql = "DELETE FROM Customers WHERE Cust_id = ?";
-    
-    // 準備されたステートメントを作成
-    if ($stmt = $conn->prepare($sql)) {
-        // パラメータをバインド
-        $stmt->bind_param("i", $Cust_id);
-        
-        // クエリを実行
-        if ($stmt->execute()) {
-            echo "レコードが正常に削除されました。<br>";
-            echo '<a href="S04.php">書籍管理画面に戻る</a>';
-        } else {
-            echo "エラー: " . $stmt->error;
-        }
-        
-        // ステートメントを閉じる
-        $stmt->close();
-    } else {
-        echo "準備されたステートメントの作成に失敗しました: " . $conn->error;
-    }
+$Book_id = $_GET["Book_id"];
+$sql = "DELETE FROM books WHERE Book_id=?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $Book_id);
+
+if ($stmt->execute() === TRUE) {
+    echo "Record deleted successfully";
 } else {
-    echo "無効な顧客IDです。<br>";
-    echo '<a href="S04.php">書籍管理画面に戻る</a>';
+    echo "Error deleting record: " . $conn->error;
 }
 
-// 接続を閉じる
+$stmt->close();
 $conn->close();
+header("Location: ../S04/S04.php"); // 削除後にメインページにリダイレクト
+exit();
 ?>

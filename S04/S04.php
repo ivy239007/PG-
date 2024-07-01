@@ -148,7 +148,6 @@ $result = $conn->query($sql);
     <main>
         <div class = "touroku">
             <button onclick="location.href='../S04_2,3/S04_2.php'" type="button" name="name" value="value" id = "tourokuButton">新規登録</button>
-            <button type="button" name="name" value="value" id = "tourokuButton">削除</button>
         </div>
         
         <div class="DatabaseTable" id="DatabaseTable">
@@ -164,6 +163,8 @@ $result = $conn->query($sql);
             echo "<th><a href='?sort=$Book_Publication_sort_url'>出版日 " . ($sort == 'Book_Publication_asc' ? '▲' : '▼') . "</a></th>";
             echo "<th><a href='?sort=$Author_sort_url'>著者 " . ($sort == 'Author_asc' ? '▲' : '▼') . "</a></th>";
             echo "<th><a href='?sort=$Price_sort_url'>価格 " . ($sort == 'Price_asc' ? '▲' : '▼') . "</a></th>";
+            echo "<th>編集</th>"; // 操作列の追加
+            echo "<th>削除</th>"; // 操作列の追加
             echo "</tr>";
             
             // 各行のデータを出力
@@ -176,16 +177,15 @@ $result = $conn->query($sql);
                 echo "<td>" . htmlspecialchars($row["Book_Publication"]) . "</td>";
                 echo "<td>" . htmlspecialchars($row["Author"]) . "</td>";
                 echo "<td>" . htmlspecialchars($row["Price"]) . "</td>";
+                echo "<td><a href='edit.php?Book_id=" . htmlspecialchars($row["Book_id"]) . "'>編集</a></td>";
+                echo "<td><a href='delete.php?Book_id=" . htmlspecialchars($row["Book_id"]) . "' onclick=\"return confirm('本当に削除しますか？');\">削除</a></td>";
                 echo "</tr>";
             }
-            echo "</table>";
+                        echo "</table>";
         } else {
             echo "データがありません";
         }
-        // 接続を閉じる
-        $conn->close();
-        ?>
-        </div>
+        ?>        </div>
           <button onclick="location.href='../S02/S02_menu.php'" type="button" name="name" value="value" id="BackButton">戻る</button>  
     </main>
         <footer>
