@@ -41,4 +41,4 @@ if ($stmt->execute()) {
 $conn->close();
 ?>
 
-<a href="S03.php">顧客管理画面に戻る</a>
+<a href="S04.php">書籍管理画面に戻る</a>

@@ -88,9 +88,9 @@ $kensaku = isset($_POST['kensaku']) ? $_POST['kensaku'] : '';
 // echo "検索キーワード: $kensaku<br>";
 
 // SQLクエリの作成
-$sql = "SELECT customers.Cust_id, customers.Name, state.state, customers.Gender, customers.Birth_day
-FROM Customers
-INNER JOIN state ON customers.State_id = state.State_id";
+$sql = "SELECT Book_id, Categories_id, Publisher , Book_name, Book_Publication, Author, Price
+FROM books ";
+
 if ($kensaku != '') {
     if ($searchChoice == 'aimai') {
         $likeKeyword = "%" . $conn->real_escape_string($kensaku) . "%";
@@ -116,7 +116,7 @@ $result = $conn->query($sql);
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap');
   </style>
-    <link rel="stylesheet" type="text/css" href="S03.css">
+    <link rel="stylesheet" type="text/css" href="S04.css">
 </head>
 <body>
     <header>
@@ -137,7 +137,7 @@ $result = $conn->query($sql);
     
     <main>
         <div class = "touroku">
-            <button onclick="location.href='../S03_2,3/S03_2.php'" type="button" name="name" value="value" id = "tourokuButton">新規登録</button>
+            <button onclick="location.href='../S04_2,3/S04_2.php'" type="button" name="name" value="value" id = "tourokuButton">新規登録</button>
             <button type="button" name="name" value="value" id = "tourokuButton">削除</button>
         </div>
         

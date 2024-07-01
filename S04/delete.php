@@ -39,7 +39,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
         // クエリを実行
         if ($stmt->execute()) {
             echo "レコードが正常に削除されました。<br>";
-            echo '<a href="S03.php">顧客管理画面に戻る</a>';
+            echo '<a href="S04.php">書籍管理画面に戻る</a>';
         } else {
             echo "エラー: " . $stmt->error;
         }
@@ -51,7 +51,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     }
 } else {
     echo "無効な顧客IDです。<br>";
-    echo '<a href="S03.php">顧客管理画面に戻る</a>';
+    echo '<a href="S04.php">書籍管理画面に戻る</a>';
 }
 
 // 接続を閉じる
