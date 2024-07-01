@@ -1,0 +1,136 @@
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: "Zen Maru Gothic", serif;    
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-image: url('../graphic/S03_3_顧客編集背景.jpg'); /* 背景画像の追加 */
+    background-size: cover; /* 背景画像を全体に表示 */
+    background-repeat: no-repeat; /* 背景画像を繰り返さない */
+    background-position: center; /* 背景画像を中央に配置 */
+}
+
+header {
+    background-color: #f8f8f8;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+    font-size: 25px;
+}
+
+.logo {
+    height: 50px;  /* ロゴの高さを調整 */
+    position: absolute;
+    left : 20px;
+}
+
+main {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.form-group label {
+    margin-right: 20px;
+}
+
+
+input[type="text"], input[type="kokyakuname"] {
+    padding: 5px;
+    font-size: 16px;
+    background: #f5f9c1;
+    border: 2px solid #f3fc75;
+    border-radius: 20px;
+    padding: 5px;
+}
+
+input[type="text"]:focus,
+input[type="kokyakuname"]:focus,
+textarea:focus{
+    outline: #f3fc75;
+}
+
+input[type="submit"] {
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+
+}
+
+
+/*ボタンの基本スタイ*/
+.Btn input{
+    width: 80px;
+    margin: 0px 180px 0px 210px;
+    background: #b7f5ea;
+    border: 2px solid #4ef4d6;
+    border-radius: 20px;
+    padding: 5px;
+    font-size: 18px;
+    align-items: center;
+}
+.Btn input:hover{
+    opacity: 0.7;
+}
+
+
+#BackButton {
+    font-size: 20px;
+    position: absolute;
+    bottom: 50px;
+    right: 15px;
+    width: 5em;
+    height: 2em;
+    border: 1px;
+    border-radius: 5px;
+    background-color: rgb(244, 126, 126);
+}
+
+#BackButton:hover {
+    background-color:rgb(196, 97, 97);
+    cursor: pointer;
+}
+
+footer {
+    background-color: #f8f8f8;
+    padding: 10px 20px;
+    text-align: center;
+    width: 100%;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.back{
+    text-align: right;
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
