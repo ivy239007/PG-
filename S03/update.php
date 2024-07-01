@@ -46,6 +46,7 @@ $stmt->bind_param("sisis", $Name, $State_id, $Gender, $Birth_day, $Cust_id);
         <img src="../graphic/ニトリロゴ.jpg" alt="Logo" class="logo">
     </header>
     <main>
+        <div>
         <?php
             if ($stmt->execute()) {
                 echo "更新完了しました";
@@ -54,6 +55,8 @@ $stmt->bind_param("sisis", $Name, $State_id, $Gender, $Birth_day, $Cust_id);
             }
             $conn->close();
         ?>
+        </div>
+        
         <a href="S03.php">顧客管理画面に戻る</a>
     </main>
     </body>
