@@ -25,84 +25,94 @@ if ($conn->connect_error) {
 }
 
 // デフォルトのソート順を設定（ID の昇順）
-$sort = isset($_GET['sort']) ? $_GET['sort'] : 'Cust_asc';
+$sort = isset($_GET['sort']) ? $_GET['sort'] : 'Book_id_asc';
 $order = '';
-$Cust_id_sort_url = 'Cust_id_asc';
-$Name_sort_url = 'Name_asc';
-$State_id_sort_url = 'State_id_asc';
-$Gender_sort_url = 'Gender_asc';
-$Birth_day_sort_url = 'Birth_day_asc';
+$Book_id_sort_url = 'Book_id_asc';
+$Categories_id_sort_url = 'Categories_id_asc';
+$Publisher_sort_url = 'Publisher_asc';
+$Book_name_sort_url = 'Book_name_asc';
+$Book_Publication_sort_url = 'Book_Publication_asc';
+$Author_sort_url = 'Author_asc';
+$Price_sort_url = 'Price_asc';
 
 switch ($sort) {
-    case 'Cust_id_asc':
-        $order = 'Cust_id ASC';
-        $Cust_id_sort_url = 'Cust_id_desc';
+    case 'Book_id_asc':
+        $order = 'Book_id ASC';
+        $Book_id_sort_url = 'Book_id_desc';
         break;
-    case 'Cust_id_desc':
-        $order = 'Cust_id DESC';
-        $Cust_id_sort_url = 'Cust_id_asc';
+    case 'Book_id_desc':
+        $order = 'Book_id DESC';
+        $Book_id_sort_url = 'Book_id_asc';
         break;
-    case 'Name_asc':
-        $order = 'Name ASC';
-        $Name_sort_url = 'Name_desc';
+    case 'Categories_id_asc':
+        $order = 'Categories_id ASC';
+        $Categories_id_sort_url = 'Categories_id_desc';
         break;
-    case 'Name_desc':
-        $order = 'Name DESC';
-        $Name_sort_url = 'Name_asc';
+    case 'Categories_id_desc':
+        $order = 'Categories_id DESC';
+        $Categories_id_sort_url = 'Categories_id_asc';
         break;
-    case 'State_id_asc':
-        $order = 'State_id ASC';
-        $State_id_sort_url = 'State_id_desc';
+    case 'Publisher_asc':
+        $order = 'Publisher ASC';
+        $Publisher_sort_url = 'Publisher_desc';
         break;
-    case 'State_id_desc':
-        $order = 'State_id DESC';
-        $State_id_sort_url = 'State_id_asc';
+    case 'Publisher_desc':
+        $order = 'Publisher DESC';
+        $Publisher_sort_url = 'Publisher_asc';
         break;
-    case 'Gender_asc':
-        $order = 'Gender ASC';
-        $Gender_sort_url = 'Gender_desc';
+    case 'Book_name_asc':
+        $order = 'Book_name ASC';
+        $Book_name_sort_url = 'Book_name_desc';
         break;
-    case 'Gender_desc':
-        $order = 'Gender DESC';
-        $Gender_sort_url = 'Gender_asc';
+    case 'Book_name_desc':
+        $order = 'Book_name DESC';
+        $Book_name_sort_url = 'Book_name_asc';
         break;
-    case 'Birth_day_asc':
-        $order = 'Birth_day ASC';
-        $Birth_day_sort_url = 'Birth_day_desc';
+    case 'Book_Publication_asc':
+        $order = 'Book_Publication ASC';
+        $Book_Publication_sort_url = 'Book_Publication_desc';
         break;
-    case 'Birth_day_desc':
-        $order = 'Birth_day DESC';
-        $Birth_day_sort_url = 'Birth_day_asc';
+    case 'Book_Publication_desc':
+        $order = 'Book_Publication DESC';
+        $Book_Publication_sort_url = 'Book_Publication_asc';
+        break;
+    case 'Author_asc':
+        $order = 'Author ASC';
+        $Author_sort_url = 'Author_desc';
+        break;
+    case 'Author_desc':
+        $order = 'Author DESC';
+        $Author_sort_url = 'Author_asc';
+        break;
+    case 'Price_asc':
+        $order = 'Price ASC';
+        $Price_sort_url = 'Price_desc';
+        break;
+    case 'Price_desc':
+        $order = 'Price DESC';
+        $Price_sort_url = 'Price_asc';
         break;
     default:
-        $order = 'Cust_id ASC';
-        $Cust_id_sort_url = 'Cust_id_desc';
+        $order = 'Book_id ASC';
+        $Book_id_sort_url = 'Book_id_desc';
 }
 
 // 検索条件の設定
 $searchChoice = isset($_POST['searchChoice']) ? $_POST['searchChoice'] : '';
 $kensaku = isset($_POST['kensaku']) ? $_POST['kensaku'] : '';
 
-// デバッグ用出力
-// echo "検索タイプ: $searchChoice<br>";
-// echo "検索キーワード: $kensaku<br>";
-
 // SQLクエリの作成
-$sql = "SELECT Book_id, Categories_id, Publisher , Book_name, Book_Publication, Author, Price
-FROM books ";
+$sql = "SELECT Book_id, Categories_id, Publisher, Book_name, Book_Publication, Author, Price FROM books";
 
 if ($kensaku != '') {
     if ($searchChoice == 'aimai') {
         $likeKeyword = "%" . $conn->real_escape_string($kensaku) . "%";
-        $sql .= " WHERE Name LIKE '$likeKeyword' OR Cust_id LIKE '$likeKeyword'";
+        $sql .= " WHERE Book_name LIKE '$likeKeyword' OR Book_id LIKE '$likeKeyword'";
     } else {
-        $sql .= " WHERE Name = '$kensaku' OR Cust_id = '$kensaku'" ;
+        $sql .= " WHERE Book_name = '$kensaku' OR Book_id = '$kensaku'" ;
     } 
 }
 $sql .= " ORDER BY $order";
-
-// デバッグ用出力
-// echo "SQLクエリ: $sql<br>";
 
 // SQLクエリを実行
 $result = $conn->query($sql);
@@ -112,7 +122,7 @@ $result = $conn->query($sql);
 <html lang="ja">
 <head>
   <meta charset ="utf-8">
-  <title>顧客管理画面</title>
+  <title>本管理画面</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap');
   </style>
@@ -147,32 +157,31 @@ $result = $conn->query($sql);
         if ($result->num_rows > 0) {
             // データをHTMLテーブルとして出力
             echo "<table><tr>";
-            echo "<th><a href='?sort=$Cust_id_sort_url'>顧客ID " . ($sort == 'Cust_id_asc' ? '▲' : '▼') . "</a></th>";
-            echo "<th><a href='?sort=$Name_sort_url'>顧客名 " . ($sort == 'Name_asc' ? '▲' : '▼') . "</a></th>";
-            echo "<th><a href='?sort=$State_id_sort_url'>都道府県 " . ($sort == 'State_id_asc' ? '▲' : '▼') . "</a></th>";
-            echo "<th><a href='?sort=$Gender_sort_url'>性別 " . ($sort == 'Gender_asc' ? '▲' : '▼') . "</a></th>";
-            echo "<th><a href='?sort=$Birth_day_sort_url'>生年月日 " . ($sort == 'Birth_day_asc' ? '▲' : '▼') . "</a></th>";
+            echo "<th><a href='?sort=$Book_id_sort_url'>本ID " . ($sort == 'Book_id_asc' ? '▲' : '▼') . "</a></th>";
+            echo "<th><a href='?sort=$Categories_id_sort_url'>カテゴリID " . ($sort == 'Categories_id_asc' ? '▲' : '▼') . "</a></th>";
+            echo "<th><a href='?sort=$Publisher_sort_url'>出版社 " . ($sort == 'Publisher_asc' ? '▲' : '▼') . "</a></th>";
+            echo "<th><a href='?sort=$Book_name_sort_url'>本の名前 " . ($sort == 'Book_name_asc' ? '▲' : '▼') . "</a></th>";
+            echo "<th><a href='?sort=$Book_Publication_sort_url'>出版日 " . ($sort == 'Book_Publication_asc' ? '▲' : '▼') . "</a></th>";
+            echo "<th><a href='?sort=$Author_sort_url'>著者 " . ($sort == 'Author_asc' ? '▲' : '▼') . "</a></th>";
+            echo "<th><a href='?sort=$Price_sort_url'>価格 " . ($sort == 'Price_asc' ? '▲' : '▼') . "</a></th>";
             echo "</tr>";
             
             // 各行のデータを出力
             while ($row = $result->fetch_assoc()) {
-                // 性別の表示を「1」なら「男性」、「2」なら「女性」「３」ならその他に変換
-                $gender_display = ($row["Gender"] == "1") ? "男性" : (($row["Gender"] == "2") ? "女性" : "その他");
                 echo "<tr>";
-                echo "<td>" . $row["Cust_id"] . "</td>";
-                echo "<td>" . $row["Name"] . "</td>";
-                echo "<td>" . $row["state"] . "</td>";
-                echo "<td>" . $gender_display . "</td>";
-                echo "<td>" . $row["Birth_day"] . "</td>";
-                echo "<td><a href='edit.php?id=" . $row["Cust_id"] . "'>編集</a></td>";
-                echo "<td><a href='delete.php?id=" . $row["Cust_id"] . "' onclick=\"return confirm('本当に削除しますか？');\">削除</a></td>";
+                echo "<td>" . htmlspecialchars($row["Book_id"]) . "</td>";
+                echo "<td>" . htmlspecialchars($row["Categories_id"]) . "</td>";
+                echo "<td>" . htmlspecialchars($row["Publisher"]) . "</td>";
+                echo "<td>" . htmlspecialchars($row["Book_name"]) . "</td>";
+                echo "<td>" . htmlspecialchars($row["Book_Publication"]) . "</td>";
+                echo "<td>" . htmlspecialchars($row["Author"]) . "</td>";
+                echo "<td>" . htmlspecialchars($row["Price"]) . "</td>";
                 echo "</tr>";
             }
             echo "</table>";
         } else {
-            echo "0 results";
+            echo "データがありません";
         }
-
         // 接続を閉じる
         $conn->close();
         ?>
