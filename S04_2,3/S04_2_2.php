@@ -45,7 +45,7 @@ switch($pref){
 
 switch ($qref) {
     case "文学・評論" :
-        $pref = 1;
+        $qref = 1;
         break;
     case "人文・思想":
         $qref = 2;
@@ -56,7 +56,6 @@ switch ($qref) {
     case "歴史・地理":
         $qref = 4;
         break;
-        
     case "ビジネス・経済":
         $qref = 5;
         break;
