@@ -138,7 +138,6 @@ $result = $conn->query($sql);
     <main>
         <div class = "touroku">
             <button onclick="location.href='../S03_2,3/S03_2.php'" type="button" name="name" value="value" id = "tourokuButton">新規登録</button>
-            <button type="button" name="name" value="value" id = "tourokuButton">削除</button>
         </div>
         
         <div class="DatabaseTable" id="DatabaseTable">
@@ -152,8 +151,11 @@ $result = $conn->query($sql);
             echo "<th><a href='?sort=$State_id_sort_url'>都道府県 " . ($sort == 'State_id_asc' ? '▲' : '▼') . "</a></th>";
             echo "<th><a href='?sort=$Gender_sort_url'>性別 " . ($sort == 'Gender_asc' ? '▲' : '▼') . "</a></th>";
             echo "<th><a href='?sort=$Birth_day_sort_url'>生年月日 " . ($sort == 'Birth_day_asc' ? '▲' : '▼') . "</a></th>";
+            echo "<th>編集</th>"; // 操作列の追加
+            echo "<th>削除</th>"; // 操作列の追加
             echo "</tr>";
             
+
             // 各行のデータを出力
             while ($row = $result->fetch_assoc()) {
                 // 性別の表示を「1」なら「男性」、「2」なら「女性」「３」ならその他に変換

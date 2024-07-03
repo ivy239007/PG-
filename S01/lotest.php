@@ -28,7 +28,7 @@ try{
 
     if($rec == false){
         echo('IDまたはパスワードが間違っています。<br/>');
-        //header("Location: S01_login.php");
+        header("Location: S01_login.php");
     }else{
         session_start();
         $_SESSION['login'] = 1;
