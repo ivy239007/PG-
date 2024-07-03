@@ -1,23 +1,22 @@
-* { /*初期設定*/
+* { 
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-body { /*全体の設定*/
-    font-family: "Zen Maru Gothic", serif; /*フォント*/
+body {
+    font-family: "Zen Maru Gothic", serif;   
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    line-height: 10PX;
     background-image: url('../graphic/S03_2_顧客新規登録背景.jpg'); /* 背景画像の追加 */
     background-size: cover; /* 背景画像を全体に表示 */
     background-repeat: no-repeat; /* 背景画像を繰り返さない */
     background-position: center; /* 背景画像を中央に配置 */
 }
 
-header { /*ヘッダー設定*/
+header {
     background-color: #f8f8f8;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     height: 70px;
@@ -28,44 +27,53 @@ header { /*ヘッダー設定*/
     font-size: 25px;
 }
 
-.logo { /*ロゴ設定*/
+.logo {
     height: 50px;  /* ロゴの高さを調整 */
     position: absolute;
     left : 20px;
 }
 
-
-main { /*メイン設定*/
-    margin-top: 70px;
-    flex-grow: 1; /*1のままにしとく*/
+main {
+    flex-grow: 1;
+    display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
 }
 
-.form-group { /*classの配置*/
+form {
+    display: flex;
     flex-direction: column;
-    margin-bottom: 15px; /*配置*/
-    align-items: center; /*又はflex-start*/
+    align-items: flex-start;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.form-group label {
+    margin-right: 20px;
 }
 
 
-input[type="text"]{
-    
-    font-size: 16px; /*入力欄のフォントサイズ*/
+input[type="text"], input[type="kokyakuname"] {
+    padding: 5px;
+    font-size: 16px;
     background: #f5f9c1;
-    border: 2px solid #f3fc75; /*外線の太さ・色*/
+    border: 2px solid #f3fc75;
     border-radius: 20px;
-    padding: 5px; /*入力欄の幅*/
+    padding: 5px;
 }
-/* もともと記述されていたコード
-input[type="text"]:focus,
-textarea:focus{
-    outline: #7c75fc;
-}
-*/
 
-input[type="submit"] { /*登録ボタンの設定*/
+input[type="text"]:focus,
+input[type="kokyakuname"]:focus,
+textarea:focus{
+    outline: #f3fc75;
+}
+
+input[type="submit"] {
     padding: 5px 10px;
     font-size: 16px;
     cursor: pointer;
@@ -73,7 +81,8 @@ input[type="submit"] { /*登録ボタンの設定*/
 }
 
 
-.Btn input{ /*ボタン基本スタイル設定*/
+/*ボタンの基本スタイ*/
+.Btn input{
     width: 80px;
     margin: 0px 180px 0px 210px;
     background: #b7f5ea;
@@ -83,11 +92,11 @@ input[type="submit"] { /*登録ボタンの設定*/
     font-size: 18px;
     align-items: center;
 }
-.Btn input:hover{ /*ボタンかぶった際の設定*/
+.Btn input:hover{
     opacity: 0.7;
 }
 
-#BackButton { /*戻るボタン基本スタイル設定*/
+#BackButton {
     font-size: 20px;
     position: absolute;
     bottom: 50px;
@@ -99,7 +108,7 @@ input[type="submit"] { /*登録ボタンの設定*/
     background-color: rgb(244, 126, 126);
 }
 
-#BackButton:hover { /*戻るボタンかぶった際の設定*/
+#BackButton:hover {
     background-color:rgb(196, 97, 97);
     cursor: pointer;
 }
