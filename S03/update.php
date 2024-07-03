@@ -2,7 +2,7 @@
 session_start();
 if (isset($_SESSION['login']) == false) {
     print 'ログインされていません。<br/>';
-    print '<a href="../PG/S01/S01_login.php">ログイン画面へ</a>';
+    print '<a href="../S01/S01_login.php">ログイン画面へ</a>';
     exit();
 }
 
@@ -27,8 +27,9 @@ $Name = $_POST['Name'];
 $State_id = $_POST['State_id'];
 $Gender = $_POST['Gender'];
 $Birth_day = $_POST['Birth_day'];
+$Birth_day  = (String)$Birth_day;
 
-$sql = "UPDATE Customers SET Name=?, State_id=?, Gender=?, Birth_day=? WHERE Cust_id=?";
+$sql = "UPDATE customers SET Name=?, State_id=?, Gender=?, Birth_day=? WHERE Cust_id=?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("sisis", $Name, $State_id, $Gender, $Birth_day, $Cust_id);
 ?>
