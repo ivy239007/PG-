@@ -83,11 +83,12 @@ function getSortLink($column, $label) {
     <div id="container">
         <header id="header">
             <img src="../graphic/ニトリロゴ.jpg" alt="Logo" class="logo">
+            <div class="centered-text">年代別ランキング</div>
+
         </header>
 
         <main>
             <div class="content">
-                <div class="centered-text">年代別ランキング</div>
 
                 <div class="button-container">
                     <form id="redirectForm">
