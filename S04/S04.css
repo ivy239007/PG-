@@ -143,7 +143,7 @@ footer {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background-color: #f9f9f9;
     width: 90%;
-    max-width: 1200px;
+    max-width: 1250px;
     max-height: 400px; /* 高さを制限 */
     overflow-y: auto; /* 縦スクロールを有効にする */
     margin: 80px auto; /* 自動的に左右中央揃え */
@@ -184,4 +184,12 @@ table {
 a {
     color: #000;
     text-decoration: none;
+}
+
+#DatabaseTable th {
+    color: #4d9bc1;
+    font-weight: bold;
+    text-align: center;
+    white-space: nowrap; /* 追加: テキストの折り返しを防止 */
+    width: auto; /* 必要に応じて調整 */
 }
