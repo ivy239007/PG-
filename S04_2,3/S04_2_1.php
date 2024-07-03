@@ -12,6 +12,9 @@ $publication_date = htmlspecialchars($_POST["publication_date"], ENT_QUOTES);
 $pref = htmlspecialchars($_POST["pref"], ENT_QUOTES);
 $qref = htmlspecialchars($_POST["qref"], ENT_QUOTES);
 
+// 値段（price）を半角に変換
+$price = mb_convert_kana($price, "n");
+
 
 session_start();
 $_SESSION['book_title'] = $book_title;

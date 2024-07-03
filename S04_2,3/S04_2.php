@@ -1,3 +1,23 @@
+<?php
+// S04_2_1.php ファイル内の処理例
+//※4行目から17行目の処理は無くても実行される。
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // POST データを取得
+    $book_title = $_POST['book_title'];
+    $author_name = $_POST['author_name'];
+    $price = $_POST['price'];
+    $publication_date = $_POST['publication_date'];
+    $pref = $_POST['pref'];
+    $qref = $_POST['qref'];
+
+    // 値段（price）を半角に変換
+    $price = mb_convert_kana($price, "n");
+
+    // 他の処理をここに記述
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
