@@ -121,12 +121,11 @@ form input[type="submit"] {
 .centered-text {
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 90px; /* 高さを調整して文字が中央に来るように */
+    align-items: flex-start; /* アイテムを上部に配置 */
+    height: 50px; /* 高さを調整して文字が中央に来るように */
     width: 100%;
     font-size: 30px;
     color: #4c4c4c;
-    margin-top: 20px; /* 上に適度な余白を追加 */
     text-align: center; /* テキストを中央揃え */
 }
 
