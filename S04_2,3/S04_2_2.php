@@ -55,7 +55,7 @@ switch ($qref) {
         break;
     case "歴史・地理":
         $qref = 4;
-        break;
+        break; 
     case "ビジネス・経済":
         $qref = 5;
         break;
