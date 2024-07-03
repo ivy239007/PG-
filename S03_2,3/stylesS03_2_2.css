@@ -1,65 +1,58 @@
-* { /*初期設定*/
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-body { /*全体の設定*/
-    font-family: "Zen Maru Gothic", serif; /*フォント*/
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
+body {
+    font-family: "Zen Maru Gothic", serif;
     min-height: 100vh;
-    line-height: 10PX;
-    background-image: url('../graphic/S03_2_顧客新規登録背景.jpg'); /* 背景画像の追加 */
+    background-image: url('../graphic/S03_顧客管理背景.jpg'); /* 背景画像の追加 */
     background-size: cover; /* 背景画像を全体に表示 */
     background-repeat: no-repeat; /* 背景画像を繰り返さない */
     background-position: center; /* 背景画像を中央に配置 */
 }
 
-header { /*ヘッダー設定*/
+header {
     background-color: #f8f8f8;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     height: 70px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding: 0 20px;
-    font-size: 25px;
+    justify-content: center; /* 中央に配置 */
 }
 
-.logo { /*ロゴ設定*/
+.logo {
     height: 50px;  /* ロゴの高さを調整 */
     position: absolute;
-    left : 20px;
+    left: 20px; /* ロゴを左に固定 */
 }
 
-
-main { /*メイン設定*/
-    margin-top: 70px;
-    flex-grow: 1; /*1のままにしとく*/
-    justify-content: center;
-    align-items: center;
+main {
     text-align: center;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
 }
 
-footer {
-    background-color: #f8f8f8;
-    padding: 10px 20px;
-    text-align: center;
-    width: 100%;
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+div {
+    margin-bottom: 30px;
+    font-size: 20px;
 }
 
-.back{
-    text-align: right;
-}
-
-a {
+button {
+    width: 200px;
+    border: solid 1px black;
+    border-radius: 5px;
+    background-color: antiquewhite;
+    padding: 20px;
+    margin: 0 auto;
     color: #000;
     text-decoration: none;
+    font-size: 16px;
+    font-family: "Zen Maru Gothic", serif;
 }
 
-a:hover {
-    text-decoration: underline;
+button:hover {
+    filter: brightness(95%);
 }
+
