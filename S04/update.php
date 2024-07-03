@@ -38,15 +38,6 @@ $sql = "UPDATE books SET Categories_id=?, Publisher=?, Book_name=?, Book_Publica
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("isssssi", $Categories_id, $Publisher, $Book_name, $Book_Publication, $Author, $Price, $Book_id);
 
-// クエリの実行
-if ($stmt->execute()) {
-    echo "書籍情報が更新されました。";
-} else {
-    echo "更新中にエラーが発生しました: " . $stmt->error;
-}
-
-$stmt->close();
-$conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -54,10 +45,28 @@ $conn->close();
 <head>
     <meta charset="UTF-8">
     <title>更新結果</title>
-    <link rel="stylesheet" type="text/css" href="S04.css">
+    <style>@import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap');</style>
+    <link rel="stylesheet" type="text/css" href="update.css">
 </head>
 <body>
     <header>
         <img src="../graphic/ニトリロゴ.jpg" alt="Logo" class="logo">
     </header>
     
+    <main>
+        <div>
+        <?php
+            if ($stmt->execute()) {
+                echo "書籍情報が更新されました。";
+            } else {
+                echo "更新中にエラーが発生しました:" . $stmt->error;
+            }
+            $stmt->close();
+            $conn->close();
+        ?>
+        </div>
+        
+        <a href="S04.php">書籍管理画面に戻る</a>
+    </main>
+    </body>
+</html>
