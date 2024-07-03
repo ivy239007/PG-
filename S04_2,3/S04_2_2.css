@@ -1,0 +1,58 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: "Zen Maru Gothic", serif;
+    min-height: 100vh;
+    background-image: url('../graphic/S04_書籍管理背景.jpg'); /* 背景画像の追加 */
+    background-size: cover; /* 背景画像を全体に表示 */
+    background-repeat: no-repeat; /* 背景画像を繰り返さない */
+    background-position: center; /* 背景画像を中央に配置 */
+}
+
+header {
+    background-color: #f8f8f8;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* 中央に配置 */
+}
+
+.logo {
+    height: 50px;  /* ロゴの高さを調整 */
+    position: absolute;
+    left: 20px; /* ロゴを左に固定 */
+}
+
+main {
+    text-align: center;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+}
+
+div {
+    margin-bottom: 30px;
+    font-size: 20px;
+}
+
+button {
+    width: 200px;
+    border: solid 1px black;
+    border-radius: 5px;
+    background-color: antiquewhite;
+    padding: 20px;
+    margin: 0 auto;
+    color: #000;
+    text-decoration: none;
+    font-size: 16px;
+    font-family: "Zen Maru Gothic", serif;
+}
+
+button:hover {
+    filter: brightness(95%);
+}
+

@@ -13,14 +13,28 @@ $qref = $_SESSION['qref'];
 <!DOCTYPE HTML>
 <html lang="ja">
 <head>
-<meta charset="utf-8">
-<title>DBに接続しているフォーム｜送信画面</title>
+    <meta charset="utf-8">
+    <title>送信画面</title>
+    <link rel="stylesheet" type="text/css" href="S04_2_2.css">
+        <style>
+        @import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap');
+        </style>
 </head>
 
 <body>
-<div class="container">
-<h1>完了しました。</h1>
-<p>お問い合わせありがとうございました。</p>
+    <header>
+        <img src="../graphic/ニトリロゴ.jpg" alt="Logo" class="logo"> 
+    </header>
+       <main>
+       <div class="container">
+            <p>完了しました。</p>
+            <p>お問い合わせありがとうございました。</p>
+        </div>
+        <button onclick="location.href='../S04/S04.php'" type="button" name="name" value="value" id="BackButton">書籍管理画面に戻る</button>
+       </main> 
+</body>
+</html>
+
 <?php
 // DB接続設定
 $user = 'sample_user';//DBユーザー名
@@ -124,6 +138,3 @@ $stmt -> execute();
 //最後にセッション情報を破棄
 session_destroy();
 ?>
-</div>
-</body>
-</html>
