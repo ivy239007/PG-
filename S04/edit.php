@@ -59,18 +59,26 @@ $conn->close();
 <head>
     <meta charset="UTF-8">
     <title>書籍編集</title>
-    <link rel="stylesheet" type="text/css" href="S04.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap');
+    </style>
+    <link rel="stylesheet" type="text/css" href="edit_04.css">
 </head>
 <body>
     <header>
         <img src="../graphic/ニトリロゴ.jpg" alt="Logo" class="logo">
+        <p>書籍編集</p>
     </header>
     
     <main>
-        <h2>書籍編集</h2>
+        
         <form action="update.php" method="post">
-            <input type="hidden" name="Book_id" value="<?php echo htmlspecialchars($Book_id); ?>">
-            <label for="Categories_id">カテゴリID:</label>
+
+            <div class="form-group">
+                <input type="hidden" name="Book_id" value="<?php echo htmlspecialchars($Book_id); ?>">
+                <label for="kokyakuname">&nbsp;カ&nbsp;テ&nbsp;ゴ&nbsp;リ&nbsp;ー&nbsp;I&nbsp;D&nbsp;</label>
+            </div>
+
             <input type="text" id="Categories_id" name="Categories_id" value="<?php echo htmlspecialchars($Categories_id); ?>"><br><br>
             <label for="Publisher">出版社:</label>
             <input type="text" id="Publisher" name="Publisher" value="<?php echo htmlspecialchars($Publisher); ?>"><br><br>
@@ -83,10 +91,10 @@ $conn->close();
             <label for="Price">価格:</label>
             <input type="text" id="Price" name="Price" value="<?php echo htmlspecialchars($Price); ?>"><br><br>
             <input type="submit" value="更新">
-        </form>
-        <br>
-        <button onclick="location.href='S04.php'" type="button">キャンセルして戻る</button>
+        </form>        
     </main>
+
+    <button onclick="location.href='S04.php'" type="button" name="name" value="value" id="BackButton">戻る</button>
     
     <footer>
         © 2024 <a href="https://www.ivy.ac.jp/">アイビクション</a>
