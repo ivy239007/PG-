@@ -1,6 +1,15 @@
 <?php
 // セッションの開始
 session_start();
+if (isset($_SESSION['login']) == false) {
+    print 'ログインされていません。<br/>';
+    print '<a href="../S01/S01_login.php">ログイン画面へ</a>';
+    exit();
+}
+
+// エラーレポートをオンにする
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
 $name = $_SESSION['name'];
 $kana = $_SESSION['kana'];
@@ -10,34 +19,7 @@ $addres = $_SESSION['addres'];
 $tel = $_SESSION['tel'];
 $email = $_SESSION['email'];
 //サーバーに保存されているsessionデータを変数に代入
-?>
-<!DOCTYPE HTML>
-<html lang="ja">
-    <head>
-        <meta charset="utf-8">
-        <title>送信画面</title>
-        <link rel="stylesheet" type="text/css" href="stylesS03_2_2.css">
-        <style>
-        @import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap');
-        </style>
-    </head>
-    
-    <body>
-        <header>
-            <img src="../graphic/ニトリロゴ.jpg" alt="Logo" class="logo"> 
-        </header>
-        <main>
-            <div class="container">
-            <p>完了しました。</p>
-            <p>お問い合わせありがとうございました。</p>
-        </div>
-        <button onclick="location.href='../S03/S03.php'" type="button" name="name" value="value" id="BackButton">顧客管理画面に戻る</button>
-    </main>
-            
-    </body>
-</html>
 
-<?php
 // DB接続設定
 $user = 'sample_user';//DBユーザー名
 $pass = '';//DBパスワード
@@ -207,6 +189,29 @@ $sql = 'INSERT INTO customers(Name, Kana,Tel, Gender, Birth_day,Mail_address,Sta
 $stmt = $conn -> prepare($sql);
 $stmt -> execute();
 
-//最後にセッション情報を破棄
-session_destroy();
 ?>
+<!DOCTYPE HTML>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>送信画面</title>
+        <link rel="stylesheet" type="text/css" href="stylesS03_2_2.css">
+        <style>
+        @import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap');
+        </style>
+    </head>
+    
+    <body>
+        <header>
+            <img src="../graphic/ニトリロゴ.jpg" alt="Logo" class="logo"> 
+        </header>
+        <main>
+            <div class="container">
+            <p>完了しました。</p>
+            <p>お問い合わせありがとうございました。</p>
+        </div>
+        <button onclick="location.href='../S03/S03.php'" type="button" name="name" value="value" id="BackButton">顧客管理画面に戻る</button>
+    </main>
+            
+    </body>
+</html>
