@@ -27,8 +27,7 @@ try{
     $rec = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if($rec == false){
-        echo('IDまたはパスワードが間違っています。<br/>');
-        header("Location: S01_login.php");
+       header("Location: login_error.php");
     }else{
         session_start();
         $_SESSION['login'] = 1;
