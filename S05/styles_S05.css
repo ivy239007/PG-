@@ -179,6 +179,12 @@ th, td {
 
 th {
     background-color: #f2f2f2;
+    /* 固定に関するスタイル */
+    position: sticky;
+    top:0;
+    left: 0;
+    z-index: 1;    
+    
 }
 
 /* テーブルの行にマウスを乗せたときに背景色を変える */
