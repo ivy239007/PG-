@@ -32,14 +32,14 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
 <body>
     <div id="splash">
         <div id="splash-logo">
-            <img src="../graphic/ニトリロゴ.jpg" alt="Loading Logo">
+            <img src="../graphic/ニトリロゴ.jpg" alt="Loading Logo" >
         </div>
     </div>
     <div class="splashbg"></div><!---画面遷移用-->
     
     <div id="container">
     <header id="header">
-        <img src="../graphic/ニトリロゴ.jpg" alt="Logo" class="logo">
+        <a href="S02_menu.php"><img src="../graphic/ニトリロゴ.jpg" alt="Logo" class="logo"></a>
         <button class="custom-buttonlog" onclick="logout()">ログアウト</button>
     </header>
 
