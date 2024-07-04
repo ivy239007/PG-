@@ -24,8 +24,8 @@ if ($conn->connect_error) {
 
 $Cust_id = $_POST['Cust_id'];
 $Name = $_POST['Name'];
-$State_id = $_POST['State_id'];
-$Gender = $_POST['Gender'];
+$State_id = $_POST['sta_sel'];
+$Gender = $_POST['gen_sel'];
 $Birth_day = $_POST['Birth_day'];
 $Birth_day  = (String)$Birth_day;
 

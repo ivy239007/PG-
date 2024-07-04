@@ -179,7 +179,7 @@ if ($result->num_rows > 0) {
             $State_id = "沖縄県";
             break;
     }
-
+    
     switch($Gender){
         case "1":
             $Gender = "男性";
@@ -195,6 +195,38 @@ if ($result->num_rows > 0) {
     echo "No records found.";
     exit();
 }
+
+$gens = ["男性","女性","その他"];
+
+$gender_sel = "<select name='gen_sel'>";
+foreach( $gens as $gen ){
+    $gender_sel .= "<option value='".$gen."' ";
+    if($gen === $Gender){
+        $gender_sel .= "selected";
+    }
+    $gender_sel .= ">";
+    $gender_sel .= $gen;
+    $gender_sel .= "</option>";
+}
+$gender_sel .= "</select>";
+
+$state = ["北海道","青森県","岩手県","宮城県","秋田県","山形県","福島県","茨城県","栃木県","群馬県",
+"埼玉県","千葉県","東京都","神奈川県","新潟県","富山県","石川県","福井県","山梨県","長野県",
+"岐阜県","静岡県","愛知県","三重県","滋賀県","京都府","大阪府","兵庫県","奈良県","和歌山県",
+"鳥取県","島根県","岡山県","広島県","山口県","徳島県","香川県","愛媛県","高知県","福岡県",
+"佐賀県","長崎県","熊本県","大分県","宮崎県","鹿児島県","沖縄県"];
+
+$state_sel = "<select name='sta_sel'>";
+foreach( $state as $sta ){
+    $state_sel .= "<option value='".$sta."' ";
+    if($sta === $State_id){
+        $state_sel .= "selected";
+    }
+    $state_sel .= ">";
+    $state_sel .= $sta;
+    $state_sel .= "</option>";
+}
+$state_sel .= "</select name>";
 
 $conn->close();
 ?>
@@ -218,16 +250,14 @@ $conn->close();
     </header>
 
     <main>
-
         <form action="update.php" method="post">
             <input type="hidden" name="Cust_id" value="<?php echo $Cust_id; ?>">
             <label for="Name">顧客名:</label>
             <input type="text" id="Name" name="Name" value="<?php echo $Name; ?>"><br>
             <label for="State_id">都道府県ID:</label>
-            <input type="text" id="State_id" name="State_id" value="<?php echo $State_id; ?>">
-            <p>〇〇県、〇〇府、〇〇都まで入力してください。</p>
+            <?php echo $state_sel;?>
             <label for="Gender">性別:</label>
-            <input type="text" id="Gender" name="Gender" value="<?php echo $Gender; ?>"><br>
+            <?php echo $gender_sel ;?>
             <label for="Birth_day">生年月日:</label>
             <input type="text" id="Birth_day" name="Birth_day" value="<?php echo $Birth_day; ?>">
             <p>ハイフン（-）を抜いて入力してください。</p>
