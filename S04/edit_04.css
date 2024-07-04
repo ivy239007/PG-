@@ -4,13 +4,13 @@
     box-sizing: border-box;
 }
 body {
-    font-family: "Zen Maru Gothic", serif;   
+    font-family: "Zen Maru Gothic", serif;    
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-image: url('../graphic/S03_2_顧客新規登録背景.jpg'); /* 背景画像の追加 */
+    background-image: url('../graphic/S03_3_顧客編集背景.jpg'); /* 背景画像の追加 */
     background-size: cover; /* 背景画像を全体に表示 */
     background-repeat: no-repeat; /* 背景画像を繰り返さない */
     background-position: center; /* 背景画像を中央に配置 */
@@ -65,6 +65,7 @@ input[type="text"], input[type="kokyakuname"] {
     border: 2px solid #f3fc75;
     border-radius: 20px;
     padding: 5px;
+    font-family: "Zen Maru Gothic", serif; 
 }
 
 input[type="text"]:focus,
@@ -74,10 +75,20 @@ textarea:focus{
 }
 
 input[type="submit"] {
+    font-family: "Zen Maru Gothic", serif;  
+    width: 5em;
+    height: 2em;
+    font-size: 20px;
     padding: 5px 10px;
-    font-size: 16px;
     cursor: pointer;
+    background-color: #b7f5ea;
+    margin: 0 auto;
+    border-radius: 20px;
+    border: 1px solid #4ef4d6;
+}
 
+input[type="submit"]:hover{
+    filter: brightness(95%);
 }
 
 
@@ -96,6 +107,7 @@ input[type="submit"] {
     opacity: 0.7;
 }
 
+
 #BackButton {
     font-size: 20px;
     position: absolute;
@@ -106,6 +118,7 @@ input[type="submit"] {
     border: 1px;
     border-radius: 5px;
     background-color: rgb(244, 126, 126);
+    font-family: "Zen Maru Gothic", serif; 
 }
 
 #BackButton:hover {

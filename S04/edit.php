@@ -74,23 +74,23 @@ $conn->close();
         
         <form action="update.php" method="post">
 
-            <div class="form-group">
-                <input type="hidden" name="Book_id" value="<?php echo htmlspecialchars($Book_id); ?>">
-                <label for="kokyakuname">&nbsp;カ&nbsp;テ&nbsp;ゴ&nbsp;リ&nbsp;ー&nbsp;I&nbsp;D&nbsp;</label>
-            </div>
-
-            <input type="text" id="Categories_id" name="Categories_id" value="<?php echo htmlspecialchars($Categories_id); ?>"><br><br>
+            <p>　</p>
+            <input type="hidden" name="Book_id" value="<?php echo htmlspecialchars($Book_id); ?>">
+            <label for="kokyakuname">&nbsp;カ&nbsp;テ&nbsp;ゴ&nbsp;リ&nbsp;ー&nbsp;I&nbsp;D&nbsp;</label>
+            <input type="text" id="Categories_id" name="Categories_id" value="<?php echo htmlspecialchars($Categories_id); ?>">
             <label for="Publisher">出版社:</label>
-            <input type="text" id="Publisher" name="Publisher" value="<?php echo htmlspecialchars($Publisher); ?>"><br><br>
+            <input type="text" id="Publisher" name="Publisher" value="<?php echo htmlspecialchars($Publisher); ?>">
             <label for="Book_name">本の名前:</label>
-            <input type="text" id="Book_name" name="Book_name" value="<?php echo htmlspecialchars($Book_name); ?>"><br><br>
+            <input type="text" id="Book_name" name="Book_name" value="<?php echo htmlspecialchars($Book_name); ?>">
             <label for="Book_Publication">出版日:</label>
-            <input type="date" id="Book_Publication" name="Book_Publication" value="<?php echo htmlspecialchars($Book_Publication); ?>"><br><br>
+            <input type="date" id="Book_Publication" name="Book_Publication" value="<?php echo htmlspecialchars($Book_Publication); ?>">
             <label for="Author">著者:</label>
-            <input type="text" id="Author" name="Author" value="<?php echo htmlspecialchars($Author); ?>"><br><br>
+            <input type="text" id="Author" name="Author" value="<?php echo htmlspecialchars($Author); ?>">
             <label for="Price">価格:</label>
-            <input type="text" id="Price" name="Price" value="<?php echo htmlspecialchars($Price); ?>"><br><br>
+            <input type="text" id="Price" name="Price" value="<?php echo htmlspecialchars($Price); ?>">
+            <p>　</p>
             <input type="submit" value="更新">
+            <p>　</p>
         </form>        
     </main>
 
