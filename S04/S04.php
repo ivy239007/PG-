@@ -102,7 +102,9 @@ $searchChoice = isset($_POST['searchChoice']) ? $_POST['searchChoice'] : '';
 $kensaku = isset($_POST['kensaku']) ? $_POST['kensaku'] : '';
 
 // SQLクエリの作成
-$sql = "SELECT Book_id, Categories_id, Publisher, Book_name, Book_Publication, Author, Price FROM books";
+$sql = "SELECT Book_id, books.Categories_id, Categories.Categories, Publisher, Book_name, Book_Publication, Author, Price 
+        FROM books
+        INNER JOIN Categories ON books.Categories_id = Categories.Categories_id";
 
 if ($kensaku != '') {
     if ($searchChoice == 'aimai') {
@@ -122,7 +124,7 @@ $result = $conn->query($sql);
 <html lang="ja">
 <head>
   <meta charset ="utf-8">
-  <title>本管理画面</title>
+  <title>書籍管理画面</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap');
   </style>
@@ -159,7 +161,7 @@ $result = $conn->query($sql);
             echo "<th><a href='?sort=$Book_id_sort_url'>本ID " . ($sort == 'Book_id_asc' ? '▲' : '▼') . "</a></th>";
             echo "<th><a href='?sort=$Categories_id_sort_url'>カテゴリID " . ($sort == 'Categories_id_asc' ? '▲' : '▼') . "</a></th>";
             echo "<th><a href='?sort=$Publisher_sort_url'>出版社 " . ($sort == 'Publisher_asc' ? '▲' : '▼') . "</a></th>";
-            echo "<th><a href='?sort=$Book_name_sort_url'>本の名前 " . ($sort == 'Book_name_asc' ? '▲' : '▼') . "</a></th>";
+            echo "<th><a href='?sort=$Book_name_sort_url'>書籍名 " . ($sort == 'Book_name_asc' ? '▲' : '▼') . "</a></th>";
             echo "<th><a href='?sort=$Book_Publication_sort_url'>出版日 " . ($sort == 'Book_Publication_asc' ? '▲' : '▼') . "</a></th>";
             echo "<th><a href='?sort=$Author_sort_url'>著者 " . ($sort == 'Author_asc' ? '▲' : '▼') . "</a></th>";
             echo "<th><a href='?sort=$Price_sort_url'>価格 " . ($sort == 'Price_asc' ? '▲' : '▼') . "</a></th>";
@@ -169,10 +171,13 @@ $result = $conn->query($sql);
             
             // 各行のデータを出力
             while ($row = $result->fetch_assoc()) {
+                // 出版社の表示を「1」なら「講談社」、「2」なら「KADOKAWA」「３」なら集英社に変換
+                $Publisher_display = ($row["Publisher"] == "1") ? "講談社" : (($row["Publisher"] == "2") ? "KADOKAWA" : "集英社");
+                
                 echo "<tr>";
                 echo "<td>" . htmlspecialchars($row["Book_id"]) . "</td>";
-                echo "<td>" . htmlspecialchars($row["Categories_id"]) . "</td>";
-                echo "<td>" . htmlspecialchars($row["Publisher"]) . "</td>";
+                echo "<td>" . htmlspecialchars($row["Categories"]) . "</td>";
+                echo "<td>" . htmlspecialchars($Publisher_display) . "</td>";
                 echo "<td>" . htmlspecialchars($row["Book_name"]) . "</td>";
                 echo "<td>" . htmlspecialchars($row["Book_Publication"]) . "</td>";
                 echo "<td>" . htmlspecialchars($row["Author"]) . "</td>";
@@ -181,12 +186,13 @@ $result = $conn->query($sql);
                 echo "<td><a href='delete.php?Book_id=" . htmlspecialchars($row["Book_id"]) . "' onclick=\"return confirm('本当に削除しますか？');\">削除</a></td>";
                 echo "</tr>";
             }
-                        echo "</table>";
+                echo "</table>";
         } else {
             echo "データがありません";
         }
-        ?>        </div>
-          <button onclick="location.href='../S02/S02_menu.php'" type="button" name="name" value="value" id="BackButton">戻る</button>  
+        ?>
+        </div>
+        <button onclick="location.href='../S02/S02_menu.php'" type="button" name="name" value="value" id="BackButton">戻る</button>  
     </main>
         <footer>
         © 2024 <a href="https://www.ivy.ac.jp/">アイビクション</a>

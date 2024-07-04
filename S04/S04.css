@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 body {
     font-family: "Zen Maru Gothic", serif;
     margin: 0;
@@ -142,12 +143,11 @@ footer {
     border: 1px solid #ccc;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background-color: #f9f9f9;
-    width: 90%;
-    max-height: 400px; /* 高さを制限 */
+    width: 96%;
+    max-height: 310px; /* 高さを制限 */
     overflow-y: auto; /* 縦スクロールを有効にする */
     margin: 80px auto; /* 自動的に左右中央揃え */
 }
-
 
 table {
     border-collapse: collapse;
@@ -156,49 +156,31 @@ table {
 
 #DatabaseTable th, #DatabaseTable td {
     border: 2px solid #d2e8f1;
-    padding: 1em;
+    padding: 0.2em;
 }
 
 #DatabaseTable th {
     background-color: lightskyblue;
-    color: #fff;
     border: 2px solid lightskyblue;
     border-right: 2px solid #fff;
     border-bottom: 2px solid #fff;
-}
-
-#DatabaseTable th:last-of-type {
-    border-right: 2px solid lightskyblue;
-}
-
-#DatabaseTable th {
-    color: #4d9bc1;
     font-weight: bold;
     text-align: center;
+    
+    /* 固定に関するスタイル */
+    position: sticky;
+    top:0;
+    left: 0;
+    z-index: 1;
 }
+
 #DatabaseTable tr:hover td {
     background-color: #daf4ff;
     cursor: pointer;
 }
+
 a {
     color: #000;
     text-decoration: none;
 }
 
-.DatabaseTable th{
-    text-align: center;
-    border: 1px solid #ccc;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: #f9f9f9;
-    width: 80%;
-    max-width: 1000px;
-    max-height: 310px; /* 高さを制限 */
-    overflow-y: auto; /* 縦スクロールを有効にする */
-    margin: 80px auto; /* 自動的に左右中央揃え */
-
-    /* 固定に関するスタイル */
-    position: sticky;
-    top:0;
-    left: 0;
-    z-index: 1;    
-}
