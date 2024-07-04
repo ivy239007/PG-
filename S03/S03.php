@@ -88,7 +88,7 @@ $kensaku = isset($_POST['kensaku']) ? $_POST['kensaku'] : '';
 // echo "検索キーワード: $kensaku<br>";
 
 // SQLクエリの作成
-$sql = "SELECT customers.Cust_id, customers.Name, state.state, customers.Gender, customers.Birth_day
+$sql = "SELECT customers.Cust_id, customers.Name, state.state, customers.State_id, customers.Gender, customers.Birth_day
 FROM Customers
 INNER JOIN state ON customers.State_id = state.State_id";
 if ($kensaku != '') {
