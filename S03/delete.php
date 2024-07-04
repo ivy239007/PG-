@@ -38,8 +38,8 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
         
         // クエリを実行
         if ($stmt->execute()) {
-            echo "レコードが正常に削除されました。<br>";
-            echo '<a href="S03.php">顧客管理画面に戻る</a>';
+            header("Location: ../S03/S03.php"); // 削除後にメインページにリダイレクト
+            exit();
         } else {
             echo "エラー: " . $stmt->error;
         }
