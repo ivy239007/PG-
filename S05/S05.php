@@ -27,7 +27,7 @@ $sort_order = isset($_GET['order']) ? $_GET['order'] : 'DESC';
 
 $sql = "SELECT books.Book_name, books.Author, books.Price, books.Publisher,
         SUM(buy.Purchase_number) AS uriagerank
-        FROM buy 
+        FROM buy
         INNER JOIN books ON buy.Book_id = books.Book_id
         GROUP BY books.Book_id
         ORDER BY $sort_column $sort_order"; // テーブルのデータを取得
@@ -86,11 +86,13 @@ function getSortLink($column, $label) {
                         echo "</tr>";
                         
                         while ($row = $result->fetch_assoc()) {
+                             // 出版社の表示を「1」なら「講談社」、「2」なら「KADOKAWA」「３」なら集英社に変換
+                            $Publisher_display = ($row["Publisher"] == "1") ? "講談社" : (($row["Publisher"] == "2") ? "KADOKAWA" : "集英社");
                             echo "<tr>";
                             echo "<td>" . htmlspecialchars($row["Book_name"]) . "</td>";
                             echo "<td>" . htmlspecialchars($row["Author"]) . "</td>";
                             echo "<td>" . htmlspecialchars($row["Price"]) . "</td>";
-                            echo "<td>" . htmlspecialchars($row["Publisher"]) . "</td>";
+                            echo "<td>" . htmlspecialchars($Publisher_display) . "</td>";
                             echo "<td>" . htmlspecialchars($row["uriagerank"]) . "</td>";
                             echo "</tr>";
                         }
