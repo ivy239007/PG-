@@ -27,7 +27,6 @@ $Name = $_POST['Name'];
 $State_id = $_POST['sta_sel'];
 $Gender = $_POST['gen_sel'];
 $Birth_day = $_POST['Birth_day'];
-$Birth_day  = (String)$Birth_day;
 
 switch($State_id){
     case "北海道":
@@ -185,9 +184,14 @@ switch($Gender){
         break;
 }
 
+//$Birth_day = str_replace('-','',$Birth_day);
+
 $sql = "UPDATE customers SET Name=?, State_id=?, Gender=?, Birth_day=? WHERE Cust_id=?";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("sisis", $Name, $State_id, $Gender, $Birth_day, $Cust_id);
+$stmt->bind_param("sisss", $Name, $State_id, $Gender, $Birth_day, $Cust_id);
+// sisssの解説
+// s :　文字列型
+// i　:　整数型
 ?>
 <!DOCTYPE html>
 <html lang="ja">

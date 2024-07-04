@@ -228,6 +228,8 @@ foreach( $state as $sta ){
 }
 $state_sel .= "</select name>";
 
+
+
 $conn->close();
 ?>
 
@@ -259,8 +261,7 @@ $conn->close();
             <label for="Gender">性別:</label>
             <?php echo $gender_sel ;?>
             <label for="Birth_day">生年月日:</label>
-            <input type="text" id="Birth_day" name="Birth_day" value="<?php echo $Birth_day; ?>">
-            <p>ハイフン（-）を抜いて入力してください。</p>
+            <input type="date" id="Birth_day" name="Birth_day" value="<?php echo htmlspecialchars($Birth_day); ?>">
             <input type="submit" value="更新"> 
         </form>
 
