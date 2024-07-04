@@ -10,7 +10,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-image: url('../graphic/S03_顧客管理背景.jpg'); /* 背景画像の追加 */
+    background-image: url('../graphic/S04_書籍管理背景.jpg'); /* 背景画像の追加 */
     background-size: cover; /* 背景画像を全体に表示 */
     background-repeat: no-repeat; /* 背景画像を繰り返さない */
     background-position: center; /* 背景画像を中央に配置 */
@@ -195,4 +195,10 @@ a {
     max-height: 310px; /* 高さを制限 */
     overflow-y: auto; /* 縦スクロールを有効にする */
     margin: 80px auto; /* 自動的に左右中央揃え */
+
+    /* 固定に関するスタイル */
+    position: sticky;
+    top:0;
+    left: 0;
+    z-index: 1;    
 }
