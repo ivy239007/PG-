@@ -11,7 +11,7 @@ body { /*全体の設定*/
     flex-direction: column;
     min-height: 100vh;
     line-height: 10PX;
-    background-image: url('../graphic/S03_2_顧客新規登録背景.jpg'); /* 背景画像の追加 */
+    background-image: url('../graphic/S04_2_書籍登録背景.jpg'); /* 背景画像の追加 */
     background-size: cover; /* 背景画像を全体に表示 */
     background-repeat: no-repeat; /* 背景画像を繰り返さない */
     background-position: center; /* 背景画像を中央に配置 */
