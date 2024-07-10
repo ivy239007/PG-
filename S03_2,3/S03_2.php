@@ -105,10 +105,7 @@
                 <input type="email" name="email" required autofocus placeholder="info@ivy.ac.jp">
             </div>
 
-
-            <div class="Btn">
-                <input type="submit" value="登録">
-            </div>
+            <input type="submit" value="登録">
         </form>
         <button onclick="location.href='../S03/S03.php'" type="button" name="name" value="value" id="BackButton">戻る</button>
     </main>

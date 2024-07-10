@@ -253,15 +253,28 @@ $conn->close();
 
     <main>
         <form action="update.php" method="post">
-            <input type="hidden" name="Cust_id" value="<?php echo $Cust_id; ?>">
-            <label for="Name">顧客名:</label>
-            <input type="text" id="Name" name="Name" value="<?php echo $Name; ?>"><br>
-            <label for="State_id">都道府県ID:</label>
-            <?php echo $state_sel;?>
-            <label for="Gender">性別:</label>
-            <?php echo $gender_sel ;?>
-            <label for="Birth_day">生年月日:</label>
-            <input type="date" id="Birth_day" name="Birth_day" value="<?php echo htmlspecialchars($Birth_day); ?>">
+            <div class="form-group">
+                <input type="hidden" name="Cust_id" value="<?php echo $Cust_id; ?>">
+                <label for="Name">&nbsp;顧&nbsp;客&nbsp;名&nbsp;</label>
+                <input type="text" id="Name" name="Name" value="<?php echo $Name; ?>">
+            </div>
+
+            <div class="form-group">
+                <label for="State_id">&nbsp;住&emsp;&nbsp;所&nbsp;</label>
+                
+                <?php echo $state_sel;?>
+            </div>
+
+            <div class="form-group">
+                <label for="Gender">&nbsp;性&emsp;&nbsp;別&nbsp;</label>
+                <?php echo $gender_sel ;?>
+            </div>
+            
+            <div class="form-group">
+                <label for="Birth_day">生年月日</label>
+                <input type="date" id="Birth_day" name="Birth_day" value="<?php echo htmlspecialchars($Birth_day); ?>">
+            </div>
+            
             <input type="submit" value="更新"> 
         </form>
 

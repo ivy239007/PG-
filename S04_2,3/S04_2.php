@@ -98,10 +98,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </select>
             </div>
 
- 
-            <div class="Btn">
-                <input type="submit" value="登録">
-            </div>
+            <input type="submit" value="登録">
         </form>
         <button onclick="location.href='../S04/S04.php'" type="button" name="name" value="value" id="BackButton">戻る</button>
     </main>

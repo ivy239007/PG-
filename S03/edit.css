@@ -48,6 +48,7 @@ form {
 }
 
 .form-group {
+    padding: 10px;
     margin-bottom: 15px;
     display: flex;
     align-items: center;
@@ -58,7 +59,7 @@ form {
 }
 
 
-input[type="text"], input[type="kokyakuname"] {
+input[type="text"], input[type="date"], select{
     padding: 5px;
     font-size: 16px;
     background: #f5f9c1;
@@ -69,33 +70,17 @@ input[type="text"], input[type="kokyakuname"] {
 }
 
 input[type="text"]:focus,
-input[type="kokyakuname"]:focus,
-textarea:focus{
+input[type="date"]:focus,
+select:focus{
     outline: #f3fc75;
 }
 
+/*更新ボタン*/
 input[type="submit"] {
-    font-family: "Zen Maru Gothic", serif;  
-    width: 5em;
-    height: 2em;
-    font-size: 20px;
-    padding: 5px 10px;
-    cursor: pointer;
-    background-color: #b7f5ea;
-    margin: 0 auto;
-    border-radius: 20px;
-    border: 1px solid #4ef4d6;
-}
-
-input[type="submit"]:hover{
-    filter: brightness(95%);
-}
-
-
-/*ボタンの基本スタイ*/
-.Btn input{
     width: 80px;
-    margin: 0px 180px 0px 210px;
+    font-family: "Zen Maru Gothic", serif;
+    cursor: pointer;
+    margin: 0 auto;
     background: #b7f5ea;
     border: 2px solid #4ef4d6;
     border-radius: 20px;
@@ -103,10 +88,10 @@ input[type="submit"]:hover{
     font-size: 18px;
     align-items: center;
 }
-.Btn input:hover{
-    opacity: 0.7;
-}
 
+input[type="submit"]:hover{
+    filter: brightness(95%);
+}
 
 #BackButton {
     font-size: 20px;
