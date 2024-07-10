@@ -27,7 +27,7 @@ if ($conn->connect_error) {
 // POST データの取得
 $Book_id = $_POST["Book_id"];
 $Categories_id = $_POST["Categories_id"];
-$Publisher = $_POST["Publisher"];
+$Publisher = $_POST["pub_sel"];
 $Book_name = $_POST["Book_name"];
 $Book_Publication = $_POST["Book_Publication"];
 $Author = $_POST["Author"];

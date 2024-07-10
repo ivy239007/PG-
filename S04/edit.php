@@ -44,11 +44,38 @@ if ($result->num_rows > 0) {
     $Book_Publication = $row['Book_Publication'];
     $Author = $row['Author'];
     $Price = $row['Price'];
+
+    switch ($Publisher) {
+        case "1":
+            $Publisher = "講談社";
+            break;
+        case "2":
+                $Publisher = "KADOKAWA";
+                break;
+        case "3":
+                $Publisher = "集英社";
+                break;
+    }
+
 } else {
     // データが見つからない場合のエラー処理
     echo "書籍が見つかりませんでした。";
     exit();
 }
+
+$pubs = ["講談社","KADOKAWA","集英社"];
+
+$pub_sel = "<select name='pub_sel'>";
+foreach( $pubs as $pub ){
+    $pub_sel .= "<option value='".$pub."' ";
+    if($pubs === $Publisher){
+        $pub_sel .= "selected";
+    }
+    $pub_sel .= ">";
+    $pub_sel .= $pub;
+    $pub_sel .= "</option>";
+}
+$pub_sel .= "</select>";
 
 $stmt->close();
 $conn->close();
@@ -76,10 +103,10 @@ $conn->close();
 
             <p>　</p>
             <input type="hidden" name="Book_id" value="<?php echo htmlspecialchars($Book_id); ?>">
-            <label for="kokyakuname">&nbsp;カ&nbsp;テ&nbsp;ゴ&nbsp;リ&nbsp;ー&nbsp;I&nbsp;D&nbsp;</label>
+            <label for="kokyakuname">&nbsp;カ&nbsp;テ&nbsp;ゴ&nbsp;リ&nbsp;ー:</label>
             <input type="text" id="Categories_id" name="Categories_id" value="<?php echo htmlspecialchars($Categories_id); ?>">
             <label for="Publisher">出版社:</label>
-            <input type="text" id="Publisher" name="Publisher" value="<?php echo htmlspecialchars($Publisher); ?>">
+            <?php echo $pub_sel ?>
             <label for="Book_name">本の名前:</label>
             <input type="text" id="Book_name" name="Book_name" value="<?php echo htmlspecialchars($Book_name); ?>">
             <label for="Book_Publication">出版日:</label>

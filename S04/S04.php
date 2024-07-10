@@ -159,7 +159,7 @@ $result = $conn->query($sql);
             // データをHTMLテーブルとして出力
             echo "<table><tr>";
             echo "<th><a href='?sort=$Book_id_sort_url'>本ID " . ($sort == 'Book_id_asc' ? '▲' : '▼') . "</a></th>";
-            echo "<th><a href='?sort=$Categories_id_sort_url'>カテゴリID " . ($sort == 'Categories_id_asc' ? '▲' : '▼') . "</a></th>";
+            echo "<th><a href='?sort=$Categories_id_sort_url'>カテゴリー " . ($sort == 'Categories_id_asc' ? '▲' : '▼') . "</a></th>";
             echo "<th><a href='?sort=$Publisher_sort_url'>出版社 " . ($sort == 'Publisher_asc' ? '▲' : '▼') . "</a></th>";
             echo "<th><a href='?sort=$Book_name_sort_url'>書籍名 " . ($sort == 'Book_name_asc' ? '▲' : '▼') . "</a></th>";
             echo "<th><a href='?sort=$Book_Publication_sort_url'>出版日 " . ($sort == 'Book_Publication_asc' ? '▲' : '▼') . "</a></th>";
