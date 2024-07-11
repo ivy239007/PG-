@@ -73,6 +73,10 @@ select:focus{
     outline: #f3fc75;
 }
 
+input[type="date"]:hover, select:hover {
+    cursor: pointer;
+}
+
 /*更新ボタン*/
 input[type="submit"] {
     width: 80px;

@@ -94,6 +94,10 @@ input[type="submit"]:hover{
     filter: brightness(95%);
 }
 
+input[type="date"]:hover, select:hover {
+    cursor: pointer;
+}
+
 #BackButton {
     font-size: 20px;
     position: absolute;

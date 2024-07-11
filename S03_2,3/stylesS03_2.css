@@ -57,7 +57,6 @@ form {
     margin-right: 20px;
 }
 
-
 input[type="text"], input[type="date"], input[type="tel"], input[type="email"],select {
     padding: 5px;
     font-size: 16px;
@@ -74,6 +73,10 @@ input[type="tel"]:focus,
 input[type="email"]:focus,
 select:focus {
     outline: #f3fc75;
+}
+
+input[type="date"]:hover,select:hover {
+    cursor: pointer;
 }
 
 input {
@@ -121,10 +124,6 @@ footer {
     text-align: center;
     width: 100%;
     box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.back{
-    text-align: right;
 }
 
 a {
