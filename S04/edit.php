@@ -38,13 +38,7 @@ if ($result->num_rows > 0) {
     // データが見つかった場合、フォームにデータをセットして表示する
     $row = $result->fetch_assoc();
     $Book_id = $row['Book_id'];
-    
-    //$sql = "SELECT categories FROM books INNER JOIN categories ON books.Categories_id = categories.Categories_ID";
-    //$stmt = $conn->prepare($sql);
-    //$stmt->bind_param("s", $categories);
-    //$stmt->execute();
-    //$Categories = $row['categories'];
-    
+    $sql = "SELECT * FROM categories";
     $Categories_id = $row['Categories_id'];
     $Publisher = $row['Publisher'];
     $Book_name = $row['Book_name'];

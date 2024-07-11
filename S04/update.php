@@ -27,12 +27,24 @@ if ($conn->connect_error) {
 // POST データの取得
 $Book_id = $_POST["Book_id"];
 $Categories_id = $_POST["cate_sel"];
+$sql = "SELECT Categories_ID FROM categories;";
 $Publisher = $_POST["pub_sel"];
 $Book_name = $_POST["Book_name"];
 $Book_Publication = $_POST["Book_Publication"];
 $Author = $_POST["Author"];
 $Price = $_POST["Price"];
 
+switch ($Publisher) {
+    case "講談社":
+        $Publisher = 1;
+        break;
+    case "KADOKAWA":
+            $Publisher = 2;
+            break;
+    case "集英社":
+            $Publisher = 3;
+            break;
+}
 // SQL クエリの作成
 $sql = "UPDATE books SET Categories_id=?, Publisher=?, Book_name=?, Book_Publication=?, Author=?, Price=? WHERE Book_id=?";
 $stmt = $conn->prepare($sql);
