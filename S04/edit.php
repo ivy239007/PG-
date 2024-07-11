@@ -38,7 +38,14 @@ if ($result->num_rows > 0) {
     // データが見つかった場合、フォームにデータをセットして表示する
     $row = $result->fetch_assoc();
     $Book_id = $row['Book_id'];
-    $Categories_id = $row['Categories_id'];
+    
+    $sql = "SELECT categories FROM books INNER JOIN categories ON books.Categories_id = categories.Categories_ID";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $categories);
+    $stmt->execute();
+    $Categories = $row['categories'];
+    
+    //$Categories_id = $row['Categories_id'];
     $Publisher = $row['Publisher'];
     $Book_name = $row['Book_name'];
     $Book_Publication = $row['Book_Publication'];
@@ -77,6 +84,21 @@ foreach( $pubs as $pub ){
 }
 $pub_sel .= "</select>";
 
+$categories_list = ["文学・評論","人文・思想","社会・政治", "歴史・地理", "ビジネス・経済","投資・金融","科学・テクノロジー","医学・薬学","コンピュータ・IT",
+"アート・デザイン","趣味・実用","スポーツ・アウトドア","資格・検定","暮らし・健康","旅行ガイド","語学・辞事典","教育・受験","絵本・児童書","ゲームブック","エンターテイメント","雑誌","楽譜・音楽書","古書"];
+
+$cate_sel = "<select name='cate_sel'>";
+foreach( $categories_list as $categories_index ){
+    $cate_sel .= "<option value='".$categories_index."' ";
+    if($categories_list === $Categories_id){
+        $cate_sel .= "selected";
+    }
+    $cate_sel .= ">";
+    $cate_sel .= $categories_index;
+    $cate_sel .= "</option>";
+}
+$cate_sel .= "</select>";
+
 $stmt->close();
 $conn->close();
 ?>
@@ -104,7 +126,7 @@ $conn->close();
             <p>　</p>
             <input type="hidden" name="Book_id" value="<?php echo htmlspecialchars($Book_id); ?>">
             <label for="kokyakuname">&nbsp;カ&nbsp;テ&nbsp;ゴ&nbsp;リ&nbsp;ー:</label>
-            <input type="text" id="Categories_id" name="Categories_id" value="<?php echo htmlspecialchars($Categories_id); ?>">
+            <?php echo $cate_sel ?>
             <label for="Publisher">出版社:</label>
             <?php echo $pub_sel ?>
             <label for="Book_name">本の名前:</label>
