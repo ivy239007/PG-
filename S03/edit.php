@@ -284,9 +284,6 @@ $conn->close();
 
     <footer>
         © 2024 <a href="https://www.ivy.ac.jp/">アイビクション</a>
-        <div class="back">
-        </div>
-
     </footer>
 </body>
 

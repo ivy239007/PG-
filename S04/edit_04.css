@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 body {
     font-family: "Zen Maru Gothic", serif;    
     margin: 0;
@@ -15,7 +16,6 @@ body {
     background-repeat: no-repeat; /* 背景画像を繰り返さない */
     background-position: center; /* 背景画像を中央に配置 */
 }
-
 header {
     background-color: #f8f8f8;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -57,7 +57,7 @@ form {
     margin-right: 20px;
 }
 
-input[type="text"],input[type="date"] {
+input[type="text"], input[type="date"], select{
     padding: 5px;
     font-size: 16px;
     background: #f5f9c1;
@@ -69,32 +69,20 @@ input[type="text"],input[type="date"] {
 
 input[type="text"]:focus,
 input[type="date"]:focus,
-textarea:focus{
+select:focus{
     outline: #f3fc75;
 }
 
-input[type="submit"] {
-    font-family: "Zen Maru Gothic", serif;  
-    width: 5em;
-    height: 2em;
-    font-size: 20px;
-    padding: 5px 10px;
+input[type="date"]:hover, select:hover {
     cursor: pointer;
-    background-color: #b7f5ea;
-    margin: 0 auto;
-    border-radius: 20px;
-    border: 1px solid #4ef4d6;
 }
 
-input[type="submit"]:hover{
-    filter: brightness(95%);
-}
-
-
-/*ボタンの基本スタイ*/
-.Btn input{
+/*更新ボタン*/
+input[type="submit"] {
     width: 80px;
-    margin: 0px 180px 0px 210px;
+    font-family: "Zen Maru Gothic", serif;
+    cursor: pointer;
+    margin: 0 auto;
     background: #b7f5ea;
     border: 2px solid #4ef4d6;
     border-radius: 20px;
@@ -103,10 +91,9 @@ input[type="submit"]:hover{
     align-items: center;
 }
 
-.Btn input:hover{
-    opacity: 0.7;
+input[type="submit"]:hover{
+    filter: brightness(95%);
 }
-
 
 #BackButton {
     font-size: 20px;
@@ -130,19 +117,13 @@ footer {
     background-color: #f8f8f8;
     padding: 10px 20px;
     text-align: center;
-    width: 100%;
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.back{
-    text-align: right;
+    position: absolute; /* フッターを固定 */
+    bottom: 0; /* 画面の下部に配置 */
+    width: 100%; /* フッターの幅を100%に設定 */
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); /* 上に影を追加 */
 }
 
 a {
     color: #000;
     text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
 }

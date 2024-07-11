@@ -66,17 +66,10 @@ dd{
     align-items: center; /*又はflex-start*/
 }
 
-
 input[type="submit"] { /*登録ボタンの設定*/
-    padding: 5px 10px;
-    font-size: 16px;
-    cursor: pointer;
-
-}
-
-.Btn input{ /*ボタン基本スタイル設定*/
+    font-family: "Zen Maru Gothic", serif; /*フォント*/
     width: 80px;
-    margin: 0px 180px 0px 210px;
+    margin: 0 auto;
     background: #b7f5ea;
     border: 2px solid #4ef4d6;
     border-radius: 20px;
@@ -84,11 +77,14 @@ input[type="submit"] { /*登録ボタンの設定*/
     font-size: 18px;
     align-items: center;
 }
-.Btn input:hover{ /*ボタンかぶった際の設定*/
-    opacity: 0.7;
+
+input[type="submit"]:hover{ /*ボタンかぶった際の設定*/
+    filter: brightness(95%);
+    cursor: pointer;
 }
 
 #BackButton { /*戻るボタン基本スタイル設定*/
+    font-family: "Zen Maru Gothic", serif; /*フォント*/
     font-size: 20px;
     position: absolute;
     bottom: 50px;
@@ -105,24 +101,21 @@ input[type="submit"] { /*登録ボタンの設定*/
     cursor: pointer;
 }
 
-
-footer {
+footer {    
     background-color: #f8f8f8;
     padding: 10px 20px;
     text-align: center;
-    width: 100%;
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed; /* フッターを固定 */
+    bottom: 0; /* 画面の下部に配置 */
+    width: 100%; /* フッターの幅を100%に設定 */
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); /* 上に影を追加 */
 }
 
-.back{
-    text-align: right;
-}
-
-a {
+#ivy {
     color: #000;
     text-decoration: none;
 }
 
-a:hover {
+#ivy:hover {
     text-decoration: underline;
 }

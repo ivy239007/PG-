@@ -61,8 +61,7 @@ $_SESSION['qref'] = $qref;
         <button onclick="location.href='S04_2.php'" type="button" name="name" value="value" id="BackButton">戻る</button>
     </main>
     <footer>
-        © 2024 <a href="https://www.ivy.ac.jp/">アイビクション</a>
-        <div class="back"></div>
+        © 2024 <a href="https://www.ivy.ac.jp/" id="ivy">アイビクション</a>
     </footer>
 </body>
 </html>

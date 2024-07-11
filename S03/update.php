@@ -218,7 +218,7 @@ $stmt->bind_param("sisss", $Name, $State_id, $Gender, $Birth_day, $Cust_id);
         ?>
         </div>
         
-        <a href="S03.php">顧客管理画面に戻る</a>
+        <a href="S03.php" id="back">顧客管理画面に戻る</a>
     </main>
     </body>
 </html>

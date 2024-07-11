@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
 
             <div class="form-group">
-                <label for="price">値&emsp;&emsp;段</label>
+                <label for="price">価&emsp;&emsp;格</label>
                 <td>
                     <input type="text" name="price" required autofocus placeholder="1234">
                 </td>

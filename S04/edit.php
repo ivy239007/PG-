@@ -114,26 +114,40 @@ $conn->close();
     </header>
     
     <main>
-        
         <form action="update.php" method="post">
 
-            <p>　</p>
-            <input type="hidden" name="Book_id" value="<?php echo htmlspecialchars($Book_id); ?>">
-            <label for="kokyakuname">&nbsp;カ&nbsp;テ&nbsp;ゴ&nbsp;リ&nbsp;ー:</label>
-            <?php echo $cate_sel ?>
-            <label for="Publisher">出版社:</label>
-            <?php echo $pub_sel ?>
-            <label for="Book_name">本の名前:</label>
-            <input type="text" id="Book_name" name="Book_name" value="<?php echo htmlspecialchars($Book_name); ?>">
-            <label for="Book_Publication">出版日:</label>
-            <input type="date" id="Book_Publication" name="Book_Publication" value="<?php echo htmlspecialchars($Book_Publication); ?>">
-            <label for="Author">著者:</label>
-            <input type="text" id="Author" name="Author" value="<?php echo htmlspecialchars($Author); ?>">
-            <label for="Price">価格:</label>
-            <input type="text" id="Price" name="Price" value="<?php echo htmlspecialchars($Price); ?>">
-            <p>　</p>
+            <div class="form-group">
+                <input type="hidden" name="Book_id" value="<?php echo htmlspecialchars($Book_id); ?>">
+                <label for="kokyakuname">分&emsp;&emsp;類</label>
+                <?php echo $cate_sel ?>
+            </div>
+
+            <div class="form-group">
+                <label for="Publisher">出&nbsp;&nbsp;版&nbsp;&nbsp;社</label>
+                <?php echo $pub_sel ?>
+            </div>
+
+            <div class="form-group">
+                <label for="Book_name">書&nbsp;&nbsp;籍&nbsp;&nbsp;名</label>
+                <input type="text" id="Book_name" name="Book_name" value="<?php echo htmlspecialchars($Book_name); ?>">
+            </div>
+
+            <div class="form-group">
+                <label for="Book_Publication">出&nbsp;&nbsp;版&nbsp;&nbsp;日</label>
+                <input type="date" id="Book_Publication" name="Book_Publication" value="<?php echo htmlspecialchars($Book_Publication); ?>">
+            </div>
+
+            <div class="form-group">
+                <label for="Author">著&nbsp;&nbsp;作&nbsp;&nbsp;者</label>
+                <input type="text" id="Author" name="Author" value="<?php echo htmlspecialchars($Author); ?>">
+            </div>
+
+            <div class="form-group">
+                <label for="Price">価&emsp;&emsp;格</label>
+                <input type="text" id="Price" name="Price" value="<?php echo htmlspecialchars($Price); ?>">
+            </div>
+
             <input type="submit" value="更新">
-            <p>　</p>
         </form>        
     </main>
 
