@@ -28,7 +28,7 @@ if ($conn->connect_error) {
 $Book_id = $_GET["Book_id"];
 
 // 書籍情報の取得
-$sql = "SELECT Book_id, Categories_id, Publisher, Book_name, Book_Publication, Author, Price FROM books WHERE Book_id = ?";
+$sql = "SELECT Book_id, A.Categories_id, Publisher, Book_name, Book_Publication, Author, Price,B.Categories FROM books A,categories B WHERE Book_id = ? AND A.Categories_ID = B.Categories_ID";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $Book_id);
 $stmt->execute();
@@ -38,7 +38,6 @@ if ($result->num_rows > 0) {
     // データが見つかった場合、フォームにデータをセットして表示する
     $row = $result->fetch_assoc();
     $Book_id = $row['Book_id'];
-    $sql = "SELECT * FROM categories";
     $Categories_id = $row['Categories_id'];
     $Publisher = $row['Publisher'];
     $Book_name = $row['Book_name'];
@@ -58,6 +57,8 @@ if ($result->num_rows > 0) {
                 break;
     }
 
+    $Categories = $row['Categories'];
+
 } else {
     // データが見つからない場合のエラー処理
     echo "書籍が見つかりませんでした。";
@@ -69,7 +70,7 @@ $pubs = ["講談社","KADOKAWA","集英社"];
 $pub_sel = "<select name='pub_sel'>";
 foreach( $pubs as $pub ){
     $pub_sel .= "<option value='".$pub."' ";
-    if($pubs === $Publisher){
+    if($pub === $Publisher){
         $pub_sel .= "selected";
     }
     $pub_sel .= ">";
@@ -82,14 +83,18 @@ $categories_list = ["文学・評論","人文・思想","社会・政治", "歴�
 "アート・デザイン","趣味・実用","スポーツ・アウトドア","資格・検定","暮らし・健康","旅行ガイド","語学・辞事典","教育・受験","絵本・児童書","ゲームブック","エンターテイメント","雑誌","楽譜・音楽書","古書"];
 
 $cate_sel = "<select name='cate_sel'>";
+$i = 1; // pulldownのvalueの値の初期設定
 foreach( $categories_list as $categories_index ){
-    $cate_sel .= "<option value='".$categories_index."' ";
-    if($categories_list === $Categories_id){
+    // pulldownの作成
+    $cate_sel .= "<option value='".$i."' ";
+    if($categories_index === $Categories){
+        //
         $cate_sel .= "selected";
     }
     $cate_sel .= ">";
     $cate_sel .= $categories_index;
     $cate_sel .= "</option>";
+    $i++;
 }
 $cate_sel .= "</select>";
 
@@ -114,40 +119,26 @@ $conn->close();
     </header>
     
     <main>
+        
         <form action="update.php" method="post">
 
-            <div class="form-group">
-                <input type="hidden" name="Book_id" value="<?php echo htmlspecialchars($Book_id); ?>">
-                <label for="kokyakuname">分&emsp;&emsp;類</label>
-                <?php echo $cate_sel ?>
-            </div>
-
-            <div class="form-group">
-                <label for="Publisher">出&nbsp;&nbsp;版&nbsp;&nbsp;社</label>
-                <?php echo $pub_sel ?>
-            </div>
-
-            <div class="form-group">
-                <label for="Book_name">書&nbsp;&nbsp;籍&nbsp;&nbsp;名</label>
-                <input type="text" id="Book_name" name="Book_name" value="<?php echo htmlspecialchars($Book_name); ?>">
-            </div>
-
-            <div class="form-group">
-                <label for="Book_Publication">出&nbsp;&nbsp;版&nbsp;&nbsp;日</label>
-                <input type="date" id="Book_Publication" name="Book_Publication" value="<?php echo htmlspecialchars($Book_Publication); ?>">
-            </div>
-
-            <div class="form-group">
-                <label for="Author">著&nbsp;&nbsp;作&nbsp;&nbsp;者</label>
-                <input type="text" id="Author" name="Author" value="<?php echo htmlspecialchars($Author); ?>">
-            </div>
-
-            <div class="form-group">
-                <label for="Price">価&emsp;&emsp;格</label>
-                <input type="text" id="Price" name="Price" value="<?php echo htmlspecialchars($Price); ?>">
-            </div>
-
+            <p>　</p>
+            <input type="hidden" name="Book_id" value="<?php echo htmlspecialchars($Book_id); ?>">
+            <label for="kokyakuname">&nbsp;カ&nbsp;テ&nbsp;ゴ&nbsp;リ&nbsp;ー:</label>
+            <?php echo $cate_sel ?>
+            <label for="Publisher">出版社:</label>
+            <?php echo $pub_sel ?>
+            <label for="Book_name">本の名前:</label>
+            <input type="text" id="Book_name" name="Book_name" value="<?php echo htmlspecialchars($Book_name); ?>">
+            <label for="Book_Publication">出版日:</label>
+            <input type="date" id="Book_Publication" name="Book_Publication" value="<?php echo htmlspecialchars($Book_Publication); ?>">
+            <label for="Author">著者:</label>
+            <input type="text" id="Author" name="Author" value="<?php echo htmlspecialchars($Author); ?>">
+            <label for="Price">価格:</label>
+            <input type="text" id="Price" name="Price" value="<?php echo htmlspecialchars($Price); ?>">
+            <p>　</p>
             <input type="submit" value="更新">
+            <p>　</p>
         </form>        
     </main>
 
