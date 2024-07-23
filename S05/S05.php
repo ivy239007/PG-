@@ -60,7 +60,7 @@ function getSortLink($column, $label) {
     <div id="container">
         <header id="header">
             <img src="../graphic/ニトリロゴ.jpg" alt="Logo" class="logo">
-            <div class="centered-text">売上ランキング</div>
+            <div class="centered-text">売上数ランキング</div>
 
         </header>
 
