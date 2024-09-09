@@ -26,7 +26,7 @@ $sort_column = isset($_GET['sort']) ? $_GET['sort'] : 'total';
 $sort_order = isset($_GET['order']) ? $_GET['order'] : 'DESC';
 
 $sql = "SELECT customers.Cust_id, books.Book_name, state.state, 
-        COUNT(state.state) AS total 
+        SUM(buy.Purchase_number) AS total 
         FROM state 
         INNER JOIN customers ON state.State_id = customers.State_id 
         INNER JOIN buy ON customers.Cust_id = buy.Cust_id 
